@@ -3,7 +3,7 @@ import {Tracker} from 'meteor/tracker';
 import { render } from 'react-dom';
 import React from 'react';
 
-import Index from  "../client/IndexComponent";
+import Index from "../imports/components/IndexComponent";
 
 Meteor.startup(() => {
     Tracker.autorun(() => {
