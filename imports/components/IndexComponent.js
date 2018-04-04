@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 
 import Login from './LoginComponent';
+import ProfileComponent from '../../imports/ui/profile/ProfileComponent';
 
 export default class Index extends Component {
 
@@ -9,7 +10,7 @@ export default class Index extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path='/' component={Login} />
+                    <Route exact path='/' component={ProfileComponent} />
                 </Switch>
             </BrowserRouter>
         );
