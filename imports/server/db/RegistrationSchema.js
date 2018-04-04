@@ -1,14 +1,19 @@
 import SimpleSchema from 'simple-schema';
 
-import RegistrationForm from './collections/RegistrationCollection';
+import InitialRegistrationForm from './collections/InitialRegistration';
+import SecondaryRegistrationForm from './collections/SecondaryRegistrationForm';
 import User from './collections/UserCollection';
 
-RegistrationForm.schema = new SimpleSchema({
+InitialRegistrationForm.schema = new SimpleSchema({
+
+    email: {type: String, regEx: Email, optional: false}
+
+});
+
+SecondaryRegistrationForm.schema = new SimpleSchema({
     firstName: {type: String, optional: false},
     lastName: {type: String, optional: false},
     birthDate: {type: Date, optional: false},
-    //SimpleSchema.RegEx.Email isn't working as expected more research needed
-    email: {type: String, regEx: Email, optional: false},
     addressFieldOne: {type: String, optional: false},
     addressFieldTwo: {type: String, optional: true},
     city: {type: String, optional: false},
@@ -16,6 +21,8 @@ RegistrationForm.schema = new SimpleSchema({
     zipCode: {type: Number, defaultValue: 0, optional: false, length: 5},
     sex: {type: String, optional: false}
 });
+
+
 
 {/*Once the registration is complete, the UserSchema and the RegistrationSchema will need to be joined.
   This will allow us to verify the user during transactions.*/}

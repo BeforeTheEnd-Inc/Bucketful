@@ -1,0 +1,57 @@
+
+.image-container {
+    background-color: mintcream;
+    width: 220px;
+    height: 100%;
+}
+
+.image-quote-container {
+    display: inline-flex;
+    text-align: center;
+    text-decoration-color: #D4541B;
+    width: 250px;
+}
+
+.image-holder {
+    display: inline-block;
+    border: black solid 1px;
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: lightsteelblue;
+}
+
+.image-holder-label {
+    text-align: center !important;
+}
+
+.image-holder-quote-label {
+    text-align: center !important;
+    float: right;
+}
+
+.section-area {
+    display: -webkit-inline-flex;
+    border: black solid 1px;
+    width: 752px;
+    height: 277px;
+}
+
+.section-area-right {
+    display: -webkit-inline-flex;
+    justify-content: center;
+    border: black solid 1px;
+    width: 530px;
+    height: 275px;
+    background-color: dimgrey;
+}
+
+.section-area-left {
+    display: -webkit-inline-flex;
+    border: black solid 1px;
+    width: 220px;
+    height: 275px;
+    background-color: dimgrey;
+}
