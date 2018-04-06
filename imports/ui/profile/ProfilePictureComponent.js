@@ -14,25 +14,17 @@ export default class ProfilePic extends Component {
     handlePicChange(event) {
         let file = event.target.files[0];
 
-        // Temporarily store image
-        this.imgSrc = file.result;
+        var fileReader = new FileReader();
+        fileReader.onload = function (e) {
+            this.imgSrc = e.target.result;
+            $('#profilePic').attr("src",e.target.result);
+        };
 
-        let image = document.getElementById('profilePic');
-        let new_image = new Image();
-
-        // Create the new image and add in parameters
-        new_image.src = URL.createObjectURL(file);
-        new_image.id = 'profilePic';
-        new_image.className = 'image-holder';
-        new_image.onclick = this.handleClick;
-
-        // Replace old profile pic with new profile pic
-        image.parentNode.insertBefore(new_image,image);
-        image.parentNode.removeChild(image);
+        fileReader.readAsDataURL(file);
     }
 
     handleClick() {
-        let input = document.getElementById('upload');
+        let input = document.querySelector('#upload');
         input.click();
     }
 
