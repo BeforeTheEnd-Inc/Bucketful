@@ -1,0 +1,19 @@
+
+.image-holder {
+    display: inline-block;
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+.image-holder:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+input[type=file] {
+    display: none;
+}
