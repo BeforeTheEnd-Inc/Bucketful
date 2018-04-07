@@ -2,7 +2,14 @@ import React, {Component} from 'react';
 import '../css/ProfileSheet.css';
 import Label from '../../components/LabelComponent';
 
+import ProfilePic from './ProfilePictureComponent';
+
 export default class ProfileComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.imgSrc = 'http://www.free-avatars.com/data/media/37/cat_avatar_0597.jpg';
+    }
 
 
     render() {
@@ -10,9 +17,8 @@ export default class ProfileComponent extends Component {
             <section className='section-area'>
                 <section className='section-area-left'>
                     <div className='image-container'>
-                        <div className="image-holder">
-                            {/*some sort of image repo accessor or something like that*/}
-                        </div>
+                        <ProfilePic/>
+                        {/*some sort of image repo accessor or something like that*/}
 
                         <Label
                             className='image-holder-label'
