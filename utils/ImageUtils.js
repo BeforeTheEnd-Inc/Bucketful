@@ -6,9 +6,9 @@ export const importPicture = function handleImport(event) {
     }
 
     let fileReader = new FileReader();
-    let id = '#' + event.target.imageId;
+    let id = '#' + event.target.accessKey;
 
-    fileReader.onload = function (e) {
+    fileReader.onload = function(e) {
         // event.target.imgSrc = e.target.result;
         $(id).attr("src", e.target.result);
     };
@@ -16,8 +16,8 @@ export const importPicture = function handleImport(event) {
     fileReader.readAsDataURL(file);
 };
 
-export const inputSelection =  function handleInput(event) {
-    let id = '#' + event.target.inputId;
+export const inputSelection = function handleInput(event) {
+    let id = '#' + event.target.id;
     let input = document.querySelector(id);
     $(input).click();
 };

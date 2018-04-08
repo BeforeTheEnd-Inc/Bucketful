@@ -27,7 +27,7 @@ export default class ProfileComponent extends Component {
                             {/*some sort of image repo accessor or something like that*/}
                             <Label
                                 className='image-holder-label'
-                                type='4'
+                                type='2'
                                 label={this.profileName}
                             />
                         </div>

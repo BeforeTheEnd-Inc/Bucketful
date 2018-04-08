@@ -11,7 +11,7 @@ export default class Image extends Component {
         this.props.inputId = props.inputId;
 
         //image params
-        // this.props.className = props.className;
+        this.props.className = props.className;
         this.props.imageId = props.imageId;
         this.props.imageSource = props.imageSource;
     }
@@ -22,6 +22,7 @@ export default class Image extends Component {
 
                 <input
                     id={this.props.inputId}
+                    accessKey={this.props.imageId}
                     type='file'
                     accept='image/*'
                     onChange={importPicture}
@@ -29,7 +30,7 @@ export default class Image extends Component {
                 {/*// onChange={importPicture}*/}
                 <img
                     src={this.props.imageSource}
-                    id={this.props.imageId}
+                    id={this.props.inputId}
                     className={this.props.className}
                     onClick={inputSelection}
                 />

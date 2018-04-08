@@ -42,8 +42,9 @@ export default class BannerPic extends Component {
 
     render() {
         return (
-            <section id= 'banner' className='section-area' style={sectionStyle} onClick={this.handleClick}>
+            <section id= 'banner' className='section-area' style={sectionStyle}>
                 <input id='uploadBannerPic' type='file' accept='image/*' onChange={this.handlePicChange}/>
+                <label className='editBannerPic' onClick={this.handleClick}>Edit</label>
                 { this.props.children }
             </section>
         );
