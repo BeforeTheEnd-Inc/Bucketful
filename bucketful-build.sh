@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
+set -e
+
+
 export BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 echo ""
