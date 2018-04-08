@@ -3,3 +3,8 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/bucketful
+hooks:
+  BeforeInstall:
+    - location: .codedeploy/setup.sh
+      timeout: 300
+      runas: root
