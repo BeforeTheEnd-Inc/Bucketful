@@ -1,10 +1,10 @@
 @import "../../../client/Main.css";
 
-#section {
-    display: inline-block;
-    width: 760px;
-    background-color: silver;
-}
+/*#section {*/
+    /*display: inline-block;*/
+    /*width: 760px;*/
+    /*background-color: silver;*/
+/*}*/
 
 .image-container {
     width: 220px;

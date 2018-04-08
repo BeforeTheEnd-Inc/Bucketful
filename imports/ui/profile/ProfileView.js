@@ -5,27 +5,30 @@ import ProfileBucket from "./ProfileBucketComponent";
 import ProfilePic from './ProfilePictureComponent';
 
 import '../css/ProfileSheet.css';
+import BannerPic from "./BannerPictureComponent";
 
 export default class ProfileComponent extends Component {
     constructor(props) {
         super(props);
+        this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
+        this.bannerImage = 'https://cdn.pixabay.com/photo/2016/01/15/23/54/iowa-1142688_1280.jpg';
+        this.profileName = 'Tom Norton'
+        this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.'
     }
 
     render() {
         return (
             <section id='section'>
 
-                <section className='section-area'>
-
+                <BannerPic imageSource={this.bannerImage}>
                     <section className='section-area-left'>
-                        <div className='image-container'>
-                            <ProfilePic/>
+                        <div>
+                            <ProfilePic imageSource={this.profileImage}/>
                             {/*some sort of image repo accessor or something like that*/}
-
                             <Label
                                 className='image-holder-label'
                                 type='4'
-                                label='something else interesting'
+                                label={this.profileName}
                             />
                         </div>
                     </section>
@@ -35,11 +38,11 @@ export default class ProfileComponent extends Component {
                             <Label
                                 className='image-holder-quote-label'
                                 type='2'
-                                label='something more interesting than what the name is'
+                                label={this.profileQuote}
                             />
                         </div>
                     </section>
-                </section>
+                </BannerPic>
 
 
                 {/*<!--lower part of the page -->*/}

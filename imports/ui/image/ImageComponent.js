@@ -11,7 +11,7 @@ export default class Image extends Component {
         this.props.inputId = props.inputId;
 
         //image params
-        this.props.className = props.className;
+        // this.props.className = props.className;
         this.props.imageId = props.imageId;
         this.props.imageSource = props.imageSource;
     }

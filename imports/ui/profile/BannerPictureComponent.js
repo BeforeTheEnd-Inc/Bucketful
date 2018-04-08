@@ -4,6 +4,8 @@ import '../css/BannerPicSheet.css';
 
 // import ImageModel from './ImageModel.js';
 
+
+
 export default class BannerPic extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,7 @@ export default class BannerPic extends Component {
     handlePicChange(event) {
         let file = event.target.files[0];
 
-        if (file == undefined) {
+        if (file === undefined) {
             return;
         }
 
@@ -34,8 +36,8 @@ export default class BannerPic extends Component {
 
     // When the image is clicked, this function is called to handle file input
     handleClick() {
-        let input = document.querySelector('#uploadBannerPic');
-        input.click();
+        // let input = document.querySelector('#uploadBannerPic');
+        // input.click();
     }
 
     render() {
