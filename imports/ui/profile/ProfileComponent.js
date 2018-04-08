@@ -3,46 +3,50 @@ import '../css/ProfileSheet.css';
 import Label from '../../components/LabelComponent';
 
 import ProfilePic from './ProfilePictureComponent';
+import BannerPic from './BannerPictureComponent';
 
 export default class ProfileComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.imgSrc = 'http://www.free-avatars.com/data/media/37/cat_avatar_0597.jpg';
+        this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
+        this.bannerImage = 'https://cdn.pixabay.com/photo/2016/01/15/23/54/iowa-1142688_1280.jpg';
+        this.profileName = 'Tom Norton'
+        this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.'
     }
 
 
     render() {
         return (
-            <section className='section-area'>
-                <section className='section-area-left'>
-                    <div className='image-container'>
-                        <ProfilePic/>
-                        {/*some sort of image repo accessor or something like that*/}
+                <BannerPic imageSource={this.bannerImage}>
+                    <section className='section-area-left'>
+                        <div>
+                            <ProfilePic imageSource={this.profileImage}/>
+                            {/*some sort of image repo accessor or something like that*/}
+                            <Label
+                                className='image-holder-label'
+                                type='4'
+                                label={this.profileName}
+                            />
+                        </div>
+                    </section>
 
-                        <Label
-                            className='image-holder-label'
-                            type='4'
-                            label='something else interesting'
-                        />
-                    </div>
-                </section>
-                <section className='section-area-right'>
-                    <div className='image-quote-container'>
-                        <Label
-                            className='image-holder-quote-label'
-                            type='2'
-                            label='something more interesting than what the name is'
-                        />
-                    </div>
-                </section>
+                    <section className='section-area-right'>
+                        <div className='image-quote-container'>
+                            <Label
+                                className='image-holder-quote-label'
+                                type='2'
+                                label={this.profileQuote}
+                            />
+                        </div>
+                    </section>
 
                 {/*
                     //This should contain a user imageHolder
                     //This should contain a user label
         `           //This should contain a user text area label
                 */}
-            </section>
+                </BannerPic>
         );
     }
 }

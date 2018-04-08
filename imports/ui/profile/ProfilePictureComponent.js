@@ -7,33 +7,37 @@ import '../css/ProfilePicSheet.css';
 export default class ProfilePic extends Component {
     constructor(props) {
         super(props);
-        // Will pull data file from Mongo via ImageModel
-        this.imgSrc = 'http://www.free-avatars.com/data/media/37/cat_avatar_0597.jpg';
+        this.profileImage = props.imageSource;
     }
 
     handlePicChange(event) {
         let file = event.target.files[0];
 
+        if (file == undefined) {
+            return;
+        }
+
         var fileReader = new FileReader();
         fileReader.onload = function (e) {
-            this.imgSrc = e.target.result;
+            this.profileImage = e.target.result;
             $('#profilePic').attr("src",e.target.result);
         };
 
         fileReader.readAsDataURL(file);
     }
 
+    // When the image is clicked, this function is called to handle file input
     handleClick() {
-        let input = document.querySelector('#upload');
+        let input = document.querySelector('#uploadProfilePic');
         input.click();
     }
 
     render() {
         return (
-            <div>
-                <input id='upload' type='file' accept='image/*' onChange={this.handlePicChange}/>
-                <img src={this.imgSrc} id='profilePic' className='image-holder' onClick={this.handleClick}/>
-            </div>
+            <section>
+                <input id='uploadProfilePic' type='file' accept='image/*' onChange={this.handlePicChange}/>
+                <img src={this.profileImage} id='profilePic' className='image-holder' onClick={this.handleClick}/>
+            </section>
         );
     }
 }
