@@ -16,3 +16,12 @@ script:
   - sh bucketful-build.sh
   - docker image ls
 
+before_deploy:
+  - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
+
+deploy:
+  provider: script
+  script: docker push beforetheend/bucketful:$BRANCH
+  script: if [ "$TRAVIS_BRANCH" = "master" ]; then docker push beforetheend/bucketful:latest"; fi
+
+
