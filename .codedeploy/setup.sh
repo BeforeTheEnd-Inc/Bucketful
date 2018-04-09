@@ -1,8 +1,10 @@
 #!/bin/bash
-echo `date '+%Y-%m-%d %H:%M:%S'` >> /var/log/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S` >> /var/log/deploydates.log
+echo "deploying from $TRAVIS_BRANCH" >> /var/log/deploydates.log 
 
-# Create
+# create
 mkdir -p /home/ec2-user/bucketful
+chown -R ec2-user:ec2-user /home/ec2-user/bucketful
 
 # install meteor
 curl "https://install.meteor.com/?release=1.6.1" | /bin/sh
