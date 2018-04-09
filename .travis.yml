@@ -26,7 +26,7 @@ deploy:
     access_key_id: "$AWS_ACCESS_KEY_ID"
     secret_access_key: "$AWS_SECRET_ACCESS_KEY"
     application: "Bucketful-App"
-    deployment_group: "Bucketful-$TRAVIS_BRANCHGrp"
+    deployment_group: "Bucketful-${TRAVIS_BRANCH}Grp"
     region: "us-east-1"
     on:
       all_branches: true
