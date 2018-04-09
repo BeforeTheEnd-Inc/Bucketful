@@ -20,14 +20,14 @@ before_deploy:
   - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
   - docker push beforetheend/bucketful:$TRAVIS_BRANCH
 
-#deploy:
-#  - provider: codedeploy
-#  revision_type: github
-#  access_key_id: "$AWS_ACCESS_KEY_ID"
-#  secret_access_key: "AWS_SECRET_ACCESS_KEY"
-#  application: "Bucketful-App"
-#  deployment_group: "Bucketful-DevGrp"
-#  region: "us-east-1"
+deploy:
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    secret_access_key: "AWS_SECRET_ACCESS_KEY"
+    application: "Bucketful-App"
+    deployment_group: "Bucketful-DevGrp"
+    region: "us-east-1"
 
 
 
