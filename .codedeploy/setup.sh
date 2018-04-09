@@ -1,6 +1,6 @@
 #!/bin/bash
-echo `date '+%Y-%m-%d %H:%M:%S` >> /var/log/deploydates.log
-echo "deploying from $TRAVIS_BRANCH" >> /var/log/deploydates.log 
+echo `date '+%Y-%m-%d %H:%M:%S` >> /home/ec2-user/deploydates.log
+echo "deploying from $TRAVIS_BRANCH" >> /home/ec2-user/deploydates.log 
 
 # create
 mkdir -p /home/ec2-user/bucketful
