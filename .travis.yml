@@ -1,5 +1,8 @@
 sudo: required
 
+services:
+  - docker
+
 language: node_js
 
 node_js:
@@ -12,5 +15,6 @@ script:
   - meteor --version
   - pwd
   - ls -al
+  - sh bucketful-build.sh
   - meteor test --once --driver-package meteortesting:mocha
 
