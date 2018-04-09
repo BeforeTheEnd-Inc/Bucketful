@@ -1,21 +1,24 @@
 
 .section-area {
-    width: 752px;
-    height: 277px;
-    background-size: 100%;
+    position: relative;
+    display: block;
 }
 
-.section-area::after {
-    opacity: 0.5;
-    top: 0;
-    left: 0;
+#bannerPic {
+    display: block;
+    width: 760px;
+    height: 305px;
+    opacity: 0.6;
+}
+
+button.editButton {
+    position: absolute;
     bottom: 0;
     right: 0;
-    position: absolute;
-    z-index: -1;
-}
-
-.editBannerPic {
-    color: white;
-    float: right;
+    width: 50px;
+    height: 30px;
+    color: black;
+    background: none;
+    border: none;
+    font-family: inherit;
 }

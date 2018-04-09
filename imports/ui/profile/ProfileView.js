@@ -34,16 +34,13 @@ export default class ProfileComponent extends Component {
                     </section>
 
                     <section className='section-area-right'>
-                        <div className='image-quote-container'>
-                            <Label
-                                className='image-holder-quote-label'
-                                type='2'
-                                label={this.profileQuote}
-                            />
-                        </div>
+                        <Label
+                            className='image-holder-quote-label'
+                            type='2'
+                            label={this.profileQuote}
+                        />
                     </section>
                 </BannerPic>
-
 
                 {/*<!--lower part of the page -->*/}
 

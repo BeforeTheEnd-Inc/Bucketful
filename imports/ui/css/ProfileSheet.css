@@ -11,53 +11,37 @@
     height: 100%;
 }
 
-.image-quote-container {
-    display: inline-flex;
-    text-align: center;
-    text-decoration-color: #D4541B;
-    width: 250px;
-}
-
-.image-holder {
-    display: inline-block;
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
 .image-holder-label {
-    text-align: center !important;
-    color: #fff;
+    text-align: center;
+    color: white;
 }
 
 .image-holder-quote-label {
-    text-align: center !important;
-    vertical-align: center !important;
-    /*float: right;*/
-    color: #fff;
-}
-
-.section-area {
-    display: -webkit-flex;
-    border: black solid 1px;
-    width: 750px;
-    height: 277px;
-    margin: 4px;
+    width: 350px;
+    margin: auto;
+    color: white;
 }
 
 .section-area-right {
-    display: -webkit-inline-flex;
-    justify-content: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
     width: 530px;
-    height: 275px;
+    height: 150px;
 }
 
 .section-area-left {
-    display: -webkit-inline-flex;
-    width: 220px;
+    display: block;
+    position: absolute;
+    margin: 20px;
+    width: 208px;
     height: 275px;
+    top: 0;
+    bottom: 0;
 }
 
 .section-area-lower-left {
