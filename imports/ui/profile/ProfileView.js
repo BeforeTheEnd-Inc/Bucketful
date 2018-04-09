@@ -1,48 +1,30 @@
 import React, {Component} from 'react';
 
+import '../css/ProfileSheet.css';
+
 import Label from '../../components/LabelComponent';
 import ProfileBucket from "./ProfileBucketComponent";
-import ProfilePic from './ProfilePictureComponent';
-
-import '../css/ProfileSheet.css';
-import BannerPic from "./BannerPictureComponent";
+import ProfileBanner from "./ProfileBannerComponent";
 
 export default class ProfileComponent extends Component {
     constructor(props) {
         super(props);
         this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
         this.bannerImage = 'https://cdn.pixabay.com/photo/2016/01/15/23/54/iowa-1142688_1280.jpg';
-        this.profileName = 'Tom Norton'
-        this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.'
+        this.profileName = 'Tom Norton';
+        this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
     }
 
     render() {
         return (
             <section id='section'>
 
-                <BannerPic imageSource={this.bannerImage}>
-                    <section className='section-area-left'>
-                        <div>
-                            <ProfilePic imageSource={this.profileImage}/>
-                            {/*some sort of image repo accessor or something like that*/}
-                            <Label
-                                className='image-holder-label'
-                                type='2'
-                                label={this.profileName}
-                            />
-                        </div>
-                    </section>
-
-                    <section className='section-area-right'>
-                        <div className='image-quote-container'>
-                            <Label
-                                className='image-holder-quote-label'
-                                type='2'
-                                label={this.profileQuote}
-                            />
-                        </div>
-                    </section>
-                </BannerPic>
+                <ProfileBanner
+                    profileImage={this.profileImage}
+                    bannerImage={this.bannerImage}
+                    profileName={this.profileName}
+                    profileQuote={this.profileQuote}
+                />
 
 
                 {/*<!--lower part of the page -->*/}
@@ -86,7 +68,10 @@ export default class ProfileComponent extends Component {
                             </section>
                         </section>
                         <section className='section-area-fin-item'>
-                            <ProfileBucket className='bucket-container-finished'/>
+                            <ProfileBucket
+                                numItems='4'
+                                isActive={false}
+                            />
                         </section>
                     </section>
 
@@ -105,10 +90,11 @@ export default class ProfileComponent extends Component {
                                 new bucket for each.
                             */}
 
-                            <ProfileBucket className='bucket-container-current'/>
-                            <ProfileBucket className='bucket-container-current'/>
-                            <ProfileBucket className='bucket-container-current'/>
-                            <ProfileBucket className='bucket-container-current'/>
+                            <ProfileBucket
+                                numActiveItems='4'
+                                isActive={true}
+                            />
+
                         </section>
                     </section>
 

@@ -1,5 +1,10 @@
 @import "../../../client/Main.css";
 
+#section {
+    display: inline-block;
+    width: 770px;
+    background-color: silver;
+}
 /*#section {*/
     /*display: inline-block;*/
     /*width: 760px;*/
@@ -67,14 +72,12 @@
     width: 350px;
     margin: 2px;
     height: 100%;
-
 }
 
 .section-area-lower-right {
 
     display: -webkit-flex;
-    border: black solid 1px;
-    width: 400px;
+    width: 392px;
     margin: 2px;
     height: 100%;
 }
@@ -82,7 +85,7 @@
 .section-area-lower {
     display: -webkit-inline-flex;
     border: black solid 1px;
-    width: 750px;
+    width: 760px;
     height: auto;
     margin: 4px;
 }

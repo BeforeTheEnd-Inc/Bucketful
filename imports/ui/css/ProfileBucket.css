@@ -1,4 +1,15 @@
-#section-bucket {
+#section-bucket-active {
+    display: block;
+    margin: 3px 3px 14px;
+    border: black solid 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+}
+
+#section-bucket-finished {
     display: block;
     margin: 3px 3px 14px;
     border: black solid 1px;
@@ -17,7 +28,7 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     height: 175px;
-    width: 386px;
+    width: 392px;
 }
 
 .bucket-container-finished {
@@ -28,7 +39,7 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     height: 175px;
-    width: 300px;
+    width: 336px;
 }
 
 .bucket-image {
@@ -39,7 +50,7 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     height: 140px;
-    width: 380px;
+    width: auto;
 }
 
 .bucket-label {
