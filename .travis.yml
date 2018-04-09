@@ -18,14 +18,8 @@ script:
 
 before_deploy:
   - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
+  - docker push beforetheend/bucketful:$TRAVIS_BRANCH
 
-deploy:
-  provider: script
-    script: docker push beforetheend/bucketful:$TRAVIS_BRANCH
-    on:
-      all_branches: true
-      condition: $TRAVIS_BRANCH =~ ^codedeploy|dev|master$
-    wait-until-deployed: true
 
 
 
