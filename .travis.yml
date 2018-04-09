@@ -22,5 +22,6 @@ before_deploy:
 deploy:
   provider: script
   script: docker push beforetheend/bucketful:$BRANCH
+  script: if [ "$TRAVIS_BRANCH" = "master" ]; then docker push beforetheend/bucketful:latest"; fi
 
 
