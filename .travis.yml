@@ -10,5 +10,7 @@ before_install:
 
 script:
   - meteor --version
+  - pwd
+  - ls -al
   - meteor test --once --driver-package meteortesting:mocha
 
