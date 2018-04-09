@@ -13,9 +13,6 @@ before_install:
 
 script:
   - meteor --version
-  - pwd
-  - ls -al
-  - echo $TRAVIS_BRANCH
   - sh bucketful-build.sh
-  - meteor test --once --driver-package meteortesting:mocha
+  - docker image ls
 
