@@ -16,7 +16,6 @@ sudo pip install docker-compose
 # start docker daemon
 sudo service docker start
 
-# run docker compose
-sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful/.codedeploy/docker-compose.yaml up -d
+
 
 
