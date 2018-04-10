@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/bucketful
+
+permissions:
+  - object: /home/ec2-user/bucketful
+    owner: ec2-user
+    group: ec2-user
+    mode: 755
+
+
+hooks:
+  BeforeInstall:
+    - location: .codedeploy/setup.sh
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: .codedeploy/start_bucketful.sh
+      timeout: 300
+      runas: root

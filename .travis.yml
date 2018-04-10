@@ -1,5 +1,8 @@
 sudo: required
 
+services:
+  - docker
+
 language: node_js
 
 node_js:
@@ -10,5 +13,26 @@ before_install:
 
 script:
   - meteor --version
-  - meteor test --once --driver-package meteortesting:mocha
+  - sh bucketful-build.sh
+  - docker image ls
+
+before_deploy:
+  - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
+  - docker push beforetheend/bucketful:$TRAVIS_BRANCH
+
+deploy:
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+    application: "Bucketful-App"
+    deployment_group: $TRAVIS_BRANCH
+    region: "us-east-1"
+    on:
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^dev|master$
+
+
+
+
 
