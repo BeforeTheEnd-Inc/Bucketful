@@ -13,6 +13,9 @@ then
     export PORT=80
 fi
 
+echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - PORT value set to [ $PORT ] >> /home/ec2-user/deploydates.log
+
+
 cp -R /home/ec2-user/bucketful_groups/.holding/. /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/
 
 # run docker compose
