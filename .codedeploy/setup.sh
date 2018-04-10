@@ -2,7 +2,7 @@
 echo `date '+%Y-%m-%d %H:%M:%S'` >> /home/ec2-user/deploydates.log
 echo "deploying to $DEPLOYMENT_GROUP_NAME Group" >> /home/ec2-user/deploydates.log 
 
-export $BRANCH=$DEPLOYMENT_GROUP_NAME
+export BRANCH=$DEPLOYMENT_GROUP_NAME
 
 # create bucketful directory 
 mkdir -p /home/ec2-user/bucketful
