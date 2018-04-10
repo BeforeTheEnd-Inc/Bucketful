@@ -19,7 +19,7 @@ sudo pip install docker-compose
 sudo service docker start
 
 # run docker compose
-docker-compose up -d
+/usr/local/bin/docker-compose  up -d
 
 
 
