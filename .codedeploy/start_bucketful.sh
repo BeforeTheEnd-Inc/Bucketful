@@ -11,6 +11,9 @@ then
 elif [ "$DEPLOYMENT_GROUP_NAME" == "master" ]
 then
     export PORT=80
+elif [ "$DEPLOYMENT_GROUP_NAME" == "codedeploy" ]
+then
+    export PORT=4000
 fi
 
 echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - PORT value set to [ $PORT ] >> /home/ec2-user/deploydates.log
