@@ -30,7 +30,7 @@ deploy:
     region: "us-east-1"
     on:
       all_branches: true
-      condition: $TRAVIS_BRANCH =~ ^dev|master$
+      condition: $TRAVIS_BRANCH =~ ^codedeploy|dev|master$
 
 
 
