@@ -2,8 +2,6 @@
 echo `date '+%Y-%m-%d %H:%M:%S'` >> /home/ec2-user/deploydates.log
 echo "deploying to $DEPLOYMENT_GROUP_NAME Group" >> /home/ec2-user/deploydates.log 
 
-export BRANCH=$DEPLOYMENT_GROUP_NAME
-
 # create bucketful directory 
 mkdir -p /home/ec2-user/bucketful
 chown -R ec2-user:ec2-user /home/ec2-user/bucketful
@@ -19,6 +17,6 @@ sudo pip install docker-compose
 sudo service docker start
 
 # run docker compose
-sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful/docker-compose.yaml up -d
+sudo /usr/local/bin/docker-compose --file home/ec2-user/bucketful/.codedeploy/docker-compose.yaml up -d
 
 

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    container_name: "bucketful-app"
+    image: "beforetheend/bucketful:${DEPLOYMENT_GROUP_NAME}"
+    ports:
+      - "3030:3000"
+    depends_on:
+      - db
+  db:
+    container_name: "bucketful-db"
+    image: "mongo:3.4"
+    volumes:
+      - ./.build/data:/data/
+
