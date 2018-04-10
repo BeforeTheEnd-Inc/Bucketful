@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo `date '+%Y-%m-%d %H:%M:%S'` [start_bucketful.sh]  DEPLOYMENT_GROUP_NAME is $DEPLOYMENT_GROUP_NAME >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - DEPLOYMENT_GROUP_NAME is [$DEPLOYMENT_GROUP_NAME] >> /home/ec2-user/deploydates.log
 
 
 # run docker compose

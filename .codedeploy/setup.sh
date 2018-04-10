@@ -1,6 +1,6 @@
 #!/bin/bash
-echo `date '+%Y-%m-%d %H:%M:%S'` [setup.sh] starting aws codedeploy >> /home/ec2-user/deploydates.log
-echo `date '+%Y-%m-%d %H:%M:%S'` [setup.sh] deploying to {$DEPLOYMENT_GROUP_NAME} group >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - setup.sh - starting aws codedeploy >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - setup.sh - deploying to [$DEPLOYMENT_GROUP_NAME] group >> /home/ec2-user/deploydates.log
 
 # create bucketful directory 
 mkdir -p /home/ec2-user/bucketful
