@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME
+    destination: /home/ec2-user/bucketful_groups/.holding
 
 permissions:
   - object: /home/ec2-user/bucketful
