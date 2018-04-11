@@ -4,6 +4,11 @@ import '../css/ProfileSheet.css';
 
 import Label from '../../components/LabelComponent';
 import ProfileBucket from "./ProfileBucketComponent";
+import ProfilePic from './ProfilePictureComponent';
+
+import '../css/ProfileSheet.css';
+import BannerPic from "./BannerPictureComponent";
+
 import ProfileBanner from "./ProfileBannerComponent";
 
 export default class ProfileComponent extends Component {
@@ -19,13 +24,33 @@ export default class ProfileComponent extends Component {
         return (
             <section id='section'>
 
-                <ProfileBanner
-                    profileImage={this.profileImage}
-                    bannerImage={this.bannerImage}
-                    profileName={this.profileName}
-                    profileQuote={this.profileQuote}
-                />
+                {/*<ProfileBanner*/}
+                    {/*profileImage={this.profileImage}*/}
+                    {/*bannerImage={this.bannerImage}*/}
+                    {/*profileName={this.profileName}*/}
+                    {/*profileQuote={this.profileQuote}*/}
+                {/*/>*/}
+                <BannerPic imageSource={this.bannerImage}>
+                    <section className='section-area-left'>
+                        <div>
+                            <ProfilePic imageSource={this.profileImage}/>
+                            {/*some sort of image repo accessor or something like that*/}
+                            <Label
+                                className='image-holder-label'
+                                type='2'
+                                label={this.profileName}
+                            />
+                        </div>
+                    </section>
 
+                    <section className='section-area-right'>
+                        <Label
+                            className='image-holder-quote-label'
+                            type='2'
+                            label={this.profileQuote}
+                        />
+                    </section>
+                </BannerPic>
 
                 {/*<!--lower part of the page -->*/}
 

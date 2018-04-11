@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
 
 import '../css/BannerPicSheet.css';
-
-// import ImageModel from './ImageModel.js';
-
-
+import Link from '../../components/LinkComponent'
 
 export default class BannerPic extends Component {
     constructor(props) {
         super(props);
         this.bannerImage = props.imageSource;
-
-        sectionStyle = {
-            backgroundImage: `url(${this.bannerImage})`
-        };
     }
 
     handlePicChange(event) {
@@ -26,9 +19,7 @@ export default class BannerPic extends Component {
         var fileReader = new FileReader();
         fileReader.onload = function (e) {
             this.bannerImage = e.target.result;
-            sectionStyle = { backgroundImage: `url(${this.bannerImage})` };
-            $('#banner').attr("style",sectionStyle)
-            // $('#bannerPic').attr("src",e.target.result);
+            $('#bannerPic').attr("src",e.target.result);
         };
 
         fileReader.readAsDataURL(file);
@@ -36,15 +27,16 @@ export default class BannerPic extends Component {
 
     // When the image is clicked, this function is called to handle file input
     handleClick() {
-        // let input = document.querySelector('#uploadBannerPic');
-        // input.click();
+        let input = document.querySelector('#uploadBannerPic');
+        input.click();
     }
 
     render() {
         return (
-            <section id= 'banner' className='section-area' style={sectionStyle}>
+            <section id= 'banner' className='section-area'>
                 <input id='uploadBannerPic' type='file' accept='image/*' onChange={this.handlePicChange}/>
-                <label className='editBannerPic' onClick={this.handleClick}>Edit</label>
+                <img src={this.bannerImage} id='bannerPic' onClick={this.handleClick}/>
+                <button className='editButton' onClick={this.handleClick}>Edit</button>
                 { this.props.children }
             </section>
         );
