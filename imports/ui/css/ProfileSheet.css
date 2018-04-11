@@ -1,57 +1,100 @@
+@import "../../../client/Main.css";
+
+#section {
+    display: inline-block;
+    width: 770px;
+    background-color: silver;
+}
+/*#section {*/
+    /*display: inline-block;*/
+    /*width: 760px;*/
+    /*background-color: silver;*/
+/*}*/
 
 .image-container {
-    background-color: mintcream;
     width: 220px;
     height: 100%;
 }
 
-.image-quote-container {
-    display: inline-flex;
-    text-align: center;
-    text-decoration-color: #D4541B;
-    width: 250px;
-}
-
-.image-holder {
-    display: inline-block;
-    border: black solid 1px;
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-    margin-left: 10px;
-    margin-top: 10px;
-    background-color: lightsteelblue;
-}
-
 .image-holder-label {
-    text-align: center !important;
+    text-align: center;
+    color: white;
 }
 
 .image-holder-quote-label {
-    text-align: center !important;
-    float: right;
-}
-
-.section-area {
-    display: -webkit-inline-flex;
-    border: black solid 1px;
-    width: 752px;
-    height: 277px;
+    width: 350px;
+    margin: auto;
+    color: white;
 }
 
 .section-area-right {
-    display: -webkit-inline-flex;
-    justify-content: center;
-    border: black solid 1px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
     width: 530px;
-    height: 275px;
-    background-color: dimgrey;
+    height: 150px;
 }
 
 .section-area-left {
+    display: block;
+    position: absolute;
+    margin: 20px;
+    width: 208px;
+    height: 275px;
+    top: 0;
+    bottom: 0;
+}
+
+.section-area-lower-left {
+
+    display: inline-block;
+    border: black solid 1px;
+    width: 350px;
+    margin: 2px;
+    height: 100%;
+}
+
+.section-area-lower-right {
+
+    display: -webkit-flex;
+    width: 392px;
+    margin: 2px;
+    height: 100%;
+}
+
+.section-area-lower {
     display: -webkit-inline-flex;
     border: black solid 1px;
-    width: 220px;
-    height: 275px;
-    background-color: dimgrey;
+    width: 760px;
+    height: auto;
+    margin: 4px;
+}
+
+.mini-bio-section {
+    display: inline-block;
+    border: black solid 1px;
+    border-radius: 5px;
+    width: 97%;
+    height: 100%;
+    margin: 5px;
+}
+
+.bio-container {
+    display: block;
+    border: black solid 1px;
+    border-radius: 5px;
+    width: 96.5%;
+    height: 100%;
+    margin: 5px;
+}
+
+.profile-title {
+    display: block;
+    margin: 5px;
+    white-space: pre-line;
+    overflow: hidden;
 }
