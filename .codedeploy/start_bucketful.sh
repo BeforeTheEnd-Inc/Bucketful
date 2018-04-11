@@ -1,4 +1,11 @@
 #!/bin/bash
+source .codedeploy/env.sh
+
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - starting aws codedeploy >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - deploying to [$DEPLOYMENT_GROUP_NAME] group >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - PORT=$PORT , >> /home/ec2-user/deploydates.log
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - DOCKERCOMPOSEPATH=$DOCKERCOMPOSEPATH >> /home/ec2-user/deploydates.log
+
 
 echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - DEPLOYMENT_GROUP_NAME is [$DEPLOYMENT_GROUP_NAME] >> /home/ec2-user/deploydates.log
 
