@@ -1,10 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import Label from "../../components/LabelComponent";
 
 import '../css/ProfileBucket.css';
 import '../css/ImageAnimation.css';
 import Link from "../../components/LinkComponent";
-import Iterator from "../../../utils/Iterator";
 
 export default class ProfileBucket extends Component {
 
@@ -14,13 +13,10 @@ export default class ProfileBucket extends Component {
         this.numItems = props.numItems;
         this.isActive = props.isActive;
 
-        //this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Louisville%2C_Kentucky_%281934%E2%80%932003%29.svg';
         this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Chicago%2C_Illinois.svg'
-
     }
 
     getActiveItem() {
-
         return (
             <section id='section-bucket-current'>
                 <section className='bucket-container-current'>
@@ -97,7 +93,7 @@ export default class ProfileBucket extends Component {
                 items.push(this.getActiveItem());
             }
             return <div>{items}</div>;
-            //return(this.getActiveItem());
+
         } else if (!this.isActive) {
             this.num = parseInt(this.numItems);
             let items = [];
