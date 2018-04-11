@@ -20,6 +20,9 @@ echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - PORT value set to [ $POR
 
 
 cp -rp /home/ec2-user/bucketful_groups/.holding/. /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/
+rm -rf /home/ec2-user/bucketful_groups/.holding/.
+chown -R ec2-user:ec2-user /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME
+
 
 # run docker compose
 sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/.codedeploy/docker-compose.yaml up -d
