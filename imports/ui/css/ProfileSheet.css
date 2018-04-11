@@ -52,14 +52,13 @@
 .section-area-lower-left {
 
     display: inline-block;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     width: 350px;
     margin: 2px;
     height: 100%;
 }
 
 .section-area-lower-right {
-
     display: -webkit-flex;
     width: 392px;
     margin: 2px;
@@ -68,7 +67,7 @@
 
 .section-area-lower {
     display: -webkit-inline-flex;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     width: 760px;
     height: auto;
     margin: 4px;
@@ -76,7 +75,8 @@
 
 .mini-bio-section {
     display: inline-block;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
+    background-color: gainsboro;
     border-radius: 5px;
     width: 97%;
     height: 100%;
@@ -85,7 +85,7 @@
 
 .bio-container {
     display: block;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     border-radius: 5px;
     width: 96.5%;
     height: 100%;

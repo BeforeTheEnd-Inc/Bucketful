@@ -1,7 +1,7 @@
 #section-bucket-active {
     display: block;
     margin: 3px 3px 14px;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -12,7 +12,7 @@
 #section-bucket-finished {
     display: block;
     margin: 3px 3px 14px;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -20,10 +20,15 @@
     width: auto;
 }
 
+img {
+    border-radius: 5px;
+}
 .bucket-container-current {
     display: block;
     margin: 2px;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
+    padding-top: 5px;
+    background-color: gainsboro;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -34,7 +39,9 @@
 .bucket-container-finished {
     display: block;
     margin: 2px;
-    border: black solid 1px;
+    background-color: gainsboro;
+    padding-top: 5px;
+    /*border: black solid 1px;*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -45,12 +52,12 @@
 .bucket-image {
     display: block;
     margin: 2px;
-    border: black solid 1px;
+    /*border: black solid 1px;*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     height: 140px;
-    background-color: white;
+    background-color: whitesmoke;
     width: auto;
 }
 
