@@ -5,16 +5,16 @@ echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - DEPLOYMENT_GROUP_NAME is
 sed -i "s/IGIVEUP_THISISAHACK/$DEPLOYMENT_GROUP_NAME/g" /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/.codedeploy/docker-compose.yaml
 
 
-if [ "$DEPLOYMENT_GROUP_NAME" == "dev" ]
-then
-    export PORT=3030
-elif [ "$DEPLOYMENT_GROUP_NAME" == "master" ]
-then
-    export PORT=80
-elif [ "$DEPLOYMENT_GROUP_NAME" == "codedeploy" ]
-then
-    export PORT=4000
-fi
+# if [ "$DEPLOYMENT_GROUP_NAME" == "dev" ]
+# then
+#     export PORT=3030
+# elif [ "$DEPLOYMENT_GROUP_NAME" == "master" ]
+# then
+#     export PORT=80
+# elif [ "$DEPLOYMENT_GROUP_NAME" == "codedeploy" ]
+# then
+#     export PORT=4000
+# fi
 
 echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - PORT value set to [ $PORT ] >> /home/ec2-user/deploydates.log
 
@@ -28,7 +28,7 @@ chown -R ec2-user:ec2-user /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAM
 # stop current docker containers
 sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful/.codedeploy/docker-compose.yaml down
 
-# update image 
+# update image
 sudo docker pull beforetheend/bucketful:$DEPLOYMENT_GROUP_NAME
 
 # run docker compose

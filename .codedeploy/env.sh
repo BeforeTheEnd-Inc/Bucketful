@@ -1,4 +1,5 @@
 #!/bin/bash
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - $DEPLOYMENT_GROUP_NAME - "setting up env var" >> /home/ec2-user/deploydates.log
 
 DEPLOYMENT_GROUP_NAME=$DEPLOYMENT_GROUP_NAME
 CODEDEPLOY=/home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/.codedeploy/
@@ -14,3 +15,5 @@ elif [ "$DEPLOYMENT_GROUP_NAME" == "codedeploy" ]
 then
     PORT=4000
 fi
+
+echo `date '+%Y-%m-%d %H:%M:%S'` - `basename "$0"` - $DEPLOYMENT_GROUP_NAME - "env setup complete" >> /home/ec2-user/deploydates.log
