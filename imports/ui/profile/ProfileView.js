@@ -57,14 +57,15 @@ export default class ProfileComponent extends Component {
                 <section className='section-area-lower'>
                     {/*<!--lower left-->*/}
                     <section className='section-area-lower-left'>
+                        <section>
+                            <Label
+                                className='profile-title'
+                                type='3'
+                                label='Mini Bio'
+                            />
+                        </section>
                         <section className='mini-bio-section'>
-                            <div>
-                                <Label
-                                    className='profile-title'
-                                    type='3'
-                                    label='Mini Bio'
-                                />
-                            </div>
+
                             {/*
                                 Will need to fetch the below items as well and create a
                                 new bucket for each.
@@ -93,6 +94,13 @@ export default class ProfileComponent extends Component {
                             </section>
                         </section>
                         <section className='section-area-fin-item'>
+                            <section>
+                                <Label
+                                    className='profile-title'
+                                    type='3'
+                                    label='Completed Goals'
+                                />
+                            </section>
                             <ProfileBucket
                                 numItems='4'
                                 isActive={false}
