@@ -1,7 +1,21 @@
-/* CSS declarations go here */
-
+html,
 body {
     background-color: whitesmoke;
-    display: flex;
+    display: -webkit-flex;
     justify-content: center;
+    /*height: 100%;*/
+    margin: 3px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    -webkit-margin-after: .5em;
+    -webkit-margin-before: .5em;
+}
+
+section {
+    display: inline-block;
+}
+
+#container {
+    display: -webkit-flex;
 }

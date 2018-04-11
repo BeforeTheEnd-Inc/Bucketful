@@ -24,5 +24,12 @@ rm -rf /home/ec2-user/bucketful_groups/.holding/.
 chown -R ec2-user:ec2-user /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME
 
 
+
+# stop current docker containers
+sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful/.codedeploy/docker-compose.yaml down
+
+# update image 
+sudo docker pull beforetheend/bucketful:$DEPLOYMENT_GROUP_NAME
+
 # run docker compose
 sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/.codedeploy/docker-compose.yaml up -d

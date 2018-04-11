@@ -1,0 +1,24 @@
+
+.section-area {
+    position: relative;
+    display: block;
+}
+
+#bannerPic {
+    display: block;
+    width: 770px;
+    height: 305px;
+    opacity: 0.6;
+}
+
+button.editButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 30px;
+    color: black;
+    background: none;
+    border: none;
+    font-family: inherit;
+}
