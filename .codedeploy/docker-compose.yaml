@@ -2,14 +2,14 @@ version: '3'
 
 services:
   app:
-    container_name: "bucketful-app-IGIVEUP_THISISAHACK"
-    image: "beforetheend/bucketful:IGIVEUP_THISISAHACK"
+    container_name: "bucketful-app-DEPLOYMENT_GROUP_NAME"
+    image: "beforetheend/bucketful:DEPLOYMENT_GROUP_NAME"
     ports:
-      - "$PORT:3000"
+      - "PORT:3000"
     depends_on:
       - db
   db:
-    container_name: "bucketful-db-IGIVEUP_THISISAHACK"
+    container_name: "bucketful-db-DEPLOYMENT_GROUP_NAME"
     image: "mongo:3.4"
     volumes:
       - ./.build/data:/data/
