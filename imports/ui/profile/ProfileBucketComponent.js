@@ -26,7 +26,7 @@ export default class ProfileBucket extends Component {
                         }}>
                             <div className='flipper'>
                                 <div className='front'>
-                                    <img src={this.flagPic} style={{height: 140, width: 386}}/>
+                                    <img src={this.flagPic} style={{height: 138, width: 386}}/>
                                 </div>
                                 <div className='back'>
                                     <Link
@@ -60,7 +60,7 @@ export default class ProfileBucket extends Component {
                         }}>
                             <div className='flipper'>
                                 <div className='front'>
-                                    <img src={this.flagPic} style={{height: 140, width: 330}}/>
+                                    <img src={this.flagPic} style={{height: 138, width: 330}}/>
                                 </div>
                                 <div className='back'>
                                     <Link
