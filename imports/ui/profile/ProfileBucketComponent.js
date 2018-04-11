@@ -14,7 +14,8 @@ export default class ProfileBucket extends Component {
         this.numItems = props.numItems;
         this.isActive = props.isActive;
 
-        let num = parseInt(this.numItems);
+        this.num = parseInt(this.numItems);
+        this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Louisville%2C_Kentucky_%281934%E2%80%932003%29.svg';
 
     }
 
@@ -30,9 +31,7 @@ export default class ProfileBucket extends Component {
                         }}>
                             <div className='flipper'>
                                 <div className='front'>
-                                    {/*<div className='module'>*/}
-                                    {/*<div className='one'/>*/}
-                                    {/*</div>*/}
+                                    <img src={this.flagPic} style={{height: 140, width: 386}}/>
                                 </div>
                                 <div className='back'>
                                     <Link
@@ -69,9 +68,7 @@ export default class ProfileBucket extends Component {
                         }}>
                             <div className='flipper'>
                                 <div className='front'>
-                                    {/*<div className='module'>*/}
-                                    {/*<div className='one'/>*/}
-                                    {/*</div>*/}
+                                    <img src={this.flagPic} style={{height: 140, width: 330}}/>
                                 </div>
                                 <div className='back'>
                                     <Link
@@ -93,6 +90,7 @@ export default class ProfileBucket extends Component {
 
         );
     };
+
 
     render() {
         if (this.isActive) {

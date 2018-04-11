@@ -15,7 +15,7 @@ export default class ProfilePic extends Component {
     handlePicChange(event) {
         let file = event.target.files[0];
 
-        if (file == undefined) {
+        if (file === undefined) {
             return;
         }
 
