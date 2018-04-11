@@ -1,0 +1,100 @@
+@import "../../../client/Main.css";
+
+#section {
+    display: inline-block;
+    width: 770px;
+    background-color: silver;
+}
+/*#section {*/
+    /*display: inline-block;*/
+    /*width: 760px;*/
+    /*background-color: silver;*/
+/*}*/
+
+.image-container {
+    width: 220px;
+    height: 100%;
+}
+
+.image-holder-label {
+    text-align: center;
+    color: white;
+}
+
+.image-holder-quote-label {
+    width: 350px;
+    margin: auto;
+    color: white;
+}
+
+.section-area-right {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
+    width: 530px;
+    height: 150px;
+}
+
+.section-area-left {
+    display: block;
+    position: absolute;
+    margin: 20px;
+    width: 208px;
+    height: 275px;
+    top: 0;
+    bottom: 0;
+}
+
+.section-area-lower-left {
+
+    display: inline-block;
+    /*border: black solid 1px;*/
+    width: 350px;
+    margin: 2px;
+    height: 100%;
+}
+
+.section-area-lower-right {
+    display: -webkit-flex;
+    width: 392px;
+    margin: 2px;
+    height: 100%;
+}
+
+.section-area-lower {
+    display: -webkit-inline-flex;
+    /*border: black solid 1px;*/
+    width: 760px;
+    height: auto;
+    margin: 4px;
+}
+
+.mini-bio-section {
+    display: inline-block;
+    /*border: black solid 1px;*/
+    background-color: gainsboro;
+    border-radius: 5px;
+    width: 97%;
+    height: 100%;
+    margin: 5px;
+}
+
+.bio-container {
+    display: block;
+    /*border: black solid 1px;*/
+    border-radius: 5px;
+    width: 96.5%;
+    height: 100%;
+    margin: 5px;
+}
+
+.profile-title {
+    display: block;
+    margin: 5px;
+    white-space: pre-line;
+    overflow: hidden;
+}
