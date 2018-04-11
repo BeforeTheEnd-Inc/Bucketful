@@ -19,7 +19,7 @@ fi
 echo `date '+%Y-%m-%d %H:%M:%S'` - start_bucketful.sh - PORT value set to [ $PORT ] >> /home/ec2-user/deploydates.log
 
 
-cp -R /home/ec2-user/bucketful_groups/.holding/. /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/
+cp -rp /home/ec2-user/bucketful_groups/.holding/. /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/
 
 # run docker compose
 sudo /usr/local/bin/docker-compose --file /home/ec2-user/bucketful_groups/$DEPLOYMENT_GROUP_NAME/.codedeploy/docker-compose.yaml up -d
