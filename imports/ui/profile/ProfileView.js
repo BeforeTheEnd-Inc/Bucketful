@@ -116,7 +116,7 @@ export default class ProfileComponent extends Component {
                             */}
 
                             <ProfileBucket
-                                numActiveItems='4'
+                                numItems='5'
                                 isActive={true}
                             />
 

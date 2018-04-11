@@ -14,18 +14,17 @@ export default class ProfileBucket extends Component {
         this.numItems = props.numItems;
         this.isActive = props.isActive;
 
-        this.num = parseInt(this.numItems);
-        this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Louisville%2C_Kentucky_%281934%E2%80%932003%29.svg';
+        //this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Louisville%2C_Kentucky_%281934%E2%80%932003%29.svg';
+        this.flagPic = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Chicago%2C_Illinois.svg'
 
     }
 
     getActiveItem() {
-        return (
 
+        return (
             <section id='section-bucket-current'>
                 <section className='bucket-container-current'>
                     <div className='bucket-image'>
-                        {/*<div id='home' className='grid'>*/}
                         <div className='flip-container' onTouchStart={() => {
                             this.classList.toggle('hover');
                         }}>
@@ -42,7 +41,6 @@ export default class ProfileBucket extends Component {
                                 </div>
                             </div>
                         </div>
-                        {/*</div>*/}
                     </div>
                     <Label
                         className='bucket-label'
@@ -51,13 +49,11 @@ export default class ProfileBucket extends Component {
                     />
                 </section>
             </section>
-
         );
     };
 
     getFinishedItem() {
         return (
-
             <section id='section-bucket-finished'>
                 <section className='bucket-container-finished'>
                     <div className='bucket-image'>
@@ -93,10 +89,22 @@ export default class ProfileBucket extends Component {
 
 
     render() {
+
         if (this.isActive) {
-            return(this.getActiveItem());
+            this.num = parseInt(this.numItems);
+            let items = [];
+            for (let i = 0; i < this.num; i++) {
+                items.push(this.getActiveItem());
+            }
+            return <div>{items}</div>;
+            //return(this.getActiveItem());
         } else if (!this.isActive) {
-            return(this.getFinishedItem());
+            this.num = parseInt(this.numItems);
+            let items = [];
+            for (let i = 0; i < this.num; i++) {
+                items.push(this.getFinishedItem());
+            }
+            return <div>{items}</div>;
         }
     }
 }

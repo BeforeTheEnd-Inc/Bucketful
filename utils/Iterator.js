@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Iterator extends Component {
     constructor(props) {
         super(props);
-
+        this.component = props.component;
         this.num = props.num;
     }
 
