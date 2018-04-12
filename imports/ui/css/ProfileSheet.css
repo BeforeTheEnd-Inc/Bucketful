@@ -91,6 +91,15 @@
     height: 100%;
     margin: 5px;
 }
+textarea {
+    border-radius: 5px;
+    width: 324px;
+    height: 106px;
+}
+.bio-area {
+    border-radius: 5px;
+    width: 324px;
+}
 
 .profile-title {
     display: block;

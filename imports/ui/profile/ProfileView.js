@@ -10,6 +10,7 @@ import '../css/ProfileSheet.css';
 import BannerPic from "./BannerPictureComponent";
 
 import ProfileBanner from "./ProfileBannerComponent";
+import MiniBio from "./BiographyComponent";
 
 export default class ProfileComponent extends Component {
     constructor(props) {
@@ -64,35 +65,7 @@ export default class ProfileComponent extends Component {
                                 label='Mini Bio'
                             />
                         </section>
-                        <section className='mini-bio-section'>
-
-                            {/*
-                                Will need to fetch the below items as well and create a
-                                new bucket for each.
-                            */}
-                            <section className="bio-container">
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='somewhere somewhere somewhere'
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label="Birthday: some-date"
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='Hometown: somewhere usa'
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='Gender: other'
-                                />
-                            </section>
-                        </section>
+                        <MiniBio/>
                         <section className='section-area-fin-item'>
                             <section>
                                 <Label
