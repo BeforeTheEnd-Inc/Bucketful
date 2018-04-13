@@ -3,13 +3,10 @@
 #section {
     display: inline-block;
     width: 770px;
+    height: 100%;
     background-color: silver;
+    border-radius: 5px;
 }
-/*#section {*/
-    /*display: inline-block;*/
-    /*width: 760px;*/
-    /*background-color: silver;*/
-/*}*/
 
 .image-container {
     width: 220px;
@@ -56,6 +53,7 @@
     width: 350px;
     margin: 2px;
     height: 100%;
+
 }
 
 .section-area-lower-right {
@@ -63,6 +61,7 @@
     width: 392px;
     margin: 2px;
     height: 100%;
+
 }
 
 .section-area-lower {

@@ -11,7 +11,7 @@ export default class FinishedBucket extends Component {
 
     render() {
         return (
-            <section id='section-bucket-finished'>
+            <section id='section-bucket'>
                 <section className='bucket-container-finished'>
                     <div className='bucket-image'>
                         <div

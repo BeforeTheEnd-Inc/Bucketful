@@ -12,7 +12,7 @@ export default class CurrentBucket extends Component {
 
     render() {
         return (
-            <section id='section-bucket-current'>
+            <section id='section-bucket'>
                 <section className='bucket-container-current'>
                     <div className='bucket-image'>
                         <div className='flip-container' onTouchStart={() => {
@@ -23,10 +23,20 @@ export default class CurrentBucket extends Component {
                                     <img src={this.flagPic} style={{height: 138, width: 386}}/>
                                 </div>
                                 <div className='back'>
+                                    <Label
+                                        className='bucket-label'
+                                        type='4'
+                                        label='Item name'
+                                    />
+                                    <Label
+                                        className='bucket-label'
+                                        type='4'
+                                        label='Item description'
+                                    />
                                     <Link
                                         className='profile-title'
-                                        type='2'
-                                        label='a label'
+                                        type='3'
+                                        label='Click to edit current item!'
                                     />
                                 </div>
                             </div>

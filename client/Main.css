@@ -3,7 +3,6 @@ body {
     background-color: whitesmoke;
     display: -webkit-flex;
     justify-content: center;
-    /*height: 100%;*/
     margin: 3px;
 }
 
