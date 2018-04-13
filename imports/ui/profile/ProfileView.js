@@ -32,7 +32,7 @@ export default class ProfileComponent extends Component {
                     {/*profileQuote={this.profileQuote}*/}
                 {/*/>*/}
                 <BannerPic imageSource={this.bannerImage}>
-                    <section className='section-area-left'>
+                    <section className='section-area-upper-left'>
                         <div>
                             <ProfilePic imageSource={this.profileImage}/>
                             {/*some sort of image repo accessor or something like that*/}
@@ -44,7 +44,7 @@ export default class ProfileComponent extends Component {
                         </div>
                     </section>
 
-                    <section className='section-area-right'>
+                    <section className='section-area-upper-right'>
                         <Label
                             className='image-holder-quote-label'
                             type='2'
@@ -75,7 +75,7 @@ export default class ProfileComponent extends Component {
                                 />
                             </section>
                             <ProfileBucket
-                                numItems='4'
+                                numItems='6'
                                 isActive={false}
                             />
                         </section>

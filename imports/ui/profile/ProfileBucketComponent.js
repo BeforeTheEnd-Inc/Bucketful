@@ -19,7 +19,6 @@ export default class ProfileBucket extends Component {
     }
 
     render() {
-
         if (this.isActive) {
             this.num = parseInt(this.numItems);
             let items = [];

@@ -3,7 +3,7 @@
 #section {
     display: inline-block;
     width: 770px;
-    height: 100%;
+    height: 100vh;
     background-color: silver;
     border-radius: 5px;
 }
@@ -24,7 +24,7 @@
     color: white;
 }
 
-.section-area-right {
+.section-area-upper-right {
     display: flex;
     position: absolute;
     top: 0;
@@ -36,7 +36,7 @@
     height: 150px;
 }
 
-.section-area-left {
+.section-area-upper-left {
     display: block;
     position: absolute;
     margin: 20px;
@@ -47,57 +47,24 @@
 }
 
 .section-area-lower-left {
-
     display: inline-block;
-    /*border: black solid 1px;*/
     width: 350px;
     margin: 2px;
-    height: 100%;
-
+    height: auto;
 }
 
 .section-area-lower-right {
     display: -webkit-flex;
     width: 392px;
     margin: 2px;
-    height: 100%;
-
+    height: auto;
 }
 
 .section-area-lower {
     display: -webkit-inline-flex;
-    /*border: black solid 1px;*/
     width: 760px;
     height: auto;
     margin: 4px;
-}
-
-.mini-bio-section {
-    display: inline-block;
-    /*border: black solid 1px;*/
-    background-color: gainsboro;
-    border-radius: 5px;
-    width: 97%;
-    height: 100%;
-    margin: 5px;
-}
-
-.bio-container {
-    display: block;
-    /*border: black solid 1px;*/
-    border-radius: 5px;
-    width: 96.5%;
-    height: 100%;
-    margin: 5px;
-}
-textarea {
-    border-radius: 5px;
-    width: 324px;
-    height: 106px;
-}
-.bio-area {
-    border-radius: 5px;
-    width: 324px;
 }
 
 .profile-title {

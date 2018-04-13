@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../css/ProfileBioSheet.css';
 import Label from "../../components/LabelComponent";
 import TextArea from "../../components/TextAreaComponent";
 
