@@ -1,61 +1,41 @@
-#section-bucket-active {
+#section-bucket {
     display: block;
     margin: 3px 3px 14px;
-    /*border: black solid 1px;*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: auto;
-    width: auto;
-}
-
-#section-bucket-finished {
-    display: block;
-    margin: 3px 3px 14px;
-    /*border: black solid 1px;*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    height: auto;
     width: auto;
 }
 
 img {
     border-radius: 5px;
 }
-.bucket-container-current {
+
+[class*='bucket-'] {
     display: block;
     margin: 2px;
-    /*border: black solid 1px;*/
-    padding-top: 5px;
-    background-color: gainsboro;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.bucket-container-current {
+    padding-top: 5px;
+    background-color: gainsboro;
+    border-radius: 5px;
     height: 175px;
-    width: 392px;
+    width: 390px;
 }
 
 .bucket-container-finished {
-    display: block;
-    margin: 2px;
     background-color: gainsboro;
     padding-top: 5px;
-    /*border: black solid 1px;*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-right: 5px;
     height: 175px;
-    width: 336px;
+    width: 334px;
 }
 
 .bucket-image {
-    display: block;
-    margin: 2px;
-    /*border: black solid 1px;*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
     height: 140px;
     background-color: whitesmoke;
     width: auto;

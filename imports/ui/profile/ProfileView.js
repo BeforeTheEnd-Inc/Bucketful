@@ -10,6 +10,7 @@ import '../css/ProfileSheet.css';
 import BannerPic from "./BannerPictureComponent";
 
 import ProfileBanner from "./ProfileBannerComponent";
+import MiniBio from "./BiographyComponent";
 
 export default class ProfileComponent extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ export default class ProfileComponent extends Component {
                     {/*profileQuote={this.profileQuote}*/}
                 {/*/>*/}
                 <BannerPic imageSource={this.bannerImage}>
-                    <section className='section-area-left'>
+                    <section className='section-area-upper-left'>
                         <div>
                             <ProfilePic imageSource={this.profileImage}/>
                             {/*some sort of image repo accessor or something like that*/}
@@ -43,7 +44,7 @@ export default class ProfileComponent extends Component {
                         </div>
                     </section>
 
-                    <section className='section-area-right'>
+                    <section className='section-area-upper-right'>
                         <Label
                             className='image-holder-quote-label'
                             type='2'
@@ -53,7 +54,6 @@ export default class ProfileComponent extends Component {
                 </BannerPic>
 
                 {/*<!--lower part of the page -->*/}
-
                 <section className='section-area-lower'>
                     {/*<!--lower left-->*/}
                     <section className='section-area-lower-left'>
@@ -64,35 +64,7 @@ export default class ProfileComponent extends Component {
                                 label='Mini Bio'
                             />
                         </section>
-                        <section className='mini-bio-section'>
-
-                            {/*
-                                Will need to fetch the below items as well and create a
-                                new bucket for each.
-                            */}
-                            <section className="bio-container">
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='somewhere somewhere somewhere'
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label="Birthday: some-date"
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='Hometown: somewhere usa'
-                                />
-                                <Label
-                                    className='profile-title'
-                                    type='5'
-                                    label='Gender: other'
-                                />
-                            </section>
-                        </section>
+                        <MiniBio/>
                         <section className='section-area-fin-item'>
                             <section>
                                 <Label
@@ -102,7 +74,7 @@ export default class ProfileComponent extends Component {
                                 />
                             </section>
                             <ProfileBucket
-                                numItems='4'
+                                numItems='6'
                                 isActive={false}
                             />
                         </section>
