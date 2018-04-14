@@ -54,9 +54,29 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-
 .section-bucket-scroll::-webkit-scrollbar {
     display: none;
+}
+
+[class*='section-bucket-scroll-current-'] {
+    margin: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.section-bucket-scroll-current-one {
+    height: 196px;
+}
+.section-bucket-scroll-current-two {
+    height: 392px;
+}
+.section-bucket-scroll-current-full::-webkit-scrollbar {
+    display: none;
+}
+.section-bucket-scroll-current-full {
+    overflow-y: scroll;
+    max-height:582px;
 }
 
 .section-area-lower-left {
@@ -80,9 +100,20 @@
     margin: 4px;
 }
 
+.section-area-current-link {
+    display: inline-flex;
+}
 .profile-title {
     display: block;
     margin: 5px;
+    white-space: pre-line;
+    overflow: hidden;
+}
+
+.profile-title-bucket-link{
+    display: block;
+    margin: 5px;
+    padding-left: 90px;
     white-space: pre-line;
     overflow: hidden;
 }
