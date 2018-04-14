@@ -4,12 +4,7 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: auto;
     width: auto;
-}
-
-#section-bucket-scroll::-webkit-scrollbar {
-    display: none;
 }
 
 img {
@@ -24,19 +19,20 @@ img {
     border-radius: 5px;
 }
 
-
 .bucket-container-current {
     padding-top: 5px;
     background-color: gainsboro;
+    border-radius: 5px;
     height: 175px;
-    width: 392px;
+    width: 390px;
 }
 
 .bucket-container-finished {
     background-color: gainsboro;
     padding-top: 5px;
+    border-right: 5px;
     height: 175px;
-    width: 336px;
+    width: 334px;
 }
 
 .bucket-image {

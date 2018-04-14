@@ -3,7 +3,7 @@
 #section {
     display: inline-block;
     width: 770px;
-    height: 100vh;
+    max-height: 100%;
     background-color: silver;
     border-radius: 5px;
 }
@@ -46,18 +46,31 @@
     bottom: 0;
 }
 
+.section-bucket-scroll {
+    overflow-y: scroll;
+    height: 200px;
+    margin: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.section-bucket-scroll::-webkit-scrollbar {
+    display: none;
+}
+
 .section-area-lower-left {
     display: inline-block;
     width: 350px;
     margin: 2px;
-    height: auto;
+    height: 300px;
 }
 
 .section-area-lower-right {
     display: -webkit-flex;
     width: 392px;
     margin: 2px;
-    height: auto;
+    height: 300px;
 }
 
 .section-area-lower {

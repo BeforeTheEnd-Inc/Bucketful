@@ -27,7 +27,7 @@ export default class ProfileBucket extends Component {
                     <CurrentBucket flagPic={this.flagPic} />
                 );
             }
-            return <div id='section-bucket-scroll'>{items}</div>;
+            return <div className='section-bucket-scroll'>{items}</div>;
 
         } else if (!this.isActive) {
             this.num = parseInt(this.numItems);
@@ -37,7 +37,7 @@ export default class ProfileBucket extends Component {
                     <FinishedBucket flagPic={this.flagPic} />
                 );
             }
-            return <div id='section-bucket-scroll'>{items}</div>;
+            return <div className='section-bucket-scroll'>{items}</div>;
         }
     }
 }

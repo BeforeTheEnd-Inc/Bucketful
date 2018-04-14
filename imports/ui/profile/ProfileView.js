@@ -54,7 +54,6 @@ export default class ProfileComponent extends Component {
                 </BannerPic>
 
                 {/*<!--lower part of the page -->*/}
-
                 <section className='section-area-lower'>
                     {/*<!--lower left-->*/}
                     <section className='section-area-lower-left'>
