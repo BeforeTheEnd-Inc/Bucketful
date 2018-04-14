@@ -12,8 +12,8 @@ before_install:
   - curl "https://install.meteor.com/?release=1.6.1" | /bin/sh
 
 script:
-  - ls -al /var/lib/
-  - sudo ls -al /var/lib/
+  - ls -al /var/lib/docker/
+  - sudo ls -al /var/lib/docker/
   - meteor --version
   - sh bucketful-build.sh
   - docker image ls
