@@ -12,9 +12,12 @@ before_install:
   - curl "https://install.meteor.com/?release=1.6.1" | /bin/sh
 
 script:
+  - ls -al /var/lib/docker
   - meteor --version
   - sh bucketful-build.sh
   - docker image ls
+  - ls -al /var/lib/docker
+
 
 before_deploy:
   - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
