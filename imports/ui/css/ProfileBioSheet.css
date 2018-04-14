@@ -1,0 +1,26 @@
+.mini-bio-section {
+    display: inline-block;
+    background-color: gainsboro;
+    border-radius: 5px;
+    width: 97%;
+    height: auto;
+    margin: 5px;
+}
+
+.bio-container {
+    display: block;
+    /*border: black solid 1px;*/
+    border-radius: 5px;
+    width: 96.5%;
+    height: 100%;
+    margin: 5px;
+}
+textarea {
+    border-radius: 5px;
+    width: 324px;
+    height: 106px;
+}
+.bio-area {
+    border-radius: 5px;
+    width: 324px;
+}
