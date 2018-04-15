@@ -9,8 +9,8 @@ import ProfilePic from './ProfilePictureComponent';
 import '../css/ProfileSheet.css';
 import BannerPic from "./BannerPictureComponent";
 
-import ProfileBanner from "./ProfileBannerComponent";
 import MiniBio from "./BiographyComponent";
+import Link from "../../components/LinkComponent";
 
 export default class ProfileComponent extends Component {
     constructor(props) {
@@ -80,14 +80,20 @@ export default class ProfileComponent extends Component {
                         </section>
                     </section>
 
-                    {/*// <!-- lower right  -->*/}
+                    {/* <!-- lower right  --> */}
                     <section className='section-area-lower-right'>
                         <section>
-                            <section>
+                            <section className='section-area-current-link'>
                                 <Label
                                     className='profile-title'
                                     type='3'
                                     label='Current Goals'
+                                />
+                                <Link
+                                    className='profile-title-bucket-link'
+                                    type='3'
+                                    label='Add New Bucket Item'
+                                    msg='Redirecting to create a new item...'
                                 />
                             </section>
                             {/*

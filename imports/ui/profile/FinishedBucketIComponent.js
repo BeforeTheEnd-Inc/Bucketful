@@ -28,6 +28,7 @@ export default class FinishedBucket extends Component {
                                         className='profile-title'
                                         type='2'
                                         label='Relive this experience!!!'
+                                        msg='Redirecting to your time-line...'
                                     />
                                 </div>
                             </div>
