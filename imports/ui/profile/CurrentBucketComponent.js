@@ -28,6 +28,7 @@ export default class CurrentBucket extends Component {
                                         type='4'
                                         label='Item name'
                                     />
+                                    <br/>
                                     <Label
                                         className='bucket-label'
                                         type='4'
