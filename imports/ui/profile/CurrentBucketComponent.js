@@ -37,6 +37,7 @@ export default class CurrentBucket extends Component {
                                         className='profile-title'
                                         type='3'
                                         label='Click to edit current item!'
+                                        msg='Redirecting to edit the current item...'
                                     />
                                 </div>
                             </div>

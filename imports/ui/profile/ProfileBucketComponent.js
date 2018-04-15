@@ -27,7 +27,14 @@ export default class ProfileBucket extends Component {
                     <CurrentBucket flagPic={this.flagPic} />
                 );
             }
-            return <div className='section-bucket-scroll'>{items}</div>;
+            if (items.length === 1) {
+                return <div className='section-bucket-scroll-current-one'>{items}</div>;
+            } else if (items.length === 2) {
+                return <div className='section-bucket-scroll-current-two'>{items}</div>;
+            } else {
+                return <div className='section-bucket-scroll-current-full'>{items}</div>;
+            }
+
 
         } else if (!this.isActive) {
             this.num = parseInt(this.numItems);
