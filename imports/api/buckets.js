@@ -1,8 +1,7 @@
-import { Mongo } from 'meteor/mongo';
-import { Tasks } from './tasks';
-import { Costs } from './costs';
-import SimpleSchema from 'simpl-schema';
-
+import {Mongo} from 'meteor/mongo';
+import {Tasks} from './tasks';
+import {Costs} from './costs';
+import SimpleSchema from 'simple-schema';
 
 export const Buckets = new Mongo.Collection('buckets');
 
@@ -19,6 +18,7 @@ const BucketSchema = new SimpleSchema({
     costs: [Costs],
 });
 
+Buckets.attachSchema(BucketSchema);
 
 // const BucketSchema = new SimpleSchema({
 //
@@ -32,5 +32,3 @@ const BucketSchema = new SimpleSchema({
 //   tasks: {type: Array[Tasks]},
 //   costs: {type: Array[Costs]},
 // });
-
-// Buckets.attachSchema(BucketSchema);
