@@ -1,0 +1,5 @@
+
+textarea:focus {
+    outline: none;
+    border-color: RGBA(186, 186, 186, 1.00);
+}
