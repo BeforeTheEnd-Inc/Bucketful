@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 
 export const Profiles = new Mongo.Collection('profiles');
 
-const ProfileSchema = new SimpleSchema({
+ProfileSchema = new SimpleSchema({
   _id: Number,
   firstName: String,
   lastName: String,
