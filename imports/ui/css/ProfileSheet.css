@@ -103,6 +103,7 @@
 .section-area-current-link {
     display: inline-flex;
 }
+
 .profile-title {
     display: block;
     margin: 5px;
@@ -113,7 +114,20 @@
 .profile-title-bucket-link {
     display: block;
     margin: 5px;
-    padding-left: 90px;
     white-space: pre-line;
     overflow: hidden;
+}
+
+[class*='profile-bucket-link-'] {
+    text-align: center;
+    font-weight: normal !important;
+}
+
+a, .profile-bucket-link-finished {
+    justify-content: space-around;
+
+}
+
+.profile-bucket-link-current {
+
 }

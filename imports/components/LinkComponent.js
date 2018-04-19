@@ -21,6 +21,7 @@ export default class Link extends Component {
         return (
             <a href='#'
                onClick={this.handleClick}
+               target={this.props.route}
             >
                 <Label
                     className={this.props.className}

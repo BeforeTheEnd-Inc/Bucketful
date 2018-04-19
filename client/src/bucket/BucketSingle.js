@@ -43,7 +43,7 @@ class BucketSingle extends Component {
         // if (bucket.notes === null) {
             return (
                 <div className="container">
-                    <h2>{bucket.firstName} {bucket.lastName}</h2>
+                    <h2>{bucket.name} {bucket.description}</h2>
                     {/*<AddNote/>*/}
                 </div>
             );
@@ -63,8 +63,9 @@ export const bucketSingleQuery = gql`
   query BucketSingleQuery($bucketId: ID!) {
     bucket(id: $bucketId) {
         id
-        firstName
-        lastName
+        name
+        description
+        profileId
     }
   }
 `;

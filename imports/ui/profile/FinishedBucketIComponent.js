@@ -25,8 +25,8 @@ export default class FinishedBucket extends Component {
                                 </div>
                                 <div className='back'>
                                     <Link
-                                        className='profile-title'
-                                        type='2'
+                                        className='profile-bucket-link-finished'
+                                        type='3'
                                         label='Relive this experience!!!'
                                         msg='Redirecting to your time-line...'
                                     />

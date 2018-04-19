@@ -7,14 +7,14 @@ class AddBucket extends Component {
     state = {
         name: '',
         description: '',
-        bucketID: ''
+        profileId: ''
     }
 
     handleSave = () => {
         const {
             name,
             description,
-            bucketID
+            profileId
         } = this.state;
         const id = require('crypto').randomBytes(5).toString('hex');
         this.props.mutate({
@@ -22,14 +22,14 @@ class AddBucket extends Component {
                 id,
                 name,
                 description,
-                bucketID
+                profileId
             },
             optimisticResponse: {
                 addBucket: {
                     id,
                     name,
                     description,
-                    bucketID,
+                    profileId,
                     __typename: 'Bucket',
                 },
             },
@@ -41,8 +41,9 @@ class AddBucket extends Component {
         })
             .then(res => {
                 this.setState({
-                    firstName: '',
-                    lastName: ''
+                    name: '',
+                    description: '',
+                    profileId: ''
                 });
             });
     }
@@ -52,16 +53,23 @@ class AddBucket extends Component {
             <div className="row">
                 <div className="col s5">
                     <input
-                        value={this.state.firstName}
-                        placeholder='First name'
-                        onChange={(e) => this.setState({firstName: e.target.value})}
+                        value={this.state.name}
+                        placeholder='Name'
+                        onChange={(e) => this.setState({Name: e.target.value})}
                     />
                 </div>
                 <div className="col s5">
                     <input
-                        value={this.state.lastName}
-                        placeholder='Last name'
-                        onChange={(e) => this.setState({lastName: e.target.value})}
+                        value={this.state.description}
+                        placeholder='Description'
+                        onChange={(e) => this.setState({Description: e.target.value})}
+                    />
+                </div>
+                <div className="col s5">
+                    <input
+                        value={this.state.profileId}
+                        placeholder='Profile ID'
+                        onChange={(e) => this.setState({ProfileID: e.target.value})}
                     />
                 </div>
                 <div className="col s2">

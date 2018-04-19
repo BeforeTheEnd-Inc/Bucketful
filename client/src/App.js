@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import {Session} from 'meteor/session';
 import {ApolloClient, ApolloProvider, createNetworkInterface, toIdValue} from 'react-apollo';
 import {SubscriptionClient, addGraphQLSubscriptions} from 'subscriptions-transport-ws';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
@@ -6,8 +7,10 @@ import Profiles from './profile/Profiles';
 import AddProfile from './profile/AddProfile';
 import ProfileSingle from './profile/ProfileSingle';
 import Buckets from './bucket/Buckets';
-import AddBucket from './bucket/AddBucket';
+// import AddBucket from './bucket/AddBucket';
 import BucketSingle from './bucket/BucketSingle';
+
+// Session.setDefault('sessionId', 0);
 
 const PORT = 4000;
 
@@ -40,10 +43,33 @@ const client = new ApolloClient({
             profile: (__, args) => {
                 return toIdValue(dataIdFromObject({__typename: 'Profile', id: args['id']}))
             },
+            bucket: (__, args) => {
+                return toIdValue(dataIdFromObject({__typename: 'Bucket', id: args['id']}))
+            },
         },
     },
     dataIdFromObject,
 })
+
+const header = () => {
+    return (
+        <div className="navbar-fixed">
+            <nav className="purple darken-1">
+                <div className="nav-wrapper">
+                    <Link to="/" className="brand-logo center">Bucketful Database</Link>
+                    <Link to="/Profiles">Profile</Link>
+                    &nbsp;&nbsp;
+                    <Link to="/Buckets">Bucket</Link>
+                    &nbsp;&nbsp;
+                    <Link to="/AddProfile">Add Profile</Link>
+                    &nbsp;&nbsp;
+                    <Link to="/AddBucket">Add Bucket</Link>
+
+                </div>
+            </nav>
+        </div>
+    );
+}
 
 class App extends Component {
     render() {
@@ -51,21 +77,15 @@ class App extends Component {
             <ApolloProvider client={client}>
                 <BrowserRouter>
                     <div>
-                        <div className="navbar-fixed">
-                            <nav className="purple darken-1">
-                                <div className="nav-wrapper">
-                                    <Link to="/" className="brand-logo center">Bucketful Database</Link>
-                                </div>
-                            </nav>
-                        </div>
-                        <AddProfile/>
+                        {header()}
                         <Switch>
-                            <Route exact path="/" component={Profiles}/>
-                            <Route path="/profile/:profileId" component={ProfileSingle}/>
+                            <Route exact path="/Profiles" component={Profiles}/>
+                            <Route path="/ProfileSingle/:profileId" component={ProfileSingle}/>
+                            <Route path="/AddProfile" component={AddProfile}/>
                         </Switch>
-                        <AddBucket/>
+
                         <Switch>
-                            <Route exact path="/" component={Buckets}/>
+                            <Route exact path="/Buckets" component={Buckets}/>
                             <Route path="/bucket/:bucketId" component={BucketSingle}/>
                         </Switch>
                     </div>

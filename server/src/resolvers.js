@@ -7,46 +7,37 @@ const profiles = [
         id: '1'
         ,firstName: 'Manny'
         ,lastName: 'Henri'
-        // ,notes: [
-        //     {
-        //         id: '1',
-        //         details: 'I think this guy is an author at linkedin'
-        //     },
-        //     {
-        //         id: '2',
-        //         details: 'His name is Manny'
-        //     }
-        // ]
     },
     {
         id: '2'
         ,firstName: 'Jasmine'
         ,lastName: 'Henri-Rainville'
-        // ,notes: [
-        //     {
-        //         id: '1',
-        //         details: 'I think this guy is an author at linkedin'
-        //     },
-        //     {
-        //         id: '2',
-        //         details: 'His name is Manny'
-        //     }
-        // ]
     },
     {
         id: '3'
         ,firstName: 'Jeremy'
         ,lastName: 'Henri-Rainville'
-        // ,notes: [
-        //     {
-        //         id: '1',
-        //         details: 'I think this guy is an author at linkedin'
-        //     },
-        //     {
-        //         id: '2',
-        //         details: 'His name is Manny'
-        //     }
-        // ]
+    }
+]
+
+const buckets = [
+    {
+        id: '1'
+        ,name: 'Travel'
+        ,description: ''
+        ,profileId: '1'
+    },
+    {
+        id: '2'
+        ,name: 'Golf'
+        ,description: 'Henri-Rainville'
+        ,profileId: '2'
+    },
+    {
+        id: '3'
+        ,name: 'Jeremy'
+        ,description: 'Henri-Rainville'
+        ,profileId: '1'
     }
 ]
 
@@ -57,6 +48,12 @@ export const resolvers = {
         },
         profile: (root, {id}) => {
             return profiles.find(profile => profile.id === id);
+        },
+        buckets: () => {
+            return buckets;
+        },
+        bucket: (root, {id}) => {
+            return buckets.find(bucket => bucket.id === id);
         },
     },
     Mutation: {
@@ -69,7 +66,18 @@ export const resolvers = {
             };
             profiles.push(newProfile);
             return newProfile;
+        },
+        addBucket: (root, args) => {
+            const newBucket = {
+                id: args.id
+                , name: args.name
+                , description: args.description
+                , profileId: args.profileId
+            };
+            buckets.push(newBucket);
+            return newBucket;
         }
+
         // ,addNote: (root, {note}) => {
         //     const newId = require('crypto').randomBytes(5).toString('hex');
         //     const profile = profiles.find(profile => profile.id === note.profileId);

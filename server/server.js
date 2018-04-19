@@ -31,5 +31,5 @@ ws.listen(PORT, () => {
     }, {
         server: ws,
         path: '/subscriptions'
-    })
+    });
 });

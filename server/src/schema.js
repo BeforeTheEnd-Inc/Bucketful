@@ -26,7 +26,7 @@ const typeDefs = `
         id: String!
         name: String!
         description: String
-        profileID: String!
+        profileId: String!
         status: String
         image: String
         category: String
@@ -55,37 +55,37 @@ const typeDefs = `
 
     type Mutation {
         addProfile(
-            id: String!, 
-            firstName: String!, 
+            id: String!
+            firstName: String!
             lastName: String!
         ): Profile
-        
+
         updateProfile(
-            id: String!, 
-            firstName: String!, 
+            id: String! 
+            firstName: String! 
             lastName: String!
-            username: String,
-            password: String,
-            gender: String,
-            address: String,
-            city: String,
-            state: String,
-            postalCode: Int,
-            country: String,
-            phone: String,
-            email: String,
-            birthday: Date,
+            username: String
+            password: String
+            gender: String
+            address: String
+            city: String
+            state: String
+            postalCode: Int
+            country: String
+            phone: String
+            email: String
+            birthday: Date
             status: String
         ): Profile
 
         addBucket(
             id: String!
-            name: String!,
-            description: String,
-            profileID: String!,
-            status: String,
-            image: String,
-            category: String,
+            name: String!
+            description: String
+            profileId: String!
+            status: String
+            image: String
+            category: String
             progress: String
         ): Bucket
     }

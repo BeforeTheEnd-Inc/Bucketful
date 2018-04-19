@@ -1,6 +1,6 @@
-import { Meteor } from 'meteor/meteor';
+import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
 import React from 'react';
 
 import Index from "./IndexComponent";

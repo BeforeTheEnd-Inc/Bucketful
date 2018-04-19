@@ -23,7 +23,7 @@ const typeDefs = `
         id: String!
         name: String!
         description: String
-        profileID: String!
+        profileId: String!
         status: String
         image: String
         category: String
@@ -79,7 +79,7 @@ const typeDefs = `
             id: String!
             name: String!
             description: String
-            profileID: String!
+            profileId: String!
             status: String
             image: String
             category: String

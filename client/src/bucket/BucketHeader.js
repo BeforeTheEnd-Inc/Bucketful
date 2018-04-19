@@ -12,18 +12,19 @@ const BucketHeader = ({data: {loading, error, bucket}}) => {
     return (
         <div>
             <div>
-                {bucket.firstName} {bucket.lastName}
+                {bucket.name} {bucket.description} {bucket.profileId}
             </div>
         </div>
     );
 }
 
 export const bucketQuery = gql`
-  query BucketQuery($bucketId: ID!) {
+  query BucketQuery($bucketId: String!) {
     bucket(id: $bucketId) {
         id
-        firstName
-        lastName
+        name
+        description
+        profileId
     }
   }
 `;
