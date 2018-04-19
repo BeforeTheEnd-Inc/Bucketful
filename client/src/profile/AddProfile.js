@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {gql, graphql} from 'react-apollo';
-import DatePicker from 'react-datepicker';
 import ReactRadioButtonGroup from 'react-radio-button-group';
+import DatePicker from 'react-datepicker';
 
 import {profilesListQuery} from './Profiles';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -16,11 +16,11 @@ export class AddProfile extends Component {
         address: '',
         city: '',
         state: '',
-        postalCode: 0,
+        postalCode: '',
         country: '',
         phone: '',
         email: '',
-        birthday: '1/1/1970',
+        birthday: '',
         status: ''
     }
 
@@ -106,7 +106,7 @@ export class AddProfile extends Component {
                     status: ''
                 });
             });
-    }
+    };
 
     render() {
         return (
@@ -200,6 +200,7 @@ export class AddProfile extends Component {
                             // selected={this.state.birthday}
                             // onSelect={this.handleSelect.birthday}
                             // onChange={this.handleChange.birthday()}
+                            value={this.state.birthday}
                         />
                     </div>
                     <div className="col s2">
@@ -229,57 +230,54 @@ export class AddProfile extends Component {
 
 export const createProfile = gql`
   mutation addProfile(
-        $id: String!, 
-        $firstName: String!, 
-        $lastName: String!,
-        $username: String,
-        $password: String,
-        $gender: String,
-        $address: String,
-        $city: String,
-        $state: String,
-        $postalCode: Int,
-        $country: String,
-        $phone: String,
-        $email: String,
-        $birthday: Date,
-        $status: String
-    )
-    {
-        addProfile(
-            id: $id, 
-            firstName: $firstName, 
-            lastName: $lastName,
-            username: $username,
-            password: $password,
-            gender: $gender,
-            address: $address,
-            city: $city,
-            state: $state,
-            postalCode: $postalCode,
-            country: $country,
-            phone: $phone,
-            email: $email,
-            birthday: $birthday,
-            status: $status
-        )
-    {   
-        id
-        firstName
-        lastName
-        username
-        password
-        gender
-        address
-        city
-        state
-        postalCode
-        country
-        phone
-        email
-        birthday
-        status
-    }
+	$id: String!,
+	$firstName: String,
+	$lastName: String,
+	$username: String!,
+	$password: String!,
+	$gender: String,
+	$address: String,
+	$city: String,
+	$state: String,
+	$postalCode: Int,
+	$country: String,
+	$phone: String,
+	$email: String,
+	$birthday: Date,
+	$status: String
+	) {   
+	addProfile(
+		id: $id, 
+		firstName: $firstName, 
+		lastName: $lastName,
+		username: $username,
+		password: $password,
+		gender: $gender,
+		address: $address,
+		city: $city,
+		state: $state,
+		postalCode: $postalCode,
+		country: $country,
+		phone: $phone,
+		email: $email,
+		birthday: $birthday,
+		status: $status
+	) {     id
+			firstName
+			lastName
+			username
+			password
+			gender
+			address
+			city
+			state
+			postalCode
+			country
+			phone
+			email
+			birthday
+			status
+	}
   }
 `;
 

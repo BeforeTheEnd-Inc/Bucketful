@@ -7,7 +7,7 @@ import Profiles from './profile/Profiles';
 import AddProfile from './profile/AddProfile';
 import ProfileSingle from './profile/ProfileSingle';
 import Buckets from './bucket/Buckets';
-// import AddBucket from './bucket/AddBucket';
+import AddBucket from './bucket/AddBucket';
 import BucketSingle from './bucket/BucketSingle';
 
 // Session.setDefault('sessionId', 0);
@@ -87,6 +87,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/Buckets" component={Buckets}/>
                             <Route path="/bucket/:bucketId" component={BucketSingle}/>
+                            <Route path="/AddBucket" component={AddBucket}/>
                         </Switch>
                     </div>
                 </BrowserRouter>

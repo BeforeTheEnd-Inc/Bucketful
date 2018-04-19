@@ -31,11 +31,23 @@ export const Profiles = ({data: {loading, error, profiles}}) => {
 }
 
 export const profilesListQuery = gql`
-  query ProfilesQuery {
+  query Profile {
     profiles {
         id
         firstName
         lastName
+        username
+        password
+        gender
+        address
+        city
+        state
+        postalCode
+        country
+        phone
+        email
+        birthday
+        status
     }
   }
 `;

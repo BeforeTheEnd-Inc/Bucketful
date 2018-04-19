@@ -21,41 +21,40 @@ export const ProfileHeader = ({data: {loading, error, profile}}) => {
 
 export const profileQuery = gql`
   query ProfileQuery(
-        $id: String!,
-        $firstName: String!, 
-        $lastName: String!,
-        $username: String,
-        $password: String,
-        $gender: String,
-        $address: String,
-        $city: String,
-        $state: String,
-        $postalCode: Int,
-        $country: String,
-        $phone: String,
-        $email: String,
-        $birthday: Date,
+        $id: String!
+        $firstName: String
+        $lastName: String
+        $username: String!
+        $password: String!
+        $gender: String
+        $address: String
+        $city: String
+        $state: String
+        $postalCode: Int
+        $country: String
+        $phone: String
+        $email: String
+        $birthday: Date
         $status: String
     )
     {   profile(
-            id: $id,
-            firstName: $firstName, 
-            lastName: $lastName,
-            username: $username,
-            password: $password,
-            gender: $gender,
-            address: $address,
-            city: $city,
-            state: $state,
-            postalCode: $postalCode,
-            country: $country,
-            phone: $phone,
-            email: $email,
-            birthday: $birthday,
+            id: $id
+            firstName: $firstName 
+            lastName: $lastName
+            username: $username
+            password: $password
+            gender: $gender
+            address: $address
+            city: $city
+            state: $state
+            postalCode: $postalCode
+            country: $country
+            phone: $phone
+            email: $email
+            birthday: $birthday
             status: $status
         ) 
-        {
-            id
+        {   id
             firstName
             lastName
             username
