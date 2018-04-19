@@ -3,13 +3,29 @@ import '../css/ProfileBioSheet.css';
 import Label from "../../components/LabelComponent";
 import ModalLauncher from '../../components/ModalLauncher';
 import TextArea from "../../components/TextAreaComponent";
+import RadioButton from "../../components/RadioButtonComponent";
 
 export default class MiniBio extends Component {
     constructor(props) {
         super(props);
 
         this.className = props.className;
+
+        this.gender = null;
     }
+
+    handleSelect(e) {
+        let buttons = ['male', 'female', 'preferNo'];
+        for(let x = 0; x < buttons.length; x++) {
+            const b = buttons[x];
+            let button = document.getElementById(b);
+            if (buttons[x] !== e.target.id) {
+                button.checked = false;
+            } else {
+                this.gender = b;
+            }
+        }
+    };
 
     render() {
 
@@ -78,12 +94,29 @@ export default class MiniBio extends Component {
                                 label='Gender'
                             />
 
-                            {/*<input type='radio' id='choice1' className='gender' value='male'/>*/}
-                            {/*<label htmlFor='choice1'>Male</label>*/}
-                            {/*<input type='radio' id='choice2' className='gender' value='female'/>*/}
-                            {/*<label htmlFor='choice2'>Female</label>*/}
-                            {/*<input type='radio' id='choice3' className='gender' value='preferNo'/>*/}
-                            {/*<label htmlFor='choice3'>Prefer not to disclose</label>*/}
+                            <RadioButton
+                                type='radio'
+                                id='male'
+                                value='male'
+                                label='Male'
+                                onChange={this.handleSelect}
+                            />
+
+                            <RadioButton
+                                type='radio'
+                                id='female'
+                                value='female'
+                                label='Female'
+                                onChange={this.handleSelect}
+                            />
+
+                            <RadioButton
+                                type='radio'
+                                id='preferNo'
+                                value='preferNo'
+                                label='Prefer not to disclose'
+                                onChange={this.handleSelect}
+                            />
 
                             <br/>
                             <button style={{ float: 'right' }}>Save</button>
