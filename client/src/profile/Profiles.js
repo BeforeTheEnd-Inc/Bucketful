@@ -14,39 +14,35 @@ export const Profiles = ({data: {loading, error, profiles}}) => {
     return (
         <div className="row">
             <ul className="collection">
-                {
-                    profiles.map(
-                        item => (
-                            <li className="collection-item" key={item.id}>
-                                <Link to={item.id < 0 ? `/` : `ProfileSingle/${item.id}`}>
-                                    {item.firstName} {item.lastName}
-                                </Link>
-                            </li>
-                        )
-                    )
-                }
+                {profiles.map(item => (
+                    <li className="collection-item" key={item.profileId}>
+                        <Link to={item.profileId < 0 ? `/` : `ProfileSingle/${item.profileId}`}>
+                            {item.firstName} {item.lastName}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );
-}
+};
 
 export const profilesListQuery = gql`
-  query Profile {
+  query ProfilesQuery {
     profiles {
-        id
+        profileId
         firstName
         lastName
         username
         password
         gender
+        birthday
+        email
+        phone
         address
         city
         state
         postalCode
         country
-        phone
-        email
-        birthday
         status
     }
   }

@@ -25,7 +25,7 @@ const wsClient = new SubscriptionClient(`ws://localhost:${PORT}/subscriptions`, 
 const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
     networkInterface,
     wsClient
-)
+);
 
 const dataIdFromObject = (result) => {
     if (result.__typename) {
@@ -34,22 +34,22 @@ const dataIdFromObject = (result) => {
         }
     }
     return null;
-}
+};
 
 const client = new ApolloClient({
     networkInterface: networkInterfaceWithSubscriptions,
     customResolvers: {
         Query: {
             profile: (__, args) => {
-                return toIdValue(dataIdFromObject({__typename: 'Profile', id: args['id']}))
+                return toIdValue(dataIdFromObject({__typename: 'Profile', profileId: args['profileId']}))
             },
             bucket: (__, args) => {
-                return toIdValue(dataIdFromObject({__typename: 'Bucket', id: args['id']}))
+                return toIdValue(dataIdFromObject({__typename: 'Bucket', bucketId: args['bucketId']}))
             },
         },
     },
     dataIdFromObject,
-})
+});
 
 const header = () => {
     return (

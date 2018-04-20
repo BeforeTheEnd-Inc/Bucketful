@@ -5,32 +5,32 @@ const typeDefs = `
   scalar Date
 
 	type Profile {
-		id: String!,
+		profileId: String!,
 		firstName: String,
 		lastName: String,
 		username: String!,
 		password: String!,
-		gender: String,
-		address: String,
-		city: String,
-		state: String,
-		postalCode: Int,
-		country: String,
-		phone: String,
-		email: String,
-		birthday: Date,
-		status: String
+        gender: String,
+        birthday: Date,
+        email: String,
+        phone: String,
+        address: String,
+        city: String,
+        state: String,
+        postalCode: Int,
+        country: String,
+        status: String
 	}
 
 	type Bucket {
-		id: String!,
-		name: String!,
-		description: String,
-		profileId: String!,
-		status: String,
-		image: String,
-		category: String,
-		progress: String
+		bucketId: String!,
+        profileId: String!,
+        name: String!,
+        description: String,
+        category: String,
+        image: String,
+        progress: String,
+        status: String
 	}
 
 	input TaskInput {
@@ -47,69 +47,70 @@ const typeDefs = `
 
 	type Query {
 		profiles: [Profile],
-		profile(id: String!): Profile,
+		profile(profileId: String!): Profile,
 		buckets: [Bucket],
-		bucket(id: String!): Bucket
+		bucket(bucketId: String!): Bucket
 	}
 
 	type Mutation {
 		addProfile(
-			id: String!,
+			profileId: String!,
 			firstName: String,
 			lastName: String,
 			username: String!,
 			password: String!,
 			gender: String,
+			birthday: Date,
+			email: String,
+			phone: String,
 			address: String,
 			city: String,
 			state: String,
 			postalCode: Int,
 			country: String,
-			phone: String,
-			email: String,
-			birthday: Date,
 			status: String
 		): Profile
 
 		updateProfile(
-			id: String!,
+			profileId: String!,
 			firstName: String,
 			lastName: String,
 			username: String!,
 			password: String!,
 			gender: String,
+			birthday: Date,
+			email: String,
+			phone: String,
 			address: String,
 			city: String,
 			state: String,
 			postalCode: Int,
 			country: String,
-			phone: String,
-			email: String,
-			birthday: Date,
 			status: String
 		): Profile
 
 		addBucket(
-			id: String!,
+			bucketId: String!,
+			profileId: String!,
 			name: String!,
 			description: String,
-			profileId: String!,
-			status: String,
-			image: String,
 			category: String,
+			image: String,
 			progress: String,
+			status: String
 		): Bucket
 
 		updateBucket(
-			id: String!,
+			bucketId: String!,
+			profileId: String!,
 			name: String!,
 			description: String,
-			profileId: String!,
-			status: String,
-			image: String,
 			category: String,
+			image: String,
 			progress: String,
+			status: String
 		): Bucket
+
 	}
 `;
 

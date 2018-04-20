@@ -4,21 +4,21 @@ const pubsub = new PubSub();
 
 const profiles = [
 	{
-		id: '1'
+        profileId: '1'
 		, firstName: 'Manny'
 		, lastName: 'Ramirez'
         , username: 'mramirez'
         , password: 'password'
 	},
 	{
-		id: '2'
+        profileId: '2'
 		, firstName: 'Jasmine'
 		, lastName: 'Humphreys'
         , username: 'jhumphreys'
         , password: 'password'
 	},
 	{
-		id: '3'
+        profileId: '3'
 		, firstName: 'Jeremy'
 		, lastName: 'Edwards'
         , username: 'jedwards'
@@ -28,22 +28,22 @@ const profiles = [
 
 const buckets = [
 	{
-		id: '1'
+        bucketId: '1'
+        , profileId: '1'
 		, name: 'Travel'
 		, description: 'I love to travel!'
-		, profileId: '1'
 	},
 	{
-		id: '2'
+        bucketId: '2'
+        , profileId: '2'
 		, name: 'Golf'
 		, description: 'I love to golf!'
-		, profileId: '2'
 	},
 	{
-		id: '3'
+        bucketId: '3'
+        , profileId: '3'
 		, name: 'Dining'
 		, description: 'I love fancy places!'
-		, profileId: '3'
 	}
 ];
 
@@ -53,34 +53,91 @@ export const resolvers = {
 			return profiles;
 		},
 		profile: (root, {id}) => {
-			return profiles.find(profile => profile.id === id);
+			return profiles.find(profile => profile.profileId === id);
 		},
 		buckets: () => {
 			return buckets;
 		},
 		bucket: (root, {id}) => {
-			return buckets.find(bucket => bucket.id === id);
+			return buckets.find(bucket => bucket.bucketId === id);
 		},
 	},
+
 	Mutation: {
+
 		addProfile: (root, args) => {
 			const newProfile = {
-				id: args.id
-				, firstName: args.firstName
-				, lastName: args.lastName
+                profileId: args.profileId,
+				firstName: args.firstName,
+				lastName: args.lastName,
+                username: args.username,
+                password: args.password,
+                gender: args.gender,
+                birthday: args.birthday,
+                email: args.email,
+                phone: args.phone,
+                address: args.address,
+                city: args.city,
+                state: args.state,
+                postalCode: args.postalCode,
+                country: args.country,
+                status: args.status
 			};
 			profiles.push(newProfile);
 			return newProfile;
 		},
+
+        updateProfile: (root, args) => {
+            const editProfile = {
+                profileId: args.profileId,
+                firstName: args.firstName,
+                lastName: args.lastName,
+                username: args.username,
+                password: args.password,
+                gender: args.gender,
+                birthday: args.birthday,
+                email: args.email,
+                phone: args.phone,
+                address: args.address,
+                city: args.city,
+                state: args.state,
+                postalCode: args.postalCode,
+                country: args.country,
+                status: args.status
+            };
+            profiles.push(editProfile);
+            return editProfile;
+        },
+
 		addBucket: (root, args) => {
 			const newBucket = {
-				id: args.id
-				, name: args.name
-				, description: args.description
-				, profileId: args.profileId
+                bucketId: args.bucketId,
+                profileId: args.profileId,
+				name: args.name,
+				description: args.description,
+                category: args.category,
+                image: args.image,
+                progress: args.progress,
+                status: args.status
 			};
 			buckets.push(newBucket);
 			return newBucket;
-		}
+		},
+
+        updateBucket: (root, args) => {
+            const editBucket = {
+                bucketId: args.bucketId,
+                profileId: args.profileId,
+                name: args.name,
+                description: args.description,
+                category: args.category,
+                image: args.image,
+                progress: args.progress,
+                status: args.status
+            };
+            buckets.push(editBucket);
+            return editBucket;
+        }
+
 	}
 };

@@ -13,16 +13,16 @@ export class AddProfile extends Component {
         username: '',
         password: '',
         gender: '',
+        birthday: '',
+        email: '',
+        phone: '',
         address: '',
         city: '',
         state: '',
         postalCode: '',
         country: '',
-        phone: '',
-        email: '',
-        birthday: '',
         status: ''
-    }
+    };
 
     handleSave = () => {
         const {
@@ -31,53 +31,53 @@ export class AddProfile extends Component {
             username,
             password,
             gender,
+            birthday,
+            email,
+            phone,
             address,
             city,
             state,
             postalCode,
             country,
-            phone,
-            email,
-            birthday,
             status
         } = this.state;
 
-        const id = require('crypto').randomBytes(5).toString('hex');
+        const profileId = require('crypto').randomBytes(5).toString('hex');
 
         this.props.mutate({
             variables: {
-                id,
+                profileId,
                 firstName,
                 lastName,
                 username,
                 password,
                 gender,
+                birthday,
+                email,
+                phone,
                 address,
                 city,
                 state,
                 postalCode,
                 country,
-                phone,
-                email,
-                birthday,
                 status
             },
             optimisticResponse: {
                 addProfile: {
-                    id,
+                    profileId,
                     firstName,
                     lastName,
                     username,
                     password,
                     gender,
+                    birthday,
+                    email,
+                    phone,
                     address,
                     city,
                     state,
                     postalCode,
                     country,
-                    phone,
-                    email,
-                    birthday,
                     status,
                     __typename: 'Profile'
                 },
@@ -87,25 +87,24 @@ export class AddProfile extends Component {
                 data.profiles.push(addProfile);
                 store.writeQuery({query: profilesListQuery, data});
             }
-        })
-            .then(res => {
-                this.setState({
-                    firstName: '',
-                    lastName: '',
-                    username: '',
-                    password: '',
-                    gender: '',
-                    address: '',
-                    city: '',
-                    state: '',
-                    postalCode: '',
-                    country: '',
-                    phone: '',
-                    email: '',
-                    birthday: '',
-                    status: ''
-                });
+        }).then(res => {
+            this.setState({
+                firstName: '',
+                lastName: '',
+                username: '',
+                password: '',
+                gender: '',
+                address: '',
+                city: '',
+                state: '',
+                postalCode: '',
+                country: '',
+                phone: '',
+                email: '',
+                birthday: '',
+                status: ''
             });
+        });
     };
 
     render() {
@@ -230,39 +229,39 @@ export class AddProfile extends Component {
 
 export const createProfile = gql`
   mutation addProfile(
-	$id: String!,
+	$profileId: String!,
 	$firstName: String,
 	$lastName: String,
 	$username: String!,
 	$password: String!,
 	$gender: String,
+	$birthday: Date,
+	$email: String,
+    $phone: String,
 	$address: String,
 	$city: String,
 	$state: String,
 	$postalCode: Int,
 	$country: String,
-	$phone: String,
-	$email: String,
-	$birthday: Date,
 	$status: String
 	) {   
 	addProfile(
-		id: $id, 
+		profileId: $profileId, 
 		firstName: $firstName, 
 		lastName: $lastName,
 		username: $username,
 		password: $password,
 		gender: $gender,
+		birthday: $birthday,
+		email: $email,
+		phone: $phone,
 		address: $address,
 		city: $city,
 		state: $state,
 		postalCode: $postalCode,
 		country: $country,
-		phone: $phone,
-		email: $email,
-		birthday: $birthday,
 		status: $status
-	) {     id
+	) {     profileId
 			firstName
 			lastName
 			username

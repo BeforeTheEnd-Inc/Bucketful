@@ -2,7 +2,7 @@ import React from 'react';
 import {gql, graphql} from 'react-apollo';
 import {Link} from 'react-router-dom';
 
-const Buckets = ({data: {loading, error, buckets}}) => {
+export const Buckets = ({data: {loading, error, buckets}}) => {
     if (loading) {
         return <p>Loading...</p>
     }
@@ -15,8 +15,8 @@ const Buckets = ({data: {loading, error, buckets}}) => {
         <div className="row">
             <ul className="collection">
                 {buckets.map(item => (
-                    <li className="collection-item" key={item.id}>
-                        <Link to={item.id < 0 ? `/` : `BucketSingle/${item.id}`}>
+                    <li className="collection-item" key={item.bucketId}>
+                        <Link to={item.bucketId < 0 ? `/` : `BucketSingle/${item.bucketId}`}>
                             {item.name} {item.description}
                         </Link>
                     </li>
@@ -29,10 +29,14 @@ const Buckets = ({data: {loading, error, buckets}}) => {
 export const bucketsListQuery = gql`
   query BucketsQuery {
     buckets {
-        id
-        name
-        description
+        bucketId
         profileId
+        name
+        description,
+        category,
+        image,
+        progress,
+        status
     }
   }
 `;

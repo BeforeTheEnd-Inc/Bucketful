@@ -1,10 +1,11 @@
 import React from 'react';
 import {gql, graphql} from 'react-apollo';
 
-const BucketHeader = ({data: {loading, error, bucket}}) => {
+export const BucketHeader = ({data: {loading, error, bucket}}) => {
     if (loading) {
         return <p>Loading...</p>
     }
+
     if (error) {
         return <p>{error.message}</p>
     }
@@ -12,25 +13,29 @@ const BucketHeader = ({data: {loading, error, bucket}}) => {
     return (
         <div>
             <div>
-                {bucket.name} {bucket.description} {bucket.profileId}
+                {bucket.profileId} {bucket.name} {bucket.description}
             </div>
         </div>
     );
-}
+};
 
 export const bucketQuery = gql`
-  query BucketQuery($bucketId: String!) {
-    bucket(id: $bucketId) {
-        id
-        name
-        description
-        profileId
+    query BucketQuery($bucketId: String!) {
+        bucket(bucketId: $bucketId) {
+            bucketId
+            profileId
+            name
+            description
+            category
+            image
+            progress
+            status
+        }
     }
-  }
 `;
 
 export default (graphql(bucketQuery, {
     options: (props) => ({
-        variables: {bucketId: props.bucketId},
-    }),
-})(BucketHeader));
+        variables: {bucketId: props.params.bucketId},
+    }), })(BucketHeader)
+);

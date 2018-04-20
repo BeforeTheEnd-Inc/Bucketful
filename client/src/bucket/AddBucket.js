@@ -6,49 +6,49 @@ import {bucketsListQuery} from './Buckets';
 
 export class AddBucket extends Component {
     state = {
+        profileId: '',
         name: '',
         description: '',
-        profileId: '',
-        status: '',
-        image: '',
         category: '',
-        progress: ''
-    }
+        image: '',
+        progress: '',
+        status: ''
+    };
 
     handleSave = () => {
         const {
+            profileId,
             name,
             description,
-            profileId,
-            status,
-            image,
             category,
-            progress
+            image,
+            progress,
+            status
         } = this.state;
 
-        const id = require('crypto').randomBytes(5).toString('hex');
+        const bucketId = require('crypto').randomBytes(5).toString('hex');
 
         this.props.mutate({
             variables: {
-                id,
+                bucketId,
+                profileId,
                 name,
                 description,
-                profileId,
-                status,
-                image,
                 category,
-                progress
+                image,
+                progress,
+                status
             },
             optimisticResponse: {
                 addBucket: {
-                    id,
+                    bucketId,
+                    profileId,
                     name,
                     description,
-                    profileId,
-                    status,
-                    image,
                     category,
+                    image,
                     progress,
+                    status,
                     __typename: 'Bucket'
                 },
             },
@@ -60,13 +60,13 @@ export class AddBucket extends Component {
         })
             .then(res => {
                 this.setState({
+                    profileId: '',
                     name: '',
                     description: '',
-                    profileId: '',
-                    status: '',
-                    image: '',
                     category: '',
-                    progress: ''
+                    image: '',
+                    progress: '',
+                    status: ''
                 });
             });
     };
@@ -74,6 +74,15 @@ export class AddBucket extends Component {
     render() {
         return (
             <div>
+                <div className="row">
+                    <div className="col s1">
+                        <input
+                            value={this.state.profileId}
+                            placeholder='Profile ID'
+                            onChange={(e) => this.setState({profileId: e.target.value})}
+                        />
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col s1">
                         <input
@@ -93,53 +102,55 @@ export class AddBucket extends Component {
                     </div>
                 </div>
                 <div className="row">
-                        <div className="col s1">
-                            <input
-                                value={this.state.profileId}
-                                placeholder='Profile ID'
-                                onChange={(e) => this.setState({profileId: e.target.value})}
-                            />
-                        </div>
-                </div>
-                <div className="row">
-                        <div className="col s1">
-                            <input
-                                value={this.state.image}
-                                placeholder='Image'
-                                onChange={(e) => this.setState({image: e.target.value})}
-                            />
-                        </div>
-                </div>
-                <div className="row">
-                        <div className="col s1">
-                            <input
-                                value={this.state.category}
-                                placeholder='Category'
-                                onChange={(e) => this.setState({category: e.target.value})}
-                            />
-                        </div>
-                </div>
-                <div className="row">
-                        <div className="col s1">
-                            <ReactRadioButtonGroup
-                                options={['Active', 'Inactive']}
-                                name='Status'
-                                value='Active'
-                                onChange={function(checkedValue) {console.log("New value: ", checkedValue);}}
-                                isStateful={true}
-                            />
-                        </div>
+                    <div className="col s1">
+                        <input
+                            value={this.state.category}
+                            placeholder='Category'
+                            onChange={(e) => this.setState({category: e.target.value})}
+                        />
                     </div>
-                    <div className="row">
-                        <div className="col s2">
-                            <button
-                                onClick={this.handleSave}
-                                className="btn waves-effect waves-light"
-                                type="submit">
-                                Submit
-                            </button>
-                        </div>
+                </div>
+                <div className="row">
+                    <div className="col s1">
+                        <input
+                            value={this.state.image}
+                            placeholder='Image'
+                            onChange={(e) => this.setState({image: e.target.value})}
+                        />
                     </div>
+                </div>
+                <div className="row">
+                    <div className="col s1">
+                        <input
+                            value={this.state.progress}
+                            placeholder='Progress'
+                            onChange={(e) => this.setState({progress: e.target.value})}
+                        />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s1">
+                        <ReactRadioButtonGroup
+                            options={['Active', 'Inactive']}
+                            name='Status'
+                            value='Active'
+                            onChange={function (checkedValue) {
+                                console.log("New value: ", checkedValue);
+                            }}
+                            isStateful={true}
+                        />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s2">
+                        <button
+                            onClick={this.handleSave}
+                            className="btn waves-effect waves-light"
+                            type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -147,33 +158,34 @@ export class AddBucket extends Component {
 
 const createBucket = gql`
   mutation addBucket(
-    $id: String!,
-    $name: String!,
-    $description: String,
-    $profileId: String!
-    $status: String!,
-    $image: String!,
-    $category: String!,
-    $progress: String!
-    ) {
-    addBucket(
-        id: $id,
-        name: $name,
-        description: $description,
-        profileId: $profileId,
-        status: $status,
-        image: $image,
-        category: $category,
-        progress: $progress
-    ) {     id
-            name
-            description
-            profileId
-            status
-            image
-            category
-            progress
-    }
+	$bucketId: String!,
+	$profileId: String!,
+	$name: String!,
+	$description: String,
+	$category: String,
+	$image: String,
+	$progress: String,
+	$status: String
+	) {
+	addBucket(
+		bucketId: $bucketId,
+		profileId: $profileId,
+		name: $name,
+		description: $description,
+		category: $category,
+		image: $image,
+		progress: $progress,
+		status: $status
+	) {     
+		bucketId
+		profileId
+		name
+		description
+		category
+		image
+		progress
+		status
+	}
   }
 `;
 
