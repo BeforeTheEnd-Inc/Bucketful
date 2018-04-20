@@ -20,6 +20,7 @@
     padding: 16px;
     background-color: #fff;
     box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
 }
 
 span.close {

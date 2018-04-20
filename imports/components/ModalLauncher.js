@@ -25,7 +25,8 @@ export default class ModalLauncher extends Component {
                 </button>
 
                 { showModal &&
-                <Modal onCloseRequest={() => this.handleToggleModal() }>
+                <Modal
+                    onCloseRequest={() => this.handleToggleModal() }>
                     { children }
                 </Modal> }
             </div>

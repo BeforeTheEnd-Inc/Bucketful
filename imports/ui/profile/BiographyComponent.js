@@ -9,9 +9,16 @@ export default class MiniBio extends Component {
     constructor(props) {
         super(props);
 
-        this.className = props.className;
+        // User profile information
+        this.bio = "This is where the biography will be. There shall " +
+            "be an 'Edit' button in the bottom right hand of this component " +
+            "that will allow the user to update and change her/his biography " +
+            "at any time."; //props.bio;
+        this.birthdate = props.birthdate;
+        this.hometown = props.hometown;
+        this.gender = props.gender;
 
-        this.gender = null;
+        this.clickedGender = null;
     }
 
     handleSelect(e) {
@@ -22,8 +29,32 @@ export default class MiniBio extends Component {
             if (buttons[x] !== e.target.id) {
                 button.checked = false;
             } else {
-                this.gender = b;
+                this.clickedGender = b;
             }
+        }
+    };
+
+    handleSave() {
+        let bio = $("#minibio")[0].value;
+        let birthdate = $("#birthdate")[0].value;
+        let hometown = $("#hometown")[0].value;
+
+        if (bio !== "") {
+            this.bio = bio;
+            $('#bioText').text(bio);
+        }
+
+        if (birthdate !== "") {
+            this.birthdate = birthdate;
+        }
+
+        if (hometown !== "") {
+            this.hometown = hometown;
+        }
+
+        if (this.clickedGender !== undefined
+            && this.clickedGender !== null) {
+            this.gender = this.clickedGender;
         }
     };
 
@@ -32,12 +63,7 @@ export default class MiniBio extends Component {
         return (
             <section className='mini-bio-section'>
                 <section className="bio-container">
-                    <p>
-                        This is where the biography will be. There shall
-                        be an 'Edit' button in the bottom right hand of
-                        this component that will allow the user to
-                        update and change her/his biography at any time.
-                    </p>
+                    <p id='bioText'>{this.bio}</p>
                     {/*<Label*/}
                     {/*className='profile-title'*/}
                     {/*type='5'*/}
@@ -59,41 +85,53 @@ export default class MiniBio extends Component {
                         label='Gender: other'
                     />
 
-                    <ModalLauncher buttonLabel='Edit'>
+                    {/*Edit the mini bio*/}
+                    <ModalLauncher
+                        buttonLabel='Edit'>
                         <form>
                             <br/><br/>
+
+                            {/*Bio section*/}
                             <Label
                                 type='5'
                                 label='Write something about yourself!'
                             />
                             <TextArea
+                                id={'minibio'}
                                 cols='300'
                             />
+
+                            {/*Birthday section*/}
                             <Label
                                 type='5'
                                 label='Birth date'
                             />
                             <input
+                                id={'birthdate'}
                                 type='date'
                                 style={{
                                     width: '316px'
                                 }}
                             />
+
+                            {/*Hometown section*/}
                             <Label
                                 type='5'
                                 label='Hometown'
                             />
                             <input
+                                id='hometown'
                                 type='text'
                                 style={{
                                     width: '316px'
                                 }}
                             />
+
+                            {/*Gender section*/}
                             <Label
                                 type='5'
                                 label='Gender'
                             />
-
                             <RadioButton
                                 type='radio'
                                 id='male'
@@ -101,7 +139,6 @@ export default class MiniBio extends Component {
                                 label='Male'
                                 onChange={this.handleSelect}
                             />
-
                             <RadioButton
                                 type='radio'
                                 id='female'
@@ -109,7 +146,6 @@ export default class MiniBio extends Component {
                                 label='Female'
                                 onChange={this.handleSelect}
                             />
-
                             <RadioButton
                                 type='radio'
                                 id='preferNo'
@@ -119,7 +155,17 @@ export default class MiniBio extends Component {
                             />
 
                             <br/>
-                            <button style={{ float: 'right' }}>Save</button>
+                            {/*Save edited bio*/}
+                            <button
+                                style={{
+                                    float: 'right'
+                                }}
+                                onClick={this.handleSave}
+                            >
+                                {/*Button text*/}
+                                Save
+                            </button>
+
                         </form>
                     </ModalLauncher>
                 </section>

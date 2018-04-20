@@ -6,6 +6,7 @@ export default class TextArea extends Component {
     constructor(props) {
         super(props);
 
+        this.id = props.id;
         this.areaRowHeight = props.areaRowHeight;
         this.areaColumnWidth = props.areaColumnWidth;
         this.className = props.className;
@@ -16,6 +17,7 @@ export default class TextArea extends Component {
         return (
             <article>
                 <textarea
+                    id={this.id}
                     rows={this.areaRowHeight}
                     cols={this.areaColumnWidth}
                     className={this.className}
