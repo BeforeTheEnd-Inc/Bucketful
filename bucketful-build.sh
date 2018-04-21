@@ -24,6 +24,10 @@ echo "=> building docker image ..."
 docker build -t beforetheend/bucketful:$BRANCH .
 
 
+echo "=> Removing old <none> docker images ..."
+docker rmi $(docker images | grep "<none>" | awk '{print $3}')
+
+
 if [ "$LOCAL" = true ]; then
     echo "=> start docker compose ..."
     docker-compose up -d
