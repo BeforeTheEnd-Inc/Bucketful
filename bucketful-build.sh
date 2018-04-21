@@ -24,8 +24,12 @@ echo "=> building docker image ..."
 docker build -t beforetheend/bucketful:$BRANCH .
 
 
-echo "=> Removing old <none> docker images ..."
-docker rmi $(docker images | grep "<none>" | awk '{print $3}')
+echo "=> Removing dangling docker images ..."
+if docker images | grep -q "<none>"; then
+    docker rmi $(docker images | grep "<none>" | awk '{print $3}')
+else
+    echo "... no dangling images found"
+fi
 
 
 if [ "$LOCAL" = true ]; then
