@@ -12,8 +12,8 @@ export default class FinishedBucket extends Component {
     render() {
         return (
             <section id='section-bucket'>
-                <section className='bucket-container-finished'>
-                    <div className='bucket-image'>
+                <section className='profile-bucket-container-finished'>
+                    <div className='profile-bucket-image'>
                         <div
                             className='flip-container'
                             onTouchStart={() => {
@@ -35,7 +35,7 @@ export default class FinishedBucket extends Component {
                         </div>
                     </div>
                     <Label
-                        className='bucket-label'
+                        className='profile-bucket-label'
                         type='1'
                         label='label name'
                     />

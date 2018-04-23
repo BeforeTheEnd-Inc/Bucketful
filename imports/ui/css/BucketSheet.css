@@ -1,0 +1,169 @@
+.new-bucket-grid-container {
+    display: grid;
+    height: 100%;
+
+    /*grid-template-columns: [col-start] 170px [col1-start] 220px [col1-end col2-start] 220px [col2-end col3-start] 220px [col-end];*/
+    /*grid-template-rows: [row-start] 220px [row1-start] 260px [row-end];*/
+    grid-template-columns: [col-start] 170px [col-end] auto auto auto;
+
+    grid-template-areas: "sidebar main";
+
+    grid-gap: 15px 15px;
+    justify-items: start;
+    align-content: center;
+    position: center;
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: lightsteelblue;
+}
+/*root defines the initial state of the variables*/
+/*:root {*/
+    /*--col-num: 2;*/
+    /*--col-pos: 2;*/
+
+    /*--row-num: 1;*/
+/*}*/
+
+/*The css for each bucket item*/
+/*button.new-bucket-grid-item {*/
+    /*grid-area: main;*/
+    /*grid-column: var(--col-num)/var(--col-pos);*/
+    /*grid-row: var(--row-num);*/
+    /*background-color: #888888;*/
+    /*border-radius: 5px;*/
+    /*text-align: center;*/
+    /*width: 200px;*/
+    /*height: 200px;*/
+    /*margin: 10px;*/
+/*}*/
+
+button.new-bucket-grid-item-1 {
+    grid-area: main;
+    grid-column: 2/2;
+    grid-row: 1;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-2 {
+    grid-area: main;
+    grid-column: 3/3;
+    grid-row: 1;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-3 {
+    grid-area: main;
+    grid-column: 4/4;
+    grid-row: 1;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-4 {
+    grid-area: main;
+    grid-column: 2/2;
+    grid-row: 2;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-5 {
+    grid-area: main;
+    grid-column: 3/3;
+    grid-row: 2;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-6 {
+    grid-area: main;
+    grid-column: 4/4;
+    grid-row: 2;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-7 {
+    grid-area: main;
+    grid-column: 2/2;
+    grid-row: 3;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-8 {
+    grid-area: main;
+    grid-column: 3/3;
+    grid-row: 3;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+button.new-bucket-grid-item-9 {
+    grid-area: main;
+    grid-column: 4/4;
+    grid-row: 3;
+    background-color: #888888;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.new-bucket-grid-box-area {
+    grid-area: sidebar;
+    grid-column: 1/1;
+    grid-row: 1;
+
+    margin: 10px;
+}
+
+input:checked.checkbox{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #112222;
+}
+
+input[type="checkbox"]:empty.checkbox {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: white !important;
+
+
+}
