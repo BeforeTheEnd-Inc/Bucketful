@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.42",
+    "bcrypt": "^2.0.0",
     "create-react-class": "^15.6.3",
     "jquery": "^3.3.1",
     "meteor-node-stubs": "^0.3.2",
@@ -19,6 +20,7 @@
     "react-meteor-data": "^0.2.11",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "select2": "^4.0.6-rc.1",
     "simpl-schema": "^1.4.2",
     "simple-schema": "^1.1.0"
   }

@@ -13,8 +13,8 @@ export default class CurrentBucket extends Component {
     render() {
         return (
             <section id='section-bucket'>
-                <section className='bucket-container-current'>
-                    <div className='bucket-image'>
+                <section className='profile-bucket-container-current'>
+                    <div className='profile-bucket-image'>
                         <div className='flip-container' onTouchStart={() => {
                             this.classList.toggle('hover');
                         }}>
@@ -24,13 +24,13 @@ export default class CurrentBucket extends Component {
                                 </div>
                                 <div className='back'>
                                     <Label
-                                        className='bucket-label'
+                                        className='profile-bucket-label'
                                         type='4'
                                         label='Item name'
                                     />
                                     <br/>
                                     <Label
-                                        className='bucket-label'
+                                        className='profile-bucket-label'
                                         type='4'
                                         label='Item description'
                                     />
@@ -39,13 +39,14 @@ export default class CurrentBucket extends Component {
                                         type='3'
                                         label='Click to edit current item!'
                                         msg='Redirecting to edit the current item...'
+                                        route='/bucket'
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <Label
-                        className='bucket-label'
+                        className='profile-bucket-label'
                         type='1'
                         label='label name'
                     />

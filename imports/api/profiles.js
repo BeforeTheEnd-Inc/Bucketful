@@ -17,7 +17,7 @@ ProfileSchema = new SimpleSchema({
   country: String,
   phone: String,
   email: String,
-  status: String,
+  isActive: String,
 });
 
 // Profiles.attachSchema(ProfileSchema);

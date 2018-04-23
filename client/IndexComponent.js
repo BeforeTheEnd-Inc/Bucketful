@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 
 import Login from '../imports/components/LoginComponent';
-import Bucket from '../imports/ui/buckets/BucketView';
+import BucketView from '../imports/ui/buckets/BucketView';
 
 import ProfileView from '../imports/ui/profile/ProfileView';
+import NewBucketItem from "../imports/ui/buckets/CreateBucketItem";
 
 export default class Index extends Component {
 
@@ -12,7 +13,7 @@ export default class Index extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path='/' component={ProfileView} />
+                    <Route exact path='/' component={BucketView} />
                     {/*<Route exact path='/' component={Bucket} />*/}
                 </Switch>
             </BrowserRouter>

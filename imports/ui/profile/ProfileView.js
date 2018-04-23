@@ -5,10 +5,7 @@ import '../css/ProfileSheet.css';
 import Label from '../../components/LabelComponent';
 import ProfileBucket from "./ProfileBucketComponent";
 import ProfilePic from './ProfilePictureComponent';
-
-import '../css/ProfileSheet.css';
 import BannerPic from "./BannerPictureComponent";
-
 import MiniBio from "./BiographyComponent";
 import Link from "../../components/LinkComponent";
 

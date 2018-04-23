@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 
 export default class CheckBox extends Component {
-    constructor(label) {
-        super(label);
-        this.state = {isChecked: false};
+    constructor(props) {
+        super(props);
+
+        this.className = props.className;
+        this.label = props.label;
+        this.isChecked = props.isChecked;
 
         this.handleIsChecked = this.handleIsChecked.bind(this);
     }
 
-    static props = {
-        label: ''
-    };
+    // props = {
+    //     label: ''
+    // };
 
     render() {
        return (
@@ -20,12 +23,12 @@ export default class CheckBox extends Component {
                    label="label"
                >
                    <input
-                       className="checkbox"
+                       className={this.className}
                        type="checkBox"
                        checked={this.isChecked}
                        onChange={this.handleIsChecked}
                    />
-                   {this.props.label}
+                   {this.label}
                </label>
            </div>
        );

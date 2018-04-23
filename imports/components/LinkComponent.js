@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Label from './LabelComponent';
 
+import browserHistory from 'react-router-dom';
+
 export default class Link extends Component {
     constructor(props) {
         super(props);
@@ -14,13 +16,15 @@ export default class Link extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        window.alert(this.props.msg);
+        // window.alert(this.props.msg);
+
+        //browserHistory.withRouter(this.props.route);
     };
 
     render() {
         return (
             <a href='#'
-               onClick={this.handleClick}
+               onClick={this.handleClick.bind(this)}
                target={this.props.route}
             >
                 <Label
