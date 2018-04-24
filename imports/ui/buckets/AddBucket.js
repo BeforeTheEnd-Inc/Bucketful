@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import Menu from "../../components/MenuComponent";
 
-export default class Bucket extends Component {
+export default class AddBucket extends Component {
     constructor(props) {
         super(props);
     }
@@ -13,7 +13,7 @@ export default class Bucket extends Component {
         return (
             <div>
                 <Menu/>
-                <p>This is the bucket view page</p>
+                <p>This is the add bucket page</p>
             </div>
         );
     }
