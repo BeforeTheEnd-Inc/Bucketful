@@ -24,6 +24,14 @@ echo "=> building docker image ..."
 docker build -t beforetheend/bucketful:$BRANCH .
 
 
+echo "=> Removing dangling docker images ..."
+if docker images | grep -q "<none>"; then
+    docker rmi $(docker images | grep "<none>" | awk '{print $3}')
+else
+    echo "... no dangling images found"
+fi
+
+
 if [ "$LOCAL" = true ]; then
     echo "=> start docker compose ..."
     docker-compose up -d
