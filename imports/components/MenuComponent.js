@@ -8,7 +8,7 @@ export default class MenuComponent extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a>Logo</a>
+                        <Link to='/'>Home</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
