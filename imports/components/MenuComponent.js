@@ -14,6 +14,7 @@ export default class MenuComponent extends Component {
                 <Nav>
                     <Link to='/viewbuckets'>Bucket</Link>
                     <Link to='/addbucket'>Add Buckets</Link>
+                    <Link to='/signup'>Sign Up</Link>
                 </Nav>
             </Navbar>
         );
