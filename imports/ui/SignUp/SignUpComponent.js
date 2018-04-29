@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import Menu from "../../components/MenuComponent";
 
@@ -25,6 +26,10 @@ export default class SignUp extends Component {
 
     radioStyle = {
         marginLeft: "14px"
+    };
+
+    submitStyle = {
+        float: "right"
     };
 
     handleChange(event) {
@@ -80,6 +85,8 @@ export default class SignUp extends Component {
                             <label><input type="radio" name="optradio"/>Prefer not to disclose</label>
                         </div>
                     </div>
+                    <br/>
+                    <button type="submit" className="btn btn-primary" style={this.submitStyle} onSubmit={this.handleSubmit}>Sign Up!</button>
                 </form>
             </div>
         );
