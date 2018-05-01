@@ -9,12 +9,13 @@ export default class MenuComponent extends Component {
     };
 
     navStyle = {
-        flexDirection: "row"
+        flexDirection: "row",
+        fontSize: "12px"
     };
 
     linkStyle = {
         height: "auto",
-        fontSize: "16px"
+        fontSize: "18px"
     };
 
     render() {
