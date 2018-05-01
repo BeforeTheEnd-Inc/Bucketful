@@ -1,20 +1,34 @@
-import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default class MenuComponent extends Component {
-    render () {
+
+    navbarStyle = {
+        width: "770px"
+    };
+
+    navStyle = {
+        flexDirection: "row"
+    };
+
+    linkStyle = {
+        height: "auto",
+        fontSize: "16px"
+    };
+
+    render() {
         return (
-            <Navbar>
+            <Navbar style={this.navbarStyle}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to='/'>Home</Link>
+                        <Link to='/' style={this.linkStyle}>Home</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav>
-                    <Link to='/viewbuckets'>Bucket</Link>
-                    <Link to='/addbucket'>Add Buckets</Link>
-                    <Link to='/signup'>Sign Up</Link>
+                <Nav style={this.navStyle}>
+                    <NavItem href='/viewbuckets'>Buckets</NavItem>
+                    <NavItem href='/addbucket'>Add Buckets</NavItem>
+                    <NavItem href='/signup'>Sign Up</NavItem>
                 </Nav>
             </Navbar>
         );
