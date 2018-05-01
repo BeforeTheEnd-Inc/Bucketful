@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { Glyphicon, FormGroup, InputGroup, FormControl, Radio } from "react-bootstrap";
 
 import Menu from "../../components/MenuComponent";
+
+import "../css/SignUpStyleSheet.css";
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -9,104 +11,114 @@ export default class SignUp extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
-    formStyle = {
-        width: "350px",
-        margin: "auto"
-    };
-
-    signUpStyle = {
-        textAlign: "center"
-    };
-
-    inputGroupStyle = {
-        margin: "0 auto"
-    };
-
-    radioStyle = {
-        marginLeft: "14px"
-    };
-
-    submitStyle = {
-        float: "right"
-    };
-
     handleChange(event) {
-        // TODO:
+        this.gender = event.target.value;
     }
 
     handleSubmit(event) {
-        // TODO:
+        event.preventDefault();
 
-        Template.register.events({
-            'submit form': function(event){
-                event.preventDefault();
-                var email = $('[name=email]').val();
-                var password = $('[name=password]').val();
-                Accounts.createUser({
-                    email: email,
-                    password: password
-                });
+        let profile = {
+            firstName: $('#firstname')[0].value,
+            lastName: $('#lastname')[0].value,
+            email: $('#email')[0].value,
+            password: $('#password')[0].value,
+            birthday: $('#birthday')[0].value,
+            gender: this.gender,
+            createdAt: new Date()
+        };
+
+        Meteor.call('insert', profile, (error) => {
+            if (error) {
+                alert("Oops something went wrong: " + error.reason);
+            } else {
+                alert("Profile added");
+                history.push('/');
             }
         });
-
-        alert('Submitting application');
     }
 
     render() {
         return (
             <div>
                 <Menu/>
-                <form className="register" style={this.formStyle} onSubmit={this.handleSubmit}>
-                    <h1 className="signUpHeader" style={this.signUpStyle}>Sign up for free!</h1>
+                <form className="register" onSubmit={this.handleSubmit}>
+
+                    <h1 className="signUpHeader">Sign up for free!</h1>
+
                     <br/>
+                    <br/>
+                    <br/>
+
                     {/* User's name */}
-                    <div className="input-group" style={this.inputGroupStyle}>
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-user"/></span>
-                        <input id="firstname" type="text" className="form-control" name="firstname"
-                               placeholder="First Name"/>
-                        <input id="lastname" type="text" className="form-control" name="lastname"
-                               placeholder="Last Name"/>
-                    </div>
-                    <br/>
+
+                    <FormGroup>
+                        <InputGroup>
+                            <InputGroup.Addon>
+                                <Glyphicon glyph="user"/>
+                            </InputGroup.Addon>
+                            <FormControl type="text" id="firstname" placeholder="First Name"/>
+                            <FormControl type="text" id="lastname" placeholder="Last Name"/>
+                        </InputGroup>
+                    </FormGroup>
+
                     {/* User's email*/}
-                    <div className="input-group" style={this.inputGroupStyle}>
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"/></span>
-                        <input id="email" type="email" className="form-control" name="email" placeholder="Email"/>
-                    </div>
-                    <br/>
+
+                    <FormGroup>
+                        <InputGroup>
+                            <InputGroup.Addon>
+                                <Glyphicon glyph="envelope"/>
+                            </InputGroup.Addon>
+                            <FormControl type="email" id="email" placeholder="Email"/>
+                        </InputGroup>
+                    </FormGroup>
+
                     {/* User's password */}
-                    <div className="input-group" style={this.inputGroupStyle}>
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-lock"/></span>
-                        <input id="password" type="password" className="form-control" name="password"
-                               placeholder="Password"/>
-                        <input id="confirmpassword" type="password" className="form-control" name="confirmpassword"
-                               placeholder="Confirm Password"/>
-                    </div>
-                    <br/>
+
+                    <FormGroup>
+                        <InputGroup>
+                            <InputGroup.Addon>
+                                <Glyphicon glyph="lock"/>
+                            </InputGroup.Addon>
+                            <FormControl type="password" id="password" placeholder="Password"/>
+                            <FormControl type="password" id="confirmpassword" placeholder="Confirm Password"/>
+                        </InputGroup>
+                    </FormGroup>
+
                     {/* User's date of birth */}
-                    <div className="input-group" style={this.inputGroupStyle}>
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-gift"/></span>
-                        <input id="birthdate" type="date" className="form-control" name="birthdate"
-                               placeholder="Date of Birth"/>
-                    </div>
-                    <br/>
+
+                    <FormGroup>
+                        <InputGroup>
+                            <InputGroup.Addon>
+                                <Glyphicon glyph="gift"/>
+                            </InputGroup.Addon>
+                            <FormControl type="date" id="birthday" placeholder="Date of Birth"/>
+                        </InputGroup>
+                    </FormGroup>
+
                     {/* User's gender */}
-                    <div style={this.radioStyle}>
-                        <div className="radio">
-                            <label><input type="radio" name="optradio"/>Male</label>
-                        </div>
-                        <div className="radio">
-                            <label><input type="radio" name="optradio"/>Female</label>
-                        </div>
-                        <div className="radio">
-                            <label><input type="radio" name="optradio"/>Prefer not to disclose</label>
-                        </div>
-                    </div>
+
+                    <FormGroup>
+                        <Radio name="radioGroup" value="male" onChange={this.handleChange} inline >
+                            Male
+                        </Radio>{' '}
+                        <Radio name="radioGroup" value="female" onChange={this.handleChange} inline>
+                            Female
+                        </Radio>{' '}
+                        <Radio name="radioGroup" value="preferNo" onChange={this.handleChange} inline >
+                            Prefer not to disclose
+                        </Radio>
+                    </FormGroup>
+
                     <br/>
-                    {/* Submit button */}
-                    <button type="submit" className="btn btn-primary" style={this.submitStyle}>Sign Up!</button>
+                    <br/>
+                    <br/>
+
+                    {/* Submit */}
+                    <button type="submit" className="btn btn-primary">Sign Up!</button>
                 </form>
             </div>
         );
