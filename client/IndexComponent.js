@@ -4,7 +4,7 @@ import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import ProfileView from '../imports/ui/profile/ProfileView';
 import BucketViewComponent from '../imports/ui/buckets/BucketView';
 import AddBucketComponent from "../imports/ui/buckets/AddBucket";
-import SignUpComponent from "../imports/ui/SignUp/SignUpComponent";
+import SignUpComponent from "../imports/ui/signUp/SignUpComponent";
 
 export default class Index extends Component {
 
