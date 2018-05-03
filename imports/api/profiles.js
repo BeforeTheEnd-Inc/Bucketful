@@ -1,115 +1,161 @@
+import Meteor from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
+import React from 'react';
 import SimpleSchema from 'simpl-schema';
 
-Profiles = new Mongo.Collection('profiles');
+export const Profiles = new Mongo.Collection('profiles');
 
-if (Meteor.isServer) {
-    Profiles.allow({
-        insert: function (userId, doc) {
-            return false;
-        },
+const Schema = {};
 
-        update: function (userId, doc, fieldNames, modifier) {
-            return false;
-        },
-
-        remove: function (userId, doc) {
-            return false;
-        }
-    });
-
-    Profiles.deny({
-        insert: function (userId, doc) {
-            return true;
-        },
-
-        update: function (userId, doc, fieldNames, modifier) {
-            return true;
-        },
-
-        remove: function (userId, doc) {
-            return true;
-        }
-    });
-}
-
-Profiles.attachSchema(new SimpleSchema({
-    firstName: {
-        type: String,
-        label: "First Name",
-        max: 100
+Schema.UserCountry = new SimpleSchema({
+    name: {
+        type: String
     },
-    lastName: {
+    code: {
         type: String,
-        label: "Last Name",
-        max: 100
-    },
-    username: {
+        regEx: /^[A-Z]{2}$/
+    }
+});
+
+Schema.UserProfile = new SimpleSchema({
+    firstname: {
         type: String,
-        label: "Username",
-        max: 100
+        optional: false
     },
-    password: {
+    lastname: {
         type: String,
-        label: "Password",
-        max: 100
-    },
-    gender: {
-        type: String,
-        label: "Gender",
-        allowedValues: ['Female', 'Male'],
-    },
-    birthday: {
-        type: Date,
-        label: "Birthday"
+        optional: false
     },
     email: {
         type: String,
-        label: "Email",
-        max: 100
+        optional: false
+    },
+    password: {
+        type: String,
+        optional: false
+    },
+    birthday: {
+        type: Date,
+        optional: false
+    },
+    gender: {
+        type: String,
+        allowedValues: ['male', 'female', 'preferNo'],
+        optional: false
+    },
+    createdAt: {
+        type: Date
     },
     phone: {
         type: String,
-        label: "Phone",
-        max: 100
+        optional: true
     },
     address: {
         type: String,
-        label: "Address",
-        max: 100
+        optional: true
     },
     city: {
         type: String,
-        label: "City",
-        max: 100
+        optional: true
     },
     state: {
         type: String,
-        label: "State",
-        allowedValues: ['{AL} Alabama', '{AK} Alaska', '{AZ} Arizona', '{AR} Arkansas', '{CA} California', '{CO} Colorado', '{CT} Connecticut', '{DE} Delaware', '{DC} District Of Columbia', '{FL} Florida', '{GA} Georgia', '{HI} Hawaii', '{ID} Idaho', '{IL} Illinois', '{IN} Indiana', '{IA} Iowa', '{KS} Kansas', '{KY} Kentucky', '{LA} Louisiana', '{ME} Maine', '{MD} Maryland', '{MA} Massachusetts', '{MI} Michigan', '{MN} Minnesota', '{MS} Mississippi', '{MO} Missouri', '{MT} Montana', '{NE} Nebraska', '{NV} Nevada', '{NH} New Hampshire', '{NJ} New Jersey', '{NM} New Mexico', '{NY} New York', '{NC} North Carolina', '{ND} North Dakota', '{OH} Ohio', '{OK} Oklahoma', '{OR} Oregon', '{PA} Pennsylvania', '{RI} Rhode Island', '{SC} South Carolina', '{SD} South Dakota', '{TN} Tennessee', '{TX} Texas', '{UT} Utah', '{VT} Vermont', '{VA} Virginia', '{WA} Washington', '{WV} West Virginia', '{WI} Wisconsin', '{WY} Wyoming']
+        optional: true
     },
     postalCode: {
-        type: Number,
-        label: "Postal Code"
+        type: String,
+        optional: true
     },
     country: {
+        type: Schema.UserCountry,
+        optional: true
+    },
+    bio: {
         type: String,
-        label: "Country",
-        allowedValues: ['Not started', 'Travel', 'Entertainment', 'Sports']
+        optional: true
     },
     status: {
         type: String,
-        label: "Status",
-        allowedValues: ['Active', 'Inactive']
+        allowedValues: ['Active', 'Inactive'],
+        optional: true
+    }
+});
+
+Schema.User = new SimpleSchema({
+    username: {
+        type: String,
+        // For accounts-password, either emails or username is required, but not both. It is OK to make this
+        // optional here because the accounts-password package does its own validation.
+        // Third-party login packages may not require either. Adjust this schema as necessary for your usage.
+        optional: true
+    },
+    emails: {
+        type: Array,
+        // For accounts-password, either emails or username is required, but not both. It is OK to make this
+        // optional here because the accounts-password package does its own validation.
+        // Third-party login packages may not require either. Adjust this schema as necessary for your usage.
+        optional: true
+    },
+    "emails.$": {
+        type: Object
+    },
+    "emails.$.address": {
+        type: String,
+        regEx: SimpleSchema.RegEx.Email
+    },
+    "emails.$.verified": {
+        type: Boolean
+    },
+    // Use this registered_emails field if you are using splendido:meteor-accounts-emails-field / splendido:meteor-accounts-meld
+    registered_emails: {
+        type: Array,
+        optional: true
+    },
+    'registered_emails.$': {
+        type: Object,
+        blackbox: true
     },
     createdAt: {
-        type: Date,
-        label: "Created At",
-        defaultValue: new Date()
+        type: Date
     },
-    createdBy: {
-        type: String,
-        label: "Created By",
-        defaultValue: Meteor.userId
+    profile: {
+        type: Schema.UserProfile,
+        optional: true
+    },
+    // Make sure this services field is in your schema if you're using any of the accounts packages
+    services: {
+        type: Object,
+        optional: true,
+        blackbox: true
+    },
+    // Add `roles` to your schema if you use the meteor-roles package.
+    // Option 1: Object type
+    // If you specify that type as Object, you must also specify the
+    // `Roles.GLOBAL_GROUP` group whenever you add a user to a role.
+    // Example:
+    // Roles.addUsersToRoles(userId, ["admin"], Roles.GLOBAL_GROUP);
+    // You can't mix and match adding with and without a group since
+    // you will fail validation in some cases.
+    roles: {
+        type: Object,
+        optional: true,
+        blackbox: true
+    },
+    // Option 2: [String] type
+    // If you are sure you will never need to use role groups, then
+    // you can specify [String] as the type
+    roles: {
+        type: Array,
+        optional: true
+    },
+    'roles.$': {
+        type: String
+    },
+    // In order to avoid an 'Exception in setInterval callback' from Meteor
+    heartbeat: {
+        type: Date,
+        optional: true
     }
-}));
+});
+
+Profiles.attachSchema(Schema.UserProfile);

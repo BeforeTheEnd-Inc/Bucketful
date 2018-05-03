@@ -1,51 +1,70 @@
 import React, { Component } from "react";
 import { Glyphicon, FormGroup, InputGroup, FormControl, Radio } from "react-bootstrap";
+import { Profiles } from "../../api/profiles";
 
 import Menu from "../../components/MenuComponent";
 
 import "../css/SignUpStyleSheet.css";
 
 export default class SignUp extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {vale: ''};
+
+        this.handleGenderElect  = this.handleGenderElect.bind(this);
+        this.handleChange       = this.handleChange.bind(this);
+        this.handleSubmit       = this.handleSubmit.bind(this);
 
     }
 
+    handleGenderElect(event) {
+        this.gender     = event.target.value;
+    }
+
     handleChange(event) {
-        this.gender = event.target.value;
+        // TODO: Evaluate confirm pass
+
+        const target    = event.target;
+        const value     = target.type === 'checkbox' ? target.checked : target.value;
+        const name      = target.name;
+
+        this.setState({
+            [name]: value
+        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
-        let profile = {
-            firstName: $('#firstname')[0].value,
-            lastName: $('#lastname')[0].value,
-            email: $('#email')[0].value,
-            password: $('#password')[0].value,
-            birthday: $('#birthday')[0].value,
-            gender: this.gender,
-            createdAt: new Date()
-        };
-
-        Meteor.call('insert', profile, (error) => {
+        Profiles.insert({
+            profileId: '10001',
+            firstname: event.target.firstname.value,
+            lastname: event.target.lastname.value,
+            email: event.target.email.value,
+            password: event.target.password.value,
+            birthday: event.target.birthday.value,
+            gender: event.target.gender.value,
+            createdAt: new Date(),
+            createdBy: '10001'
+        }, (error, result) => {
             if (error) {
-                alert("Oops something went wrong: " + error.reason);
+                alert('Oops something went wrong: ' + Profiles.simpleSchema().namedContext().validationErrors());
             } else {
-                alert("Profile added");
-                history.push('/');
+                alert('New profile created: ' + result);
             }
         });
     }
 
     render() {
+
         return (
             <div>
                 <Menu/>
                 <form className="register" onSubmit={this.handleSubmit}>
+
+                    <br/>
+                    <br/>
 
                     <h1 className="signUpHeader">Sign up for free!</h1>
 
@@ -60,8 +79,8 @@ export default class SignUp extends Component {
                             <InputGroup.Addon>
                                 <Glyphicon glyph="user"/>
                             </InputGroup.Addon>
-                            <FormControl type="text" id="firstname" placeholder="First Name"/>
-                            <FormControl type="text" id="lastname" placeholder="Last Name"/>
+                            <FormControl type="text" name="firstname" placeholder="First Name"/>
+                            <FormControl type="text" name="lastname" placeholder="Last Name"/>
                         </InputGroup>
                     </FormGroup>
 
@@ -72,7 +91,7 @@ export default class SignUp extends Component {
                             <InputGroup.Addon>
                                 <Glyphicon glyph="envelope"/>
                             </InputGroup.Addon>
-                            <FormControl type="email" id="email" placeholder="Email"/>
+                            <FormControl type="email" name="email" placeholder="Email"/>
                         </InputGroup>
                     </FormGroup>
 
@@ -83,8 +102,8 @@ export default class SignUp extends Component {
                             <InputGroup.Addon>
                                 <Glyphicon glyph="lock"/>
                             </InputGroup.Addon>
-                            <FormControl type="password" id="password" placeholder="Password"/>
-                            <FormControl type="password" id="confirmpassword" placeholder="Confirm Password"/>
+                            <FormControl type="password" name="password" placeholder="Password"/>
+                            <FormControl type="password" name="confirmpassword" placeholder="Confirm Password"/>
                         </InputGroup>
                     </FormGroup>
 
@@ -95,20 +114,20 @@ export default class SignUp extends Component {
                             <InputGroup.Addon>
                                 <Glyphicon glyph="gift"/>
                             </InputGroup.Addon>
-                            <FormControl type="date" id="birthday" placeholder="Date of Birth"/>
+                            <FormControl type="date" name="birthday" placeholder="Date of Birth"/>
                         </InputGroup>
                     </FormGroup>
 
                     {/* User's gender */}
 
                     <FormGroup>
-                        <Radio name="radioGroup" value="male" onChange={this.handleChange} inline >
+                        <Radio name="gender" value="male" onChange={this.handleGenderElect} inline >
                             Male
-                        </Radio>{' '}
-                        <Radio name="radioGroup" value="female" onChange={this.handleChange} inline>
+                        </Radio>
+                        <Radio name="gender" value="female" onChange={this.handleGenderElect} inline>
                             Female
-                        </Radio>{' '}
-                        <Radio name="radioGroup" value="preferNo" onChange={this.handleChange} inline >
+                        </Radio>
+                        <Radio name="gender" value="preferNo" onChange={this.handleGenderElect} inline >
                             Prefer not to disclose
                         </Radio>
                     </FormGroup>
