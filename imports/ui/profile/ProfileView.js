@@ -9,6 +9,8 @@ import BannerPic from "./BannerPictureComponent";
 import MiniBio from "./BiographyComponent";
 import Link from "../../components/LinkComponent";
 
+import Menu from "../../components/MenuComponent";
+
 export default class ProfileComponent extends Component {
     constructor(props) {
         super(props);
@@ -20,95 +22,91 @@ export default class ProfileComponent extends Component {
 
     render() {
         return (
-            <section id='section'>
+            <div>
+                <Menu/>
+                <section id='section'>
+                    <BannerPic imageSource={this.bannerImage}>
+                        <section className='section-area-upper-left'>
+                            <div>
+                                <ProfilePic imageSource={this.profileImage}/>
+                                {/*some sort of image repo accessor or something like that*/}
+                                <Label
+                                    className='image-holder-label'
+                                    type='2'
+                                    label={this.profileName}
+                                />
+                            </div>
+                        </section>
 
-                {/*<ProfileBanner*/}
-                    {/*profileImage={this.profileImage}*/}
-                    {/*bannerImage={this.bannerImage}*/}
-                    {/*profileName={this.profileName}*/}
-                    {/*profileQuote={this.profileQuote}*/}
-                {/*/>*/}
-                <BannerPic imageSource={this.bannerImage}>
-                    <section className='section-area-upper-left'>
-                        <div>
-                            <ProfilePic imageSource={this.profileImage}/>
-                            {/*some sort of image repo accessor or something like that*/}
+                        <section className='section-area-upper-right'>
                             <Label
-                                className='image-holder-label'
+                                className='image-holder-quote-label'
                                 type='2'
-                                label={this.profileName}
-                            />
-                        </div>
-                    </section>
-
-                    <section className='section-area-upper-right'>
-                        <Label
-                            className='image-holder-quote-label'
-                            type='2'
-                            label={this.profileQuote}
-                        />
-                    </section>
-                </BannerPic>
-
-                {/*<!--lower part of the page -->*/}
-                <section className='section-area-lower'>
-                    {/*<!--lower left-->*/}
-                    <section className='section-area-lower-left'>
-                        <section>
-                            <Label
-                                className='profile-title'
-                                type='3'
-                                label='Mini Bio'
+                                label={this.profileQuote}
                             />
                         </section>
-                        <MiniBio/>
-                        <section className='section-area-fin-item'>
+                    </BannerPic>
+
+                    {/*<!--lower part of the page -->*/}
+                    <section className='section-area-lower'>
+                        {/*<!--lower left-->*/}
+                        <section className='section-area-lower-left'>
                             <section>
                                 <Label
                                     className='profile-title'
                                     type='3'
-                                    label='Completed Goals'
+                                    label='Mini Bio'
                                 />
                             </section>
-                            <ProfileBucket
-                                numItems='6'
-                                isActive={false}
-                            />
-                        </section>
-                    </section>
-
-                    {/* <!-- lower right  --> */}
-                    <section className='section-area-lower-right'>
-                        <section>
-                            <section className='section-area-current-link'>
-                                <Label
-                                    className='profile-title'
-                                    type='3'
-                                    label='Current Goals'
-                                />
-                                <Link
-                                    className='profile-title-bucket-link'
-                                    type='3'
-                                    label='Add New Bucket Item'
-                                    msg='Redirecting to create a new item...'
+                            <MiniBio/>
+                            <section className='section-area-fin-item'>
+                                <section>
+                                    <Label
+                                        className='profile-title'
+                                        type='3'
+                                        label='Completed Goals'
+                                    />
+                                </section>
+                                <ProfileBucket
+                                    numItems='6'
+                                    isActive={false}
                                 />
                             </section>
-                            {/*
-                                Will need to fetch active items and create a
-                                new bucket for each.
-                            */}
-
-                            <ProfileBucket
-                                numItems='5'
-                                isActive={true}
-                            />
-
                         </section>
+
+                        {/* <!-- lower right  --> */}
+                        <section className='section-area-lower-right'>
+                            <section>
+                                <section className='section-area-current-link'>
+                                    <Label
+                                        className='profile-title'
+                                        type='3'
+                                        label='Current Goals'
+                                    />
+                                    <Link
+                                        className='profile-title-bucket-link'
+                                        type='3'
+                                        label='Add New Bucket Item'
+                                        msg='Redirecting to create a new item...'
+                                    />
+                                </section>
+                                {/*
+                                    Will need to fetch active items and create a
+                                    new bucket for each.
+                                */}
+
+                                <ProfileBucket
+                                    numItems='5'
+                                    isActive={true}
+                                />
+
+                            </section>
+                        </section>
+
                     </section>
 
                 </section>
-
-            </section>
+            </div>
         );
     }
 }
