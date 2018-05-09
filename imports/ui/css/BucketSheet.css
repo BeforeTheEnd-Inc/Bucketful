@@ -1,16 +1,16 @@
-.new-bucket-container {
-    display: inline-flex;
-    height: 100%;
-    width: inherit;
+#new-bucket-container {
+    display: inline-flex !important;
+    height: 100% !important;
+    width: inherit !important;
 
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.new-bucket-grid-container::-webkit-scrollbar {
+#new-bucket-grid-container::-webkit-scrollbar {
     display: none;
 }
-.new-bucket-grid-container {
+#new-bucket-grid-container {
     display: grid;
     height: 680px;
     width: auto;
@@ -34,14 +34,15 @@ button.new-bucket-grid-item {
     grid-row: auto;
 
     background-color: #888888;
-    border-radius: 5px;
+    border-radius: 5px !important;
     text-align: center;
-    width: 200px;
-    height: 200px;
+    font-size: larger !important;
+    width: 200px !important;
+    height: 200px !important;
     margin: 10px;
 }
 
-.new-bucket-grid-box-area {
+#new-bucket-grid-box-area {
     display: block;
     float: left;
 
