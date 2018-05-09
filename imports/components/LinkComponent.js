@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Label from './LabelComponent';
 
-import browserHistory from 'react-router-dom';
-
 export default class Link extends Component {
     constructor(props) {
         super(props);
@@ -16,9 +14,7 @@ export default class Link extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        // window.alert(this.props.msg);
-
-        //browserHistory.withRouter(this.props.route);
+        window.alert(this.props.msg);
     };
 
     render() {
