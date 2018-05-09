@@ -11,7 +11,7 @@ img {
     border-radius: 5px;
 }
 
-[class*='bucket-'] {
+[class*='profile-bucket-'] {
     display: block;
     margin: 2px;
     -webkit-border-radius: 5px;
@@ -19,7 +19,7 @@ img {
     border-radius: 5px;
 }
 
-.bucket-container-current {
+.profile-bucket-container-current {
     padding-top: 5px;
     background-color: gainsboro;
     border-radius: 5px;
@@ -27,7 +27,7 @@ img {
     width: 390px;
 }
 
-.bucket-container-finished {
+.profile-bucket-container-finished {
     background-color: gainsboro;
     padding-top: 5px;
     border-right: 5px;
@@ -35,13 +35,13 @@ img {
     width: 334px;
 }
 
-.bucket-image {
+.profile-bucket-image {
     height: 140px;
     background-color: whitesmoke;
     width: auto;
 }
 
-.bucket-label {
+.profile-bucket-label {
     display: inline-block;
     float: bottom;
     margin: 2px;

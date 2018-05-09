@@ -7,7 +7,7 @@ export const Tasks = new Mongo.Collection('tasks');
 const TasksSchema = new SimpleSchema({
     _id: Number,
   name: String,
-  status: Boolean,
+  isActive: Boolean,
 });
 
 // Tasks.attachSchema(TaskSchema);

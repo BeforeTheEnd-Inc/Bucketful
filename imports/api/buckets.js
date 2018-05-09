@@ -11,7 +11,7 @@ const BucketSchema = new SimpleSchema({
     name: String,
     description: String,
     profileID: Number,
-    status: String,
+    isActive: String,
     image: String,
     category: String,
     progress: String,
@@ -19,18 +19,3 @@ const BucketSchema = new SimpleSchema({
     costs: [Costs],
 });
 
-
-// const BucketSchema = new SimpleSchema({
-//
-//   name: { type: String },
-//   description: { type: String },
-//   profileID: { type: Number},
-//   status: { type: String, defaultValue: 'Active'},
-//   image: { type: String, defaultValue: null},
-//   category: { type: String, defaultValue: null},
-//   progress: { type: String, defaultValue: null},
-//   tasks: {type: Array[Tasks]},
-//   costs: {type: Array[Costs]},
-// });
-
-// Buckets.attachSchema(BucketSchema);
