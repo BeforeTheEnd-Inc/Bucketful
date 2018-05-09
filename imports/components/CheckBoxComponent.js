@@ -11,10 +11,6 @@ export default class CheckBox extends Component {
         this.handleIsChecked = this.handleIsChecked.bind(this);
     }
 
-    // props = {
-    //     label: ''
-    // };
-
     render() {
        return (
            <div>
