@@ -1,21 +1,18 @@
 import { Mongo } from 'meteor/mongo';
-import { Tasks } from './tasks';
-import { Costs } from './costs';
 import SimpleSchema from 'simpl-schema';
-
 
 export const Buckets = new Mongo.Collection('buckets');
 
-const BucketSchema = new SimpleSchema({
-    _id: Number,
-    name: String,
-    description: String,
-    profileID: Number,
-    isActive: String,
-    image: String,
-    category: String,
-    progress: String,
-    tasks: [Tasks],
-    costs: [Costs],
+const Schema = {};
+
+Schema.Bucket = new SimpleSchema({
+    name: {
+        type: String
+    },
+    description: {
+        type: String
+    }
+    //Add: profileID, isActive, image, category, progress, tasks, costs (?)
 });
 
+Buckets.attachSchema(Schema.Bucket);

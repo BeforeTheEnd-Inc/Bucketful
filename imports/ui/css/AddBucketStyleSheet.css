@@ -1,0 +1,21 @@
+
+span.input-group-addon {
+    width: auto;
+}
+
+form.addBucket {
+    width: 350px;
+    margin: auto;
+}
+
+h1.addBucketHeader {
+    text-align: center;
+}
+
+div.input-group {
+    margin: 0 auto;
+}
+
+button.btn.btn-primary {
+    float: right;
+}
