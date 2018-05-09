@@ -12,6 +12,7 @@ Schema.Bucket = new SimpleSchema({
     description: {
         type: String
     }
+    //Add: profileID, isActive, image, category, progress, tasks, costs (?)
 });
 
 Buckets.attachSchema(Schema.Bucket);

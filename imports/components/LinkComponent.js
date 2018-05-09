@@ -20,7 +20,7 @@ export default class Link extends Component {
     render() {
         return (
             <a href='#'
-               onClick={this.handleClick}
+               onClick={this.handleClick.bind(this)}
                target={this.props.route}
             >
                 <Label
