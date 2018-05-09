@@ -36,8 +36,8 @@ export default class BucketView extends Component {
         return(
             <div>
                 <Menu/>
-                <div className='new-bucket-container'>
-                    <div className='new-bucket-grid-box-area'>
+                <div id='new-bucket-container'>
+                    <div id='new-bucket-grid-box-area'>
                         <CheckBox
                             label='Completed'
                             className='checkbox'
@@ -47,7 +47,7 @@ export default class BucketView extends Component {
                             className='checkbox'
                         />
                     </div>
-                    <div className='new-bucket-grid-container'>
+                    <div id='new-bucket-grid-container'>
                         {gridItems}
                     </div>
                 </div>
