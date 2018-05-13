@@ -86,7 +86,8 @@ export default class ProfileComponent extends Component {
                                     <Link
                                         className='profile-title-bucket-link'
                                         type='3'
-                                        label='Add New Bucket Item'
+                                        label='+'
+                                        style={{float: "right"}}
                                         msg='Redirecting to create a new item...'
                                     />
                                 </section>

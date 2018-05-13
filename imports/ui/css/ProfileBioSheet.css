@@ -9,45 +9,15 @@
 
 .bio-container {
     display: block;
-    /*border: black solid 1px;*/
     border-radius: 5px;
     width: 96.5%;
     height: 100%;
     margin: 5px;
 }
-textarea {
-    border-radius: 5px;
-    width: 324px;
-    height: 106px;
-}
+
 .bio-area {
     border-radius: 5px;
     width: 324px;
-}
-
-button.mini-bio-edit-button {
-    float: right;
-    width: 30px;
-    height: 20px;
-    color: black;
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: 14px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
 }
 
 .edit-mini-bio-content {
@@ -56,18 +26,4 @@ button.mini-bio-edit-button {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-}
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }

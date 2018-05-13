@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import TextField from './TextFieldComponent';
-
-import '../ui/css/LoginStyleSheet.css';
-
 export default class Login extends Component {
     constructor() {
         super();

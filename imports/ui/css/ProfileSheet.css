@@ -3,7 +3,6 @@
 #section {
     display: inline-block;
     width: 770px;
-    max-height: 100%;
     background-color: silver;
     border-radius: 5px;
 }
@@ -121,13 +120,4 @@
 [class*='profile-bucket-link-'] {
     text-align: center;
     font-weight: normal !important;
-}
-
-a, .profile-bucket-link-finished {
-    justify-content: space-around;
-
-}
-
-.profile-bucket-link-current {
-
 }
