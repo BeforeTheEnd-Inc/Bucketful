@@ -19,6 +19,12 @@ export default class EditProfile extends Component {
         textAlign: "left"
     };
 
+    submitButtonStyle = {
+        backgroundColor: "#3B7CB3",
+        borderColor: "#3B7CB3",
+        color: "white"
+    };
+
     handleClose() {
         this.setState({ show: false });
     }
@@ -27,8 +33,18 @@ export default class EditProfile extends Component {
         this.setState({ show: true });
     }
 
-    handleSubmit(event) {
+    handleSubmitClick() {
+        let input = $('#submitInput')[0];
+        input.click();
+    }
 
+    handleSubmit(event) {
+        let minibio = event.target.minibio.value;
+        let birthday = event.target.birthday.value;
+        let hometown = event.target.hometown.value;
+        let gender = event.target.gender.value;
+
+        console.log(event)
     }
 
     render() {
@@ -44,13 +60,13 @@ export default class EditProfile extends Component {
                         <Modal.Title>Edit Profile</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form className="editProfile" onSubmit={this.handleSubmit} style={this.formStyle}>
+                        <form id="editProfile" onSubmit={this.handleSubmit} style={this.formStyle}>
 
                             {/* Mini bio */}
 
                             <FormGroup controlId='formControlsBio'>
                                 <ControlLabel>Write something about yourself</ControlLabel>
-                                <FormControl componentClass="textarea" placeholder="Write something about yourself here..." />
+                                <FormControl componentClass="textarea" name="minibio" placeholder="Write something about yourself here..." />
                             </FormGroup>
 
                             {/* Birthday */}
@@ -64,7 +80,7 @@ export default class EditProfile extends Component {
 
                             <FormGroup controlId="formControlsHometown">
                                 <ControlLabel>Hometown</ControlLabel>
-                                <FormControl type="text" placeholder="Enter your hometown"/>
+                                <FormControl type="text" name='hometown' placeholder="Enter your hometown"/>
                             </FormGroup>
 
                             {/* Gender */}
@@ -82,12 +98,19 @@ export default class EditProfile extends Component {
                                 </Radio>
                             </FormGroup>
 
-                            {/* Submit */}
+                            {/* Submit input */}
 
-                            <Button type="submit" bsStyle="primary">Submit</Button>
+                            <Button id="submitInput" type="submit" style={{display: "none"}}/>
 
                         </form>
                     </Modal.Body>
+                    <Modal.Footer>
+
+                        {/* Submit */}
+
+                        <Button type="submit" style={this.submitButtonStyle} onClick={this.handleSubmitClick}>Submit</Button>
+
+                    </Modal.Footer>
                 </Modal>
             </div>
         );
