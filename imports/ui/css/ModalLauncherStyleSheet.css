@@ -1,0 +1,11 @@
+
+.modalButton {
+    float: right;
+    width: auto;
+    border: 0;
+    font: inherit;
+    font-size: 14px;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -19,7 +19,7 @@ export default class Banner extends Component {
     render() {
         return (
                 <BannerPic imageSource={this.bannerImage}>
-                    <section className='section-area-left'>
+                    <section className='section-area-upper-left'>
                         <div>
                             <ProfilePic imageSource={this.profileImage}/>
                             {/*some sort of image repo accessor or something like that*/}
@@ -31,7 +31,7 @@ export default class Banner extends Component {
                         </div>
                     </section>
 
-                    <section className='section-area-right'>
+                    <section className='section-area-upper-right'>
                         <div className='image-quote-container'>
                             <Label
                                 className='image-holder-quote-label'

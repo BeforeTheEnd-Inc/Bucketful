@@ -9,17 +9,19 @@ export default class Link extends Component {
         this.props.type = props.type;
         this.props.label = props.label;
         this.props.route = props.route;
+        this.props.msg = props.msg;
     }
 
     handleClick = (e) => {
         e.preventDefault();
-        window.alert("Redirecting to Bucket Editor");
+        window.alert(this.props.msg);
     };
 
     render() {
         return (
             <a href='#'
-               onClick={this.handleClick}
+               onClick={this.handleClick.bind(this)}
+               target={this.props.route}
             >
                 <Label
                     className={this.props.className}
