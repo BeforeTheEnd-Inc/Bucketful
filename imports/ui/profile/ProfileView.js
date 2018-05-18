@@ -15,7 +15,7 @@ export default class ProfileComponent extends Component {
     constructor(props) {
         super(props);
         this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
-        this.bannerImage = 'https://cdn.pixabay.com/photo/2016/01/15/23/54/iowa-1142688_1280.jpg';
+        this.bannerImage = "http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg";
         this.profileName = 'Tom Norton';
         this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
     }
@@ -59,6 +59,11 @@ export default class ProfileComponent extends Component {
                                 />
                             </section>
                             <MiniBio/>
+
+                        </section>
+
+                        {/* <!-- lower right  --> */}
+                        <section className='section-area-lower-right'>
                             <section className='section-area-fin-item'>
                                 <section>
                                     <Label
@@ -71,35 +76,6 @@ export default class ProfileComponent extends Component {
                                     numItems='6'
                                     isActive={false}
                                 />
-                            </section>
-                        </section>
-
-                        {/* <!-- lower right  --> */}
-                        <section className='section-area-lower-right'>
-                            <section>
-                                <section className='section-area-current-link'>
-                                    <Label
-                                        className='profile-title'
-                                        type='3'
-                                        label='Current Goals'
-                                    />
-                                    <Link
-                                        className='profile-title-bucket-link'
-                                        type='3'
-                                        label='Add New Bucket Item'
-                                        msg='Redirecting to create a new item...'
-                                    />
-                                </section>
-                                {/*
-                                    Will need to fetch active items and create a
-                                    new bucket for each.
-                                */}
-
-                                <ProfileBucket
-                                    numItems='5'
-                                    isActive={true}
-                                />
-
                             </section>
                         </section>
 

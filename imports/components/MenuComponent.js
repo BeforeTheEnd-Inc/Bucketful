@@ -1,35 +1,38 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SignInModal from "../ui/signIn/SignInModal";
 
 export default class MenuComponent extends Component {
 
-    navbarStyle = {
-        width: "770px"
-    };
+    constructor() {
+        super();
 
-    navStyle = {
-        flexDirection: "row",
-        fontSize: "12px"
-    };
+        this.handleSignInClick = this.handleSignInClick.bind(this);
+    }
 
-    linkStyle = {
-        height: "auto",
-        fontSize: "18px"
-    };
+    handleSignInClick() {
+        return (
+            <SignInModal/>
+        )
+    }
 
     render() {
         return (
-            <Navbar style={this.navbarStyle}>
+            <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to='/' style={this.linkStyle}>Home</Link>
+                        <Link to='/'>Home</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav style={this.navStyle}>
+                <Nav pullRight>
                     <NavItem href='/viewbuckets'>Buckets</NavItem>
                     <NavItem href='/addbucket'>Add Buckets</NavItem>
-                    <NavItem href='/signup'>Sign Up</NavItem>
+                    <NavDropdown title="More" id="basic-nav-dropdown">
+                        <SignInModal/>
+                        <NavItem href='/signup'>Sign Up</NavItem>
+                        <NavItem href="#">Sign Out</NavItem>
+                    </NavDropdown>
                 </Nav>
             </Navbar>
         );

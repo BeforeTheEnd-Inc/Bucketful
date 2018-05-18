@@ -3,7 +3,6 @@
 #section {
     display: inline-block;
     width: 770px;
-    max-height: 100%;
     background-color: silver;
     border-radius: 5px;
 }
@@ -19,7 +18,10 @@
 }
 
 .image-holder-quote-label {
-    width: 350px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px;
+    width: 500px;
     margin: auto;
     color: white;
 }
@@ -29,7 +31,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 0;
+    margin-top: 60px;
     align-items: center;
     text-align: center;
     width: 530px;
@@ -48,7 +50,6 @@
 
 .section-bucket-scroll {
     overflow-y: scroll;
-    height: 196px;
     margin: 2px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -90,7 +91,6 @@
     display: -webkit-flex;
     width: 392px;
     margin: 2px;
-    height: 300px;
 }
 
 .section-area-lower {
@@ -121,13 +121,4 @@
 [class*='profile-bucket-link-'] {
     text-align: center;
     font-weight: normal !important;
-}
-
-a, .profile-bucket-link-finished {
-    justify-content: space-around;
-
-}
-
-.profile-bucket-link-current {
-
 }

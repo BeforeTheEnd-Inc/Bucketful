@@ -40,12 +40,6 @@ export default class ProfilePic extends Component {
             <section>
                 <input id='uploadProfilePic' type='file' accept='image/*' onChange={this.handlePicChange}/>
                 <img src={this.profileImage} id='profilePic' className='image-holder' onClick={this.handleClick}/>
-                {/*<Image*/}
-                    {/*inputId='uploadProfilePic'*/}
-                    {/*className='image-holder'*/}
-                    {/*imageId='profilePic'*/}
-                    {/*imageSource={this.profileImage}*/}
-                {/*/>*/}
             </section>
         );
     }

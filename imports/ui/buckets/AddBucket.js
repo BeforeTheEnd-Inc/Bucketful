@@ -18,6 +18,9 @@ export default class AddBucket extends Component {
 
     }
 
+    formStyle = {
+        textAlign: "left"
+    };
 
     //This section isn't actually pushing
     handleSubmit(event) {
@@ -41,7 +44,7 @@ export default class AddBucket extends Component {
         return (
             <div>
                 <Menu/>
-                <form className="addBucket" onSubmit={this.handleSubmit}>
+                <form className="addBucket" onSubmit={this.handleSubmit} style={this.formStyle}>
 
                     <br/>
                     <br/>
@@ -78,6 +81,7 @@ export default class AddBucket extends Component {
                         bsStyle="default"
                         title="Category"
                         name="category"
+                        id="category"
                         // key={i}
                         noCaret
                     >

@@ -19,24 +19,25 @@ export default class ProfileBucket extends Component {
     }
 
     render() {
-        if (this.isActive) {
-            this.num = parseInt(this.numItems);
-            let items = [];
-            for (let i = 0; i < this.num; i++) {
-                items.push(
-                    <CurrentBucket flagPic={this.flagPic} />
-                );
-            }
-            if (items.length === 1) {
-                return <div className='section-bucket-scroll-current-one'>{items}</div>;
-            } else if (items.length === 2) {
-                return <div className='section-bucket-scroll-current-two'>{items}</div>;
-            } else {
-                return <div className='section-bucket-scroll-current-full'>{items}</div>;
-            }
-
-
-        } else if (!this.isActive) {
+        // if (this.isActive) {
+            //     this.num = parseInt(this.numItems);
+            //     let items = [];
+            //     for (let i = 0; i < this.num; i++) {
+            //         items.push(
+            //             <CurrentBucket flagPic={this.flagPic} />
+            //         );
+            //     }
+            //     if (items.length === 1) {
+            //         return <div className='section-bucket-scroll-current-one'>{items}</div>;
+            //     } else if (items.length === 2) {
+            //         return <div className='section-bucket-scroll-current-two'>{items}</div>;
+            //     } else {
+            //         return <div className='section-bucket-scroll-current-full'>{items}</div>;
+            //     }
+        //
+        //
+        // } else
+        if (!this.isActive) {
             this.num = parseInt(this.numItems);
             let items = [];
             for (let i = 0; i < this.num; i++) {

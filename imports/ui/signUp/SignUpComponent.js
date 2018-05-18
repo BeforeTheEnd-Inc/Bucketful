@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Glyphicon, FormGroup, InputGroup, FormControl, Radio } from "react-bootstrap";
+import { Glyphicon, FormGroup, InputGroup, FormControl, Radio, Button } from "react-bootstrap";
 import { Profiles } from "../../api/profiles";
 
 import Menu from "../../components/MenuComponent";
 
-import "../css/SignUpStyleSheet.css";
-
 export default class SignUp extends Component {
+
     constructor(props, context) {
+
         super(props, context);
 
         this.state = {vale: ''};
@@ -17,6 +17,15 @@ export default class SignUp extends Component {
         this.handleSubmit       = this.handleSubmit.bind(this);
 
     }
+
+    registerStyle = {
+        width: "350px",
+        margin: "auto"
+    };
+
+    signupHeaderStyle = {
+        textAlign: "center"
+    };
 
     handleGenderElect(event) {
         this.gender     = event.target.value;
@@ -61,14 +70,13 @@ export default class SignUp extends Component {
         return (
             <div>
                 <Menu/>
-                <form className="register" onSubmit={this.handleSubmit}>
+                <form className="register" onSubmit={this.handleSubmit} style={this.registerStyle}>
 
                     <br/>
                     <br/>
 
-                    <h1 className="signUpHeader">Sign up for free!</h1>
+                    <h1 className="signUpHeader" style={this.signupHeaderStyle}>Sign up for free!</h1>
 
-                    <br/>
                     <br/>
                     <br/>
 
@@ -114,7 +122,7 @@ export default class SignUp extends Component {
                             <InputGroup.Addon>
                                 <Glyphicon glyph="gift"/>
                             </InputGroup.Addon>
-                            <FormControl type="date" name="birthday" placeholder="Date of Birth"/>
+                            <FormControl type="date" name="birthday"/>
                         </InputGroup>
                     </FormGroup>
 
@@ -137,7 +145,8 @@ export default class SignUp extends Component {
                     <br/>
 
                     {/* Submit */}
-                    <button type="submit" className="btn btn-primary">Sign Up!</button>
+                    <Button type="submit" bsStyle="primary">Sign Up!</Button>
+
                 </form>
             </div>
         );

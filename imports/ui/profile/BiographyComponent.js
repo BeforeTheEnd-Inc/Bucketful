@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import '../css/ProfileBioSheet.css';
 import Label from "../../components/LabelComponent";
-import ModalLauncher from '../../components/ModalLauncher';
-import TextArea from "../../components/TextAreaComponent";
-import RadioButton from "../../components/RadioButtonComponent";
+import EditProfile from "./EditProfileModal";
 
 export default class MiniBio extends Component {
     constructor(props) {
@@ -38,11 +36,6 @@ export default class MiniBio extends Component {
                         this component that will allow the user to
                         update and change her/his biography at any time.
                     </p>
-                    {/*<Label*/}
-                    {/*className='profile-title'*/}
-                    {/*type='5'*/}
-                    {/*label='somewhere somewhere somewhere'*/}
-                    {/*/>*/}
                     <Label
                         className='profile-title'
                         type='5'
@@ -59,69 +52,7 @@ export default class MiniBio extends Component {
                         label='Gender: other'
                     />
 
-                    <ModalLauncher buttonLabel='Edit'>
-                        <form>
-                            <br/><br/>
-                            <Label
-                                type='5'
-                                label='Write something about yourself!'
-                            />
-                            <TextArea
-                                cols='300'
-                            />
-                            <Label
-                                type='5'
-                                label='Birth date'
-                            />
-                            <input
-                                type='date'
-                                style={{
-                                    width: '316px'
-                                }}
-                            />
-                            <Label
-                                type='5'
-                                label='Hometown'
-                            />
-                            <input
-                                type='text'
-                                style={{
-                                    width: '316px'
-                                }}
-                            />
-                            <Label
-                                type='5'
-                                label='Gender'
-                            />
-
-                            <RadioButton
-                                type='radio'
-                                id='male'
-                                value='male'
-                                label='Male'
-                                onChange={this.handleSelect}
-                            />
-
-                            <RadioButton
-                                type='radio'
-                                id='female'
-                                value='female'
-                                label='Female'
-                                onChange={this.handleSelect}
-                            />
-
-                            <RadioButton
-                                type='radio'
-                                id='preferNo'
-                                value='preferNo'
-                                label='Prefer not to disclose'
-                                onChange={this.handleSelect}
-                            />
-
-                            <br/>
-                            <button style={{ float: 'right' }}>Save</button>
-                        </form>
-                    </ModalLauncher>
+                    <EditProfile/>
                 </section>
             </section>
         );

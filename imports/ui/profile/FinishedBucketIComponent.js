@@ -12,7 +12,7 @@ export default class FinishedBucket extends Component {
     render() {
         return (
             <section id='section-bucket'>
-                <section className='profile-bucket-container-finished'>
+                <section className='profile-bucket-container-current'>
                     <div className='profile-bucket-image'>
                         <div
                             className='flip-container'
@@ -21,7 +21,7 @@ export default class FinishedBucket extends Component {
                             }}>
                             <div className='flipper'>
                                 <div className='front'>
-                                    <img src={this.flagPic} style={{height: 138, width: 330}}/>
+                                    <img src={this.flagPic} style={{height: 138, width: "inherit"}}/>
                                 </div>
                                 <div className='back'>
                                     <Link
@@ -36,7 +36,7 @@ export default class FinishedBucket extends Component {
                     </div>
                     <Label
                         className='profile-bucket-label'
-                        type='1'
+                        type='4'
                         label='label name'
                     />
                 </section>
