@@ -25,6 +25,10 @@ export default class EditProfile extends Component {
         color: "white"
     };
 
+    editButtonStyle = {
+        float: "right"
+    };
+
     handleClose() {
         this.setState({ show: false });
     }
@@ -51,7 +55,7 @@ export default class EditProfile extends Component {
 
         return (
             <div>
-                <Button bsStyle="link" onClick={this.handleShow}>
+                <Button bsStyle="link" onClick={this.handleShow} style={this.editButtonStyle}>
                     Edit
                 </Button>
 

@@ -20,10 +20,11 @@ img {
 }
 
 .profile-bucket-container-current {
+    text-align: left;
     padding-top: 5px;
     background-color: gainsboro;
     border-radius: 5px;
-    height: 175px;
+    height: 100%;
     width: 390px;
 }
 
@@ -42,7 +43,7 @@ img {
 }
 
 .profile-bucket-label {
+    margin-left: 8px;
     display: inline-block;
     float: bottom;
-    margin: 2px;
 }
