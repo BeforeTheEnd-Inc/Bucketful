@@ -42,15 +42,26 @@ export default class SignIn extends Component {
         let email = event.target.email.value;
         let password = event.target.password.value;
 
+        // Load email query from mongo
+
+
+        // Validate password
+
+
+        // If everything looks good,
+        // Create session
+
+
         console.log(event)
     }
 
     render() {
         return (
+            <NavItem>
 
-            <NavItem onClick={this.handleShow}>
-
-                Sign In
+                <div onClick={this.handleShow}>
+                    Sign In
+                </div>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
@@ -83,10 +94,12 @@ export default class SignIn extends Component {
 
                         {/* Submit */}
 
-                        <Button type="submit" style={this.submitButtonStyle} onClick={this.handleSubmitClick}>Submit</Button>
+                        <Button type="submit" style={this.submitButtonStyle}
+                                onClick={this.handleSubmitClick}>Submit</Button>
 
                     </Modal.Footer>
                 </Modal>
+
             </NavItem>
         );
     }
