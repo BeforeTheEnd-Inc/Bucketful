@@ -5,8 +5,6 @@ import { Buckets } from "../../api/buckets";
 import Menu from "../../components/MenuComponent";
 
 import "../css/AddBucketStyleSheet.css";
-import {Tasks} from "../../api/tasks";
-import {Costs} from "../../api/costs";
 
 export default class AddBucket extends Component {
     constructor(props, context) {
@@ -22,7 +20,6 @@ export default class AddBucket extends Component {
         textAlign: "left"
     };
 
-    //This section isn't actually pushing
     handleSubmit(event) {
         event.preventDefault();
         Buckets.insert({
