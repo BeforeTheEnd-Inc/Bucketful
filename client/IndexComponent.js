@@ -5,7 +5,7 @@ import ProfileView from '../imports/ui/profile/ProfileView';
 import BucketViewComponent from '../imports/ui/buckets/BucketView';
 import AddBucketComponent from "../imports/ui/buckets/AddBucket";
 import SignUpComponent from "../imports/ui/signUp/SignUpComponent";
-// import SignInComponent from "../imports/ui/signIn/SignInModal";
+import HomeView from "../imports/ui/home/HomeView";
 
 export default class Index extends Component {
 
@@ -13,11 +13,11 @@ export default class Index extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path='/' component={ProfileView} />
+                    <Route exact path='/' component={HomeView} />
+                    <Route path='/profile' component={ProfileView} />
                     <Route path ='/viewbuckets' component={BucketViewComponent} />
                     <Route path ='/addbucket' component={AddBucketComponent} />
                     <Route path ='/signup' component={SignUpComponent} />
-                    {/*<Route path ='/signin' component={SignInComponent} />*/}
                 </Switch>
             </BrowserRouter>
         );

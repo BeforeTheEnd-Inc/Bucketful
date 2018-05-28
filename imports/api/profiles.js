@@ -1,4 +1,4 @@
-import Meteor from 'meteor/meteor';
+// import Meteor from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
 import React from 'react';
 import SimpleSchema from 'simpl-schema';
@@ -27,10 +27,6 @@ Schema.UserProfile = new SimpleSchema({
         optional: false
     },
     email: {
-        type: String,
-        optional: false
-    },
-    password: {
         type: String,
         optional: false
     },
@@ -81,7 +77,13 @@ Schema.UserProfile = new SimpleSchema({
     }
 });
 
+Profiles.attachSchema(Schema.UserProfile);
+
 Schema.User = new SimpleSchema({
+    id: {
+        type: String,
+        optional: true,
+    },
     username: {
         type: String,
         // For accounts-password, either emails or username is required, but not both. It is OK to make this
@@ -119,7 +121,7 @@ Schema.User = new SimpleSchema({
         type: Date
     },
     profile: {
-        type: Schema.UserProfile,
+        type: Profiles, //Schema.UserProfile,
         optional: true
     },
     // Make sure this services field is in your schema if you're using any of the accounts packages
@@ -158,4 +160,4 @@ Schema.User = new SimpleSchema({
     }
 });
 
-Profiles.attachSchema(Schema.UserProfile);
+Meteor.users.attachSchema(Schema.User);

@@ -18,3 +18,11 @@ Meteor.startup(() => {
         return Tasks.find({});
     });
 });
+
+// Insert user
+
+Meteor.methods({
+    insertUser: function(newUserData) {
+        return Accounts.createUser(newUserData);
+    }
+});

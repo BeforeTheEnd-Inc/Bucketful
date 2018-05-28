@@ -7,7 +7,6 @@ import ProfileBucket from "./ProfileBucketComponent";
 import ProfilePic from './ProfilePictureComponent';
 import BannerPic from "./BannerPictureComponent";
 import MiniBio from "./BiographyComponent";
-import Link from "../../components/LinkComponent";
 
 import Menu from "../../components/MenuComponent";
 
