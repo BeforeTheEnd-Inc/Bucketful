@@ -7,8 +7,8 @@ export default class SignIn extends Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.handleSubmitClick = this.handleSubmitClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitClick = this.handleSubmitClick.bind(this);
 
         this.state = {
             show: false
@@ -34,25 +34,19 @@ export default class SignIn extends Component {
     }
 
     handleSubmitClick() {
-        let input = $('#submitInput')[0];
-        input.click();
+        $('#submitInput')[0].click();
     }
 
     handleSubmit(event) {
+        if (event === undefined ) { return }
+
         let email = event.target.email.value;
         let password = event.target.password.value;
 
-        // Load email query from mongo
-
-
-        // Validate password
-
-
-        // If everything looks good,
         // Create session
+        Meteor.loginWithPassword(email, password);
 
-
-        console.log(event)
+        this.props.history.push('/profile');
     }
 
     render() {
@@ -86,7 +80,7 @@ export default class SignIn extends Component {
 
                             {/* Submit input */}
 
-                            <Button id="submitInput" type="submit" style={{display: "none"}}/>
+                            <input id="submitInput" type="submit" style={{display: "none"}}/>
 
                         </form>
                     </Modal.Body>
@@ -94,7 +88,7 @@ export default class SignIn extends Component {
 
                         {/* Submit */}
 
-                        <Button type="submit" style={this.submitButtonStyle}
+                        <Button style={this.submitButtonStyle}
                                 onClick={this.handleSubmitClick}>Submit</Button>
 
                     </Modal.Footer>

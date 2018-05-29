@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router';
 import { Glyphicon, FormGroup, InputGroup, FormControl, Radio, Button } from "react-bootstrap";
 import { Profiles } from "../../api/profiles";
 
@@ -77,7 +76,7 @@ export default class SignUp extends Component {
     }
 
     handleSuccessfulAccountCreation(result, userData) {
-        Session.set("data", result);
+        // Session.set("data", result);
         Meteor.loginWithPassword(userData.email, userData.password);
         this.props.history.push('/profile');
     }
