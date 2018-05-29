@@ -5,6 +5,7 @@ import { Profiles } from "../../api/profiles";
 import Menu from "../../components/MenuComponent";
 
 import "../css/SignUpStyleSheet.css";
+import Footer from "../../components/FooterComponent";
 
 export default class SignUp extends Component {
     constructor(props, context) {
@@ -139,6 +140,7 @@ export default class SignUp extends Component {
                     {/* Submit */}
                     <button type="submit" className="btn btn-primary">Sign Up!</button>
                 </form>
+                <Footer/>
             </div>
         );
     }
