@@ -26,6 +26,7 @@ export default class MenuComponent extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav pullRight>
+                    <NavItem href='/profile'>Profile</NavItem>
                     <NavDropdown title="Buckets" id="basic-nav-dropdown">
                         <NavItem href='/viewbuckets'>Buckets</NavItem>
                         <NavItem href='/addbucket'>Add Bucket</NavItem>

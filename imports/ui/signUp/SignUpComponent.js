@@ -12,9 +12,7 @@ export default class SignUp extends Component {
 
         this.state = {vale: ''};
 
-        this.handleGenderElect  = this.handleGenderElect.bind(this);
-        this.handleChange       = this.handleChange.bind(this);
-        this.handleSubmit       = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -27,42 +25,64 @@ export default class SignUp extends Component {
         textAlign: "center"
     };
 
-    handleGenderElect(event) {
-        this.gender     = event.target.value;
-    }
-
-    handleChange(event) {
-        // TODO: Evaluate confirm pass
-
-        const target    = event.target;
-        const value     = target.type === 'checkbox' ? target.checked : target.value;
-        const name      = target.name;
-
-        this.setState({
-            [name]: value
-        });
-    }
-
     handleSubmit(event) {
         event.preventDefault();
 
-        Profiles.insert({
-            profileId: '10001',
-            firstname: event.target.firstname.value,
-            lastname: event.target.lastname.value,
+        let fields = {
+            username: event.target.email.value,
             email: event.target.email.value,
             password: event.target.password.value,
+            firstname: event.target.firstname.value,
+            lastname: event.target.lastname.value,
             birthday: event.target.birthday.value,
             gender: event.target.gender.value,
-            createdAt: new Date(),
-            createdBy: '10001'
-        }, (error, result) => {
+        };
+
+        let newUserData = {
+            username: fields.username,
+            email: fields.email,
+            password: fields.password
+        };
+
+        if (typeof newUserData.password !== 'string')
+            throw new Error("options.password must be a string");
+        if (!newUserData.password) {
+            return reportError(new Meteor.Error(400, "Password may not be empty"), callback);
+        }
+
+        Meteor.call('insertUser', newUserData, (error, result) => {
             if (error) {
-                alert('Oops something went wrong: ' + Profiles.simpleSchema().namedContext().validationErrors());
+                alert('Oops. Something went wrong: ' + error);
+                this.handleFailedAccountCreation();
             } else {
-                alert('New profile created: ' + result);
+                Profiles.insert({
+                    _id: result,
+                    firstname: fields.firstname,
+                    lastname: fields.lastname,
+                    email: fields.email,
+                    birthday: fields.birthday,
+                    gender: fields.gender,
+                    createdAt: new Date()
+                }, (error, result) => {
+                    if (error) {
+                        alert('Oops. Something went wrong: ' + Profiles.simpleSchema.namedContext().validationErrors());
+                        this.handleFailedAccountCreation();
+                    } else {
+                        this.handleSuccessfulAccountCreation(result, newUserData);
+                    }
+                });
             }
         });
+    }
+
+    handleSuccessfulAccountCreation(result, userData) {
+        // Session.set("data", result);
+        Meteor.loginWithPassword(userData.email, userData.password);
+        this.props.history.push('/profile');
+    }
+
+    handleFailedAccountCreation() {
+        window.location.reload();
     }
 
     render() {
@@ -129,13 +149,13 @@ export default class SignUp extends Component {
                     {/* User's gender */}
 
                     <FormGroup>
-                        <Radio name="gender" value="male" onChange={this.handleGenderElect} inline >
+                        <Radio name="gender" value="male" inline >
                             Male
                         </Radio>
-                        <Radio name="gender" value="female" onChange={this.handleGenderElect} inline>
+                        <Radio name="gender" value="female" inline>
                             Female
                         </Radio>
-                        <Radio name="gender" value="preferNo" onChange={this.handleGenderElect} inline >
+                        <Radio name="gender" value="preferNo" inline >
                             Prefer not to disclose
                         </Radio>
                     </FormGroup>

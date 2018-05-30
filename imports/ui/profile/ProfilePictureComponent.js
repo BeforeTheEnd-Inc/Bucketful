@@ -19,7 +19,7 @@ export default class ProfilePic extends Component {
             return;
         }
 
-        var fileReader = new FileReader();
+        let fileReader = new FileReader();
         fileReader.onload = function (e) {
             this.profileImage = e.target.result;
             // Submit a profile image change schema
