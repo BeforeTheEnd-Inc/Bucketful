@@ -17,6 +17,7 @@ class UserRow extends Component {
                     return (
                         <tr>
                             <td>{profile._id}</td>
+                            <td>{profile.email}</td>
                             <td>{profile.firstName}</td>
                             <td>{profile.lastName}</td>
                             <td>{profile.status}</td>
@@ -39,7 +40,8 @@ class UserTable extends Component {
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th className='sorted-by'>First Name</th>
+                    <th className='sorted-by'>Email</th>
+                    <th>First Name</th>
                     <th>Last Name</th>
                     <th>Status</th>
                     <th>Created At</th>
@@ -59,7 +61,7 @@ class UserTable extends Component {
 export default class UserView extends Component {
     render() {
         return (
-            <div className='users' style={{width: '800px'}}>
+            <div className='users' style={{width: '1080px'}}>
                 <Menu/>
                 <h3 className='text-primary'>View users list</h3>
                 <Button href='user-create'>Create</Button>

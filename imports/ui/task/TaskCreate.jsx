@@ -55,11 +55,11 @@ class TaskCreate extends Component {
 
     render() {
         return (
-            <div style={{width: '800px', margin: 'auto', verticalAlign: 'top'}}>
+            <div style={{width: '1080px', margin: 'auto', verticalAlign: 'top'}}>
                 <Menu/>
                 <h3 className='text-primary'>Add a new task</h3>
-                <Form onSubmit={this.handleSubmit} horizontal style={{width: '700px', margin: 'auto'}}>
-                    <FormGroup style={{width: '690px', margin: 'auto'}}>
+                <Form onSubmit={this.handleSubmit} horizontal style={{margin: 'auto'}}>
+                    <FormGroup style={{margin: 'auto'}}>
                         <FormGroup>
                             <ControlLabel>Task Name</ControlLabel>
                             <FormControl

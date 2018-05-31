@@ -58,7 +58,7 @@ class CostTable extends Component {
 export default class CostView extends Component {
     render() {
         return (
-            <div className='buckets' style={{width: '800px'}}>
+            <div className='buckets' style={{width: '1080px'}}>
                 <Menu/>
                 <h3 className='text-primary'>View costs list</h3>
                 <Button href='cost-create'>Create</Button>

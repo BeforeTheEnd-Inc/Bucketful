@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 
+
 class Footer extends Component {
     render() {
         return (
-            <Navbar fixedBottom style={{width: '100%'}}>
+            <Navbar fixedBottom style={{width: '1080px'}}>
                 <Nav style={{flexDirection: 'row', fontSize: '8px'}}>
+                    <NavItem href='/buckets'>Bucket List</NavItem>
                     <NavItem href='/costs'>Cost List</NavItem>
                     <NavItem href='/tasks'>Task List</NavItem>
                     <NavItem href='/users'>User List</NavItem>

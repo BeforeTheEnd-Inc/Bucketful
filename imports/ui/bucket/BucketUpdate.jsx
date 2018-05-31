@@ -4,7 +4,7 @@ import {Button, ControlLabel, Form, FormControl, FormGroup, Radio, Table} from '
 import {BucketCollection} from '../../api/buckets';
 import Menu from '../../components/MenuComponent';
 
-class EditBucket extends Component {
+class BucketUpdate extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -84,7 +84,7 @@ class EditBucket extends Component {
         // };
 
         return (
-            <div style={{width: '800px', margin: 'auto', align: 'top'}}>
+            <div style={{width: '1080px', margin: 'auto', align: 'top'}}>
                 <Menu/>
                 <h3 className='text-primary'>Add a new bucket</h3>
                 <Form onSubmit={this.handleSubmit} horizontal style={{width: '700px', margin: 'auto'}}>
@@ -141,4 +141,4 @@ class EditBucket extends Component {
     }
 }
 
-export default EditBucket;
+export default BucketUpdate;

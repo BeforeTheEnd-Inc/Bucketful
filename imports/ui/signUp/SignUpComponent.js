@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { Glyphicon, FormGroup, InputGroup, FormControl, Radio } from "react-bootstrap";
-import { Profiles } from "../../api/profiles";
-
+import React, {Component} from "react";
+import {Glyphicon, FormGroup, InputGroup, FormControl, Radio} from "react-bootstrap";
+import {Profiles} from "../../api/profiles";
 import Menu from "../../components/MenuComponent";
-
-import "../css/SignUpStyleSheet.css";
 import Footer from "../../components/FooterComponent";
+import "../css/SignUpStyleSheet.css";
+
 
 export default class SignUp extends Component {
     constructor(props, context) {
@@ -13,22 +12,21 @@ export default class SignUp extends Component {
 
         this.state = {vale: ''};
 
-        this.handleGenderElect  = this.handleGenderElect.bind(this);
-        this.handleChange       = this.handleChange.bind(this);
-        this.handleSubmit       = this.handleSubmit.bind(this);
-
+        this.handleGenderElect = this.handleGenderElect.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleGenderElect(event) {
-        this.gender     = event.target.value;
+        this.gender = event.target.value;
     }
 
     handleChange(event) {
         // TODO: Evaluate confirm pass
 
-        const target    = event.target;
-        const value     = target.type === 'checkbox' ? target.checked : target.value;
-        const name      = target.name;
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
         this.setState({
             [name]: value
@@ -50,7 +48,7 @@ export default class SignUp extends Component {
             createdBy: '10001'
         }, (error, result) => {
             if (error) {
-                alert('Oops something went wrong: ' + Profiles.simpleSchema().namedContext().validationErrors());
+                console.log(error.reason); // Output error if registration fails
             } else {
                 alert('New profile created: ' + result);
             }
@@ -58,23 +56,17 @@ export default class SignUp extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <Menu/>
                 <form className="register" onSubmit={this.handleSubmit}>
-
                     <br/>
                     <br/>
-
                     <h1 className="signUpHeader">Sign up for free!</h1>
-
                     <br/>
                     <br/>
                     <br/>
-
                     {/* User's name */}
-
                     <FormGroup>
                         <InputGroup>
                             <InputGroup.Addon>
@@ -84,9 +76,7 @@ export default class SignUp extends Component {
                             <FormControl type="text" name="lastname" placeholder="Last Name"/>
                         </InputGroup>
                     </FormGroup>
-
                     {/* User's email*/}
-
                     <FormGroup>
                         <InputGroup>
                             <InputGroup.Addon>
@@ -95,9 +85,7 @@ export default class SignUp extends Component {
                             <FormControl type="email" name="email" placeholder="Email"/>
                         </InputGroup>
                     </FormGroup>
-
                     {/* User's password */}
-
                     <FormGroup>
                         <InputGroup>
                             <InputGroup.Addon>
@@ -107,9 +95,7 @@ export default class SignUp extends Component {
                             <FormControl type="password" name="confirmpassword" placeholder="Confirm Password"/>
                         </InputGroup>
                     </FormGroup>
-
                     {/* User's date of birth */}
-
                     <FormGroup>
                         <InputGroup>
                             <InputGroup.Addon>
@@ -118,25 +104,21 @@ export default class SignUp extends Component {
                             <FormControl type="date" name="birthday" placeholder="Date of Birth"/>
                         </InputGroup>
                     </FormGroup>
-
                     {/* User's gender */}
-
                     <FormGroup>
-                        <Radio name="gender" value="male" onChange={this.handleGenderElect} inline >
+                        <Radio name="gender" value="male" onChange={this.handleGenderElect} inline>
                             Male
                         </Radio>
                         <Radio name="gender" value="female" onChange={this.handleGenderElect} inline>
                             Female
                         </Radio>
-                        <Radio name="gender" value="preferNo" onChange={this.handleGenderElect} inline >
+                        <Radio name="gender" value="preferNo" onChange={this.handleGenderElect} inline>
                             Prefer not to disclose
                         </Radio>
                     </FormGroup>
-
                     <br/>
                     <br/>
                     <br/>
-
                     {/* Submit */}
                     <button type="submit" className="btn btn-primary">Sign Up!</button>
                 </form>
@@ -144,5 +126,4 @@ export default class SignUp extends Component {
             </div>
         );
     }
-
 }

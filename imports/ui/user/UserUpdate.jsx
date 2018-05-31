@@ -2,12 +2,12 @@ import {Meteor} from 'meteor/meteor';
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {Button, ControlLabel, Form, FormControl, FormGroup, Radio} from 'react-bootstrap';
-import {User} from '../../api/profiles';
+import {Profiles} from '../../api/profiles';
 import Menu from '../../components/MenuComponent';
 import Footer from '../../components/FooterComponent';
 
 
-class TaskCreate extends Component {
+class UserUpdate extends Component {
     constructor(props) {
         super(props);
 
@@ -37,7 +37,7 @@ class TaskCreate extends Component {
         // alert('Status: ' + this.state.status);
         // alert('Date: ' + new Date());
 
-        Tasks.insert(
+        Profiles.update(
             {
                 name: this.state.name,
                 status: this.state.status,
@@ -56,7 +56,7 @@ class TaskCreate extends Component {
 
     render() {
         return (
-            <div style={{width: '800px', margin: 'auto', verticalAlign: 'top'}}>
+            <div style={{width: '1080px', margin: 'auto', verticalAlign: 'top'}}>
                 <Menu/>
                 <h3 className='text-primary'>Add a new task</h3>
                 <Form onSubmit={this.handleSubmit} horizontal style={{width: '700px', margin: 'auto'}}>
@@ -103,4 +103,4 @@ class TaskCreate extends Component {
     }
 }
 
-export default TaskCreate;
+export default UserUpdate;

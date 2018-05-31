@@ -49,7 +49,7 @@ class CostCreate extends Component {
                 if (error) {
                     console.log(error.reason); // Output error if registration fails
                 } else {
-                    // alert('New cost added: ' + result);
+                    alert('New cost added: ' + result);
                     return <Redirect to="/costs"/>;
                 }
             }
@@ -58,7 +58,7 @@ class CostCreate extends Component {
 
     render() {
         return (
-            <div style={{width: '800px', margin: 'auto', verticalAlign: 'top'}}>
+            <div style={{width: '1080px', margin: 'auto', verticalAlign: 'top'}}>
                 <Menu/>
                 <h3 className='text-primary'>Add a new cost</h3>
                 <Form onSubmit={this.handleSubmit} horizontal style={{width: '700px', margin: 'auto'}}>

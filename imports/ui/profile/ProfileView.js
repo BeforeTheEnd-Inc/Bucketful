@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-
-import '../css/ProfileSheet.css';
-
 import Label from '../../components/LabelComponent';
 import ProfileBucket from "./ProfileBucketComponent";
 import ProfilePic from './ProfilePictureComponent';
 import BannerPic from "./BannerPictureComponent";
 import MiniBio from "./BiographyComponent";
 import Link from "../../components/LinkComponent";
-
 import Menu from "../../components/MenuComponent";
+import Footer from '../../components/FooterComponent';
+import '../css/ProfileSheet.css';
+
 
 export default class ProfileComponent extends Component {
     constructor(props) {
@@ -37,7 +36,6 @@ export default class ProfileComponent extends Component {
                                 />
                             </div>
                         </section>
-
                         <section className='section-area-upper-right'>
                             <Label
                                 className='image-holder-quote-label'
@@ -46,7 +44,6 @@ export default class ProfileComponent extends Component {
                             />
                         </section>
                     </BannerPic>
-
                     {/*<!--lower part of the page -->*/}
                     <section className='section-area-lower'>
                         {/*<!--lower left-->*/}
@@ -73,7 +70,6 @@ export default class ProfileComponent extends Component {
                                 />
                             </section>
                         </section>
-
                         {/* <!-- lower right  --> */}
                         <section className='section-area-lower-right'>
                             <section>
@@ -94,18 +90,15 @@ export default class ProfileComponent extends Component {
                                     Will need to fetch active items and create a
                                     new bucket for each.
                                 */}
-
                                 <ProfileBucket
                                     numItems='5'
                                     isActive={true}
                                 />
-
                             </section>
                         </section>
-
                     </section>
-
                 </section>
+                <Footer/>
             </div>
         );
     }

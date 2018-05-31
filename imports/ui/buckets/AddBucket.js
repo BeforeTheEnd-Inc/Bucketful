@@ -7,6 +7,7 @@ import Menu from "../../components/MenuComponent";
 import "../css/AddBucketStyleSheet.css";
 import {Tasks} from "../../api/tasks";
 import {Costs} from "../../api/costs";
+import Footer from "../../components/FooterComponent";
 
 export default class AddBucket extends Component {
     constructor(props, context) {
@@ -93,6 +94,7 @@ export default class AddBucket extends Component {
                     {/* Submit */}
                     <button type="submit" className="btn btn-primary">Add Bucket!</button>
                 </form>
+                <Footer/>
             </div>
         );
     }

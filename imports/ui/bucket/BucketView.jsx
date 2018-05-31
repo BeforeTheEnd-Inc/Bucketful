@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import BucketsTable from './BucketsTable';
 import Menu from '../../components/MenuComponent';
 
-class BucketsView extends Component {
+class BucketView extends Component {
     render() {
         return (
             <div className='buckets' style={{width: '800px'}}>
@@ -14,4 +14,4 @@ class BucketsView extends Component {
     }
 }
 
-export default BucketsView;
+export default BucketView;

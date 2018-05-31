@@ -3,6 +3,7 @@ import Menu from "../../components/MenuComponent";
 import CheckBox from "../../components/CheckBoxComponent";
 
 import '../css/BucketSheet.css';
+import Footer from "../../components/FooterComponent";
 
 export default class BucketView extends Component {
     constructor(props) {
@@ -51,6 +52,7 @@ export default class BucketView extends Component {
                         {gridItems}
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     };

@@ -116,7 +116,7 @@ class RegisterExtended extends Component {
 
 
         return (
-            <div style={{width: '800px', margin: 'auto', verticalAlign: 'top'}}>
+            <div style={{width: '1080px', margin: 'auto', verticalAlign: 'top'}}>
                 <Menu/>
                 <h3 className='text-primary'>Add a new user</h3>
                 <Form onSubmit={this.handleSubmit} horizontal style={{width: '700px', margin: 'auto'}}>
