@@ -1,3 +1,12 @@
+p
+{
+    color: cornflowerblue;
+}
+
+label{
+    position: fixed;
+    text-align: center;
+}
 #new-bucket-container {
     display: inline-flex !important;
     height: 100% !important;
@@ -14,6 +23,7 @@
     display: grid;
     height: 680px;
     width: auto;
+    border-radius: 30px;
 
     grid-template-areas: "main main main";
     grid-template-columns: 220px 220px 220px;
@@ -24,7 +34,26 @@
     align-content: flex-start;
     overflow-y: scroll;
     overflow-scrolling: auto;
-    background-color: whitesmoke;
+    background-color: lightslategrey;
+}
+
+.bucket-grid-controls {
+    display: block;
+    height: 50px;
+}
+
+button:hover {
+    background-color: darkgrey;
+    border-color: darkblue !important;
+    cursor: pointer;
+}
+
+button.grid-control {
+    width: 100px;
+    color: cornflowerblue;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
 }
 
 button.new-bucket-grid-item {
@@ -33,8 +62,9 @@ button.new-bucket-grid-item {
     grid-column: auto/auto;
     grid-row: auto;
 
-    background-color: #888888;
-    border-radius: 5px !important;
+    box-shadow: 0 0 25px 0 whitesmoke;
+    background-color: lightgray;
+    border-radius: 20px !important;
     text-align: center;
     font-size: larger !important;
     width: 200px !important;
@@ -45,26 +75,5 @@ button.new-bucket-grid-item {
 #new-bucket-grid-box-area {
     display: block;
     float: left;
-
     margin: 5px;
-}
-
-input:checked.checkbox{
-    display: block;
-    margin-top: 10px;
-    margin-left: 0;
-    border-radius: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #112222;
-}
-
-input[type="checkbox"]:empty.checkbox {
-    display: inline-block;
-    margin-top: 5px;
-    margin-left: 0;
-    border-radius: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: white;
 }

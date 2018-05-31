@@ -1,4 +1,3 @@
-import Meteor from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
 import React from 'react';
 import SimpleSchema from 'simpl-schema';
