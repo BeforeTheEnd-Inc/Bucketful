@@ -7,6 +7,7 @@ label{
     position: fixed;
     text-align: center;
 }
+
 #new-bucket-container {
     display: inline-flex !important;
     height: 100% !important;
