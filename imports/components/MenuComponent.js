@@ -11,11 +11,11 @@ export default class MenuComponent extends Component {
         this.handleSignInClick = this.handleSignInClick.bind(this);
     }
 
-    handleSignInClick() {
+    handleSignInClick = () => {
         return (
             <SignInModal/>
-        )
-    }
+        );
+    };
 
     render() {
         return (
@@ -27,11 +27,7 @@ export default class MenuComponent extends Component {
                 </Navbar.Header>
                 <Nav pullRight>
                     <NavItem href='/profile'>Profile</NavItem>
-                    <NavDropdown title="Buckets" id="basic-nav-dropdown">
-                        <NavItem href='/viewbuckets'>View Your Items</NavItem>
-                        <NavItem href='/addbucket'>Add Bucket</NavItem>
-                        <NavItem href='/detail'>Bucket Detail</NavItem>
-                    </NavDropdown>
+                    <NavItem href='/viewbucketitems'>View Your Items</NavItem>
 
                     <NavDropdown title="More" id="basic-nav-dropdown">
                         <SignInModal/>

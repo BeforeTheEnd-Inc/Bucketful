@@ -22,18 +22,18 @@ export default class ProfileComponent extends Component {
         this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
     }
 
-    displayProfileFor(id) {
+    displayProfileFor = (id) => {
         if (id !== undefined) {
 
             const currentSession = Session.get(id);
 
-            const collection = Meteor.connection._stores['profiles']._getCollection();
+            const collection = Meteor.connection._stores['profiles'];
 
-            miniBio = {
+            const miniBio = {
                 miniBioSummary: ""
-            }
+            };
         }
-    }
+    };
 
     render() {
         return (

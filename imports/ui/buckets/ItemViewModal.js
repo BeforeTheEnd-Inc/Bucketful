@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class ItemViewComponent extends Component {
+export default class ItemViewModal extends Component {
     constructor(props){
         super(props);
     }
