@@ -8,12 +8,15 @@ import AddItemModal from "./AddItemModal";
 
 import Label from "../../components/LabelComponent";
 
+import {Button, ButtonToolbar, OverlayTrigger, Popover} from "react-bootstrap";
+
 export default class BucketView extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            disabled: false
+            disabled: false,
+            show: false
         };
 
         props.disabledButton = this.state.disabled ? 'disabled' : '';
@@ -48,10 +51,11 @@ export default class BucketView extends Component {
         this.setInactive = this.setInactive.bind(this);
         this.setDisabled = this.setDisabled.bind(this);
         this.buildBucketItems = this.buildBucketItems.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     };
 
-    handleViewItem = () => {
-        window.alert("Adding pop over");
+    handleClick = (e) => {
+        this.setState({ target: e.target, show: !this.state.show });
     };
 
     setDisabled = (e) => {
@@ -98,19 +102,49 @@ export default class BucketView extends Component {
         console.log("isInActive " + !e.valueOf());
     };
 
+    popoverClickRootClose = (
+
+        <Popover id="popover-trigger-click-root-close" title="Popover right">
+            <section>
+                <Label
+                    className='profile-title'
+                    type='5'
+                    label='Item name:'
+                />
+                <p>{this.name}</p>
+                <Label
+                    className='profile-title'
+                    type='5'
+                    label='Item description:'
+                />
+                <p>{this.description}</p>
+            </section>
+        </Popover>
+    );
+
     buildBucketItems = () => {
         let gridItem = null;
+        let { disabled } = this.state;
         this.bucketItems.map((val) => {
             gridItem = (
-                <button
-                    disabled={!this.state.disabled}
-                    type='submit'
-                    key={val.id}
-                    className='new-bucket-grid-item'
-                    onClick={() => this.handleViewItem}
-                >
-                    <p>{val.name}</p>
-                </button>
+                <ButtonToolbar key={val.id} style={{"marginLeft":5}}>
+                    <OverlayTrigger
+                        trigger="click"
+                        rootClose
+                        placement="right"
+                        overlay={this.popoverClickRootClose}
+                    >
+                        <Button
+                            disabled={disabled}
+                            type='submit'
+                            key={val.id}
+                            className='new-bucket-grid-item'
+                            onClick={this.handleClick}
+                        >
+                            <p>{val.name}</p>
+                        </Button>
+                    </OverlayTrigger>
+                </ButtonToolbar>
             );
 
             if (val.isActive && !val.complete) {

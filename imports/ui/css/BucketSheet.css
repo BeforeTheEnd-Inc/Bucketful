@@ -1,6 +1,9 @@
 p
 {
     color: cornflowerblue;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: inherit;
 }
 
 label{
@@ -72,6 +75,10 @@ button.new-bucket-grid-item {
     width: 200px !important;
     height: 200px !important;
     margin: 10px;
+}
+
+button.btn-toolbar {
+    margin-left: 5px;
 }
 
 #new-bucket-grid-box-area {

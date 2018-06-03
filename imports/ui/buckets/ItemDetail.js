@@ -30,7 +30,7 @@ export default class ItemDetail extends Component {
     render() {
         return (
             <ButtonToolbar>
-                    <Button onClick={this.handleClick}>Holy guacamole!</Button>
+                    this.props.button
 
                 <Overlay
                     show={this.state.show}
