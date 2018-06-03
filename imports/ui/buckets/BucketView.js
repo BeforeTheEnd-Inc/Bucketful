@@ -26,17 +26,20 @@ export default class BucketView extends Component {
         // if an activity is not in the active state and the activity isn't complete, then it's considered inactive
         // otherwise the activity is complete
         this.bucketItems = props.bucketItems = [
-            {id: 'one', name: 'Camping', img: '', isActive: true, complete: false},
-            {id: 'two', name: 'Skydiving', img: '', isActive: false, complete: true},
-            {id: 'three', name: 'Safari', img: '', isActive: false, complete: false},
-            {id: 'four', name: 'Liverpool v. Man U', img: '', isActive: false, complete: true},
-            {id: 'five', name: 'Packers v. Bears', img: '', isActive: true, complete: false},
-            {id: 'six', name: 'Go Glamping', img: '', isActive: false, complete: false},
-            {id: 'seven', name: 'Retire Early', img: '', isActive: true, complete: false},
-            {id: 'eight', name: 'Own a Farm', img: '', isActive: true, complete: false},
-            {id: 'nine', name: 'Become a parent', img: '', isActive: false, complete: true},
-            {id: 'ten', name: 'Become Scrooge McDuck Rich', img: '', isActive: true, complete: false}
+            {id: 'one', name: 'Camping', description: '2 week survival training', img: '', isActive: true, complete: false},
+            {id: 'two', name: 'Skydiving', description: 'Tandem or solo', img: '', isActive: false, complete: true},
+            {id: 'three', name: 'Safari', description: 'Africa with friends', img: '', isActive: false, complete: false},
+            {id: 'four', name: 'Liverpool v. Man U', description: 'U.K. baby U.K.', img: '', isActive: false, complete: true},
+            {id: 'five', name: 'Packers v. Bears', description: 'Beeeeaaaarrrrsssss.....', img: '', isActive: true, complete: false},
+            {id: 'six', name: 'Go Glamping', description: 'Rent a Camper and take every thing I can with me', img: '', isActive: false, complete: false},
+            {id: 'seven', name: 'Retire Early', description: 'By 45 at the latest', img: '', isActive: true, complete: false},
+            {id: 'eight', name: 'Own a Farm', description: 'Organic only.  Grass-fed everything!',img: '', isActive: true, complete: false},
+            {id: 'nine', name: 'Become a parent', description: 'Biological clock is running out....', img: '', isActive: false, complete: true},
+            {id: 'ten', name: 'Become Scrooge McDuck Rich', description: 'Stupid rich', img: '', isActive: true, complete: false}
         ];
+
+        props.name = this.bucketItems.name;
+        props.description = this.bucketItems.description;
 
         this.methodBinder();
     }
@@ -102,22 +105,22 @@ export default class BucketView extends Component {
         console.log("isInActive " + !e.valueOf());
     };
 
-    popoverClickRootClose = (
+    popoverBottom = (
 
-        <Popover id="popover-trigger-click-root-close" title="Popover right">
+        <Popover id="popover-positioned-scrolling-bottom" title="Item Tracker">
             <section>
                 <Label
                     className='profile-title'
                     type='5'
                     label='Item name:'
                 />
-                <p>{this.name}</p>
+                <p>{this.props.name}</p>
                 <Label
                     className='profile-title'
                     type='5'
                     label='Item description:'
                 />
-                <p>{this.description}</p>
+                <p>{this.props.description}</p>
             </section>
         </Popover>
     );
@@ -132,7 +135,8 @@ export default class BucketView extends Component {
                         trigger="click"
                         rootClose
                         placement="right"
-                        overlay={this.popoverClickRootClose}
+                        overlay={this.popoverBottom}
+                        container={this}
                     >
                         <Button
                             disabled={disabled}
