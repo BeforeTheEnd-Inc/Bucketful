@@ -68,6 +68,7 @@ export default class SignIn extends Component {
 
                             <FormGroup controlId="formControlsEmail">
                                 <ControlLabel>Email</ControlLabel>
+                                <br/>
                                 <FormControl type="email" name="email" placeholder="Email"/>
                             </FormGroup>
 
@@ -75,6 +76,7 @@ export default class SignIn extends Component {
 
                             <FormGroup controlId="formControlsPassword">
                                 <ControlLabel>Password</ControlLabel>
+                                <br/>
                                 <FormControl type="password" name="password" placeholder="Password"/>
                             </FormGroup>
 

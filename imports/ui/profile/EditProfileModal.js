@@ -70,6 +70,7 @@ export default class EditProfile extends Component {
 
                             <FormGroup controlId='formControlsBio'>
                                 <ControlLabel>Write something about yourself</ControlLabel>
+                                <br/>
                                 <FormControl componentClass="textarea" name="minibio" placeholder="Write something about yourself here..." />
                             </FormGroup>
 
@@ -84,6 +85,7 @@ export default class EditProfile extends Component {
 
                             <FormGroup controlId="formControlsHometown">
                                 <ControlLabel>Hometown</ControlLabel>
+                                <br/>
                                 <FormControl type="text" name='hometown' placeholder="Enter your hometown"/>
                             </FormGroup>
 
