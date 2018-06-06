@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import SignInModal from "../ui/signIn/SignInModal";
+import SignInModal from "../ui/signIn/SignInModal.jsx";
 
 export default class MenuComponent extends Component {
 

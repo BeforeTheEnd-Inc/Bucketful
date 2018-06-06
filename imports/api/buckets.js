@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-const Buckets = new Mongo.Collection('buckets');
+export const Buckets = new Mongo.Collection('buckets');
 
 const Schema = {};
 
@@ -23,7 +23,5 @@ Schema.Bucket = new SimpleSchema({
     }
 
 });
-
-export default Buckets;
 
 Buckets.attachSchema(Schema.Bucket);
