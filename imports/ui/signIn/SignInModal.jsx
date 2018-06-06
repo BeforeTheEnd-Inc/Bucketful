@@ -7,7 +7,6 @@ export default class SignIn extends Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitClick = this.handleSubmitClick.bind(this);
 
         this.state = {
@@ -16,7 +15,8 @@ export default class SignIn extends Component {
     }
 
     formStyle = {
-        textAlign: "left"
+        textAlign: "left",
+        width: "100%"
     };
 
     submitButtonStyle = {
@@ -34,19 +34,12 @@ export default class SignIn extends Component {
     }
 
     handleSubmitClick() {
-        $('#submitInput')[0].click();
-    }
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-    handleSubmit(event) {
-        if (event === undefined ) { return }
-
-        let email = event.target.email.value;
-        let password = event.target.password.value;
-
-        // Create session
         Meteor.loginWithPassword(email, password);
 
-        this.props.history.push('/profile');
+        this.handleClose();
     }
 
     render() {
@@ -69,7 +62,7 @@ export default class SignIn extends Component {
                             <FormGroup controlId="formControlsEmail">
                                 <ControlLabel>Email</ControlLabel>
                                 <br/>
-                                <FormControl type="email" name="email" placeholder="Email"/>
+                                <FormControl type="email" id="email" placeholder="Email"/>
                             </FormGroup>
 
                             {/* Password */}
@@ -77,12 +70,8 @@ export default class SignIn extends Component {
                             <FormGroup controlId="formControlsPassword">
                                 <ControlLabel>Password</ControlLabel>
                                 <br/>
-                                <FormControl type="password" name="password" placeholder="Password"/>
+                                <FormControl type="password" id="password" placeholder="Password"/>
                             </FormGroup>
-
-                            {/* Submit input */}
-
-                            <input id="submitInput" type="submit" style={{display: "none"}}/>
 
                         </form>
                     </Modal.Body>
