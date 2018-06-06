@@ -1,115 +1,92 @@
 import React, {Component} from 'react';
-import {Button, ControlLabel, FormGroup, Form, FormControl, Modal} from 'react-bootstrap';
-
+import {Modal, FormGroup, ControlLabel, FormControl, NavItem, Button} from "react-bootstrap";
 
 export default class SignIn extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.handleSubmitClick = this.handleSubmitClick.bind(this);
 
         this.state = {
-            email: '',
-            password: '',
             show: false
         };
-
-        this.handleClose = this.handleClose.bind(this);
-        this.handleShow = this.handleShow.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     formStyle = {
-        textAlign: 'left'
+        textAlign: "left",
+        width: "100%"
     };
 
     submitButtonStyle = {
-        backgroundColor: '#3B7CB3',
-        borderColor: '#3B7CB3',
-        color: 'white'
+        backgroundColor: "#3B7CB3",
+        borderColor: "#3B7CB3",
+        color: "white"
     };
 
     handleClose() {
-        this.setState({show: false});
+        this.setState({ show: false });
     }
 
     handleShow() {
-        this.setState({show: true});
+        this.setState({ show: true });
     }
 
-    handleChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+    handleSubmitClick() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-        this.setState({
-            [name]: value
-        });
-    }
+        Meteor.loginWithPassword(email, password);
 
-    handleSubmit(event) {
-        event.preventDefault();
-
-        const username = this.state.email;
-        console.log(username);
-        const password = this.state.password;
-        console.log(password);
-
-        Meteor.loginWithPassword(username, password, (err) => {
-            if (err) {
-                this.setState({error: err.reason});
-            } else {
-                this.setState({show: false});
-                this.props.history.push('/');
-            }
-        });
+        this.handleClose();
     }
 
     render() {
         return (
-            <div>
+            <NavItem>
+
                 <div onClick={this.handleShow}>
                     Sign In
                 </div>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Form id='signIn' onSubmit={this.handleSubmit} style={this.formStyle}>
-                        <FormGroup>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Sign In</Modal.Title>
-                            </Modal.Header>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Sign In</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form id="signIn" onSubmit={this.handleSubmit} style={this.formStyle}>
 
-                            <Modal.Body>
+                            {/* Email */}
 
-                                {/* Email */}
-                                <FormGroup>
-                                    <ControlLabel>Email</ControlLabel>
-                                    <br/>
-                                    <FormControl type='email' name='email' id='email' placeholder='Email' onChange={this.handleChange}/>
-                                </FormGroup>
+                            <FormGroup controlId="formControlsEmail">
+                                <ControlLabel>Email</ControlLabel>
+                                <br/>
+                                <FormControl type="email" id="email" placeholder="Email"/>
+                            </FormGroup>
 
-                                {/* Password */}
-                                <FormGroup>
-                                    <ControlLabel>Password</ControlLabel>
-                                    <br/>
-                                    <FormControl type='password' name='password' id='password' placeholder='Password' onChange={this.handleChange}/>
-                                </FormGroup>
+                            {/* Password */}
 
-                                {/* Submit input */}
-                                {/*<input id='submitInput' type='submit' style={{display: 'none'}}/>*/}
+                            <FormGroup controlId="formControlsPassword">
+                                <ControlLabel>Password</ControlLabel>
+                                <br/>
+                                <FormControl type="password" id="password" placeholder="Password"/>
+                            </FormGroup>
 
-                            </Modal.Body>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
 
-                            <Modal.Footer>
+                        {/* Submit */}
 
-                                {/* Submit */}
-                                <FormGroup>
-                                    <Button type='submit' name='submit' style={this.submitButtonStyle}>Submit</Button>
-                                </FormGroup>
-                            </Modal.Footer>
-                        </FormGroup>
-                    </Form>
+                        <Button style={this.submitButtonStyle}
+                                onClick={this.handleSubmitClick}>Submit</Button>
+
+                    </Modal.Footer>
                 </Modal>
-            </div>
+
+            </NavItem>
         );
     }
+
 }

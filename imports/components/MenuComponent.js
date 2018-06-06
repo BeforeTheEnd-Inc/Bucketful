@@ -17,6 +17,22 @@ export default class MenuComponent extends Component {
         );
     };
 
+    handleSignOutClick(event) {
+        event.preventDefault();
+
+        Meteor.logout((err) => {
+            if (err) {
+                this.setState({
+                    error: err.reason
+                });
+                alert("Error signing out");
+            } else {
+                // this.props.history.push('/');
+                window.location.reload();
+            }
+        });
+    };
+
     render() {
         return (
             <Navbar>
@@ -28,11 +44,10 @@ export default class MenuComponent extends Component {
                 <Nav pullRight>
                     <NavItem href='/profile'>Profile</NavItem>
                     <NavItem href='/viewbucketitems'>View Your Items</NavItem>
-
                     <NavDropdown title="More" id="basic-nav-dropdown">
                         <SignInModal/>
                         <NavItem href='/signup'>Sign Up</NavItem>
-                        <NavItem href="#">Sign Out</NavItem>
+                        <NavItem onClick={this.handleSignOutClick}>Sign Out</NavItem>
                     </NavDropdown>
                 </Nav>
             </Navbar>

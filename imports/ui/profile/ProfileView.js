@@ -15,22 +15,10 @@ export default class ProfileComponent extends Component {
         super(props);
     }
 
-    // displayProfileFor = (id) => {
-    //     if (id !== undefined) {
-    //         const currentSession = Session.get(id);
-    //         const collection = Meteor.connection._stores['profiles'];
-    //         const miniBio = {
-    //             miniBioSummary: ''
-    //         }
-    //     }
-    // };
-
     render() {
         const userId = Meteor.userId();
-        let profileName = '';
-        let profileImage = '';
-        let bannerImage = '';
-        let profileQuote = '';
+        profileName = '';
+        profileImage = '';
 
         if (userId) {
             const key = '_id';
@@ -39,18 +27,15 @@ export default class ProfileComponent extends Component {
             collection.map(function (profile) {
                 profileName = profile.firstname + ' ' + profile.lastname;
                 profileImage = profile.image;
-                bannerImage = profile.bannerImage;
-                profileQuote = profile.quote;
             })
 
         } else {
-            // this.displayProfileFor(Meteor.default_connection._lastSessionId);
-
             profileName = 'Tom Norton';
             profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
-            bannerImage = 'http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg';
-            profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
         }
+
+        bannerImage = 'http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg';
+        profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
 
         return (
             <div>
