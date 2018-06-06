@@ -5,8 +5,11 @@ import React from 'react';
 
 import Index from "./IndexComponent";
 
+Meteor.subscribe('profiles');
+
 Meteor.startup(() => {
     Tracker.autorun(() => {
         render(<Index/>, document.getElementById('container'));
     });
 });
+

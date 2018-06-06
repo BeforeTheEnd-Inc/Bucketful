@@ -14,26 +14,36 @@ export default class ProfileComponent extends Component {
     constructor(props) {
         super(props);
 
-        this.displayProfileFor(Meteor.default_connection._lastSessionId);
+        const userId = Meteor.userId();
+        if (userId !== undefined && userId !== null) {
 
-        this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
-        this.bannerImage = "http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg";
-        this.profileName = 'Tom Norton';
-        this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
-    }
+            // TODO: To delete
+            const user = Profiles.find().fetch();
 
-    displayProfileFor = (id) => {
-        if (id !== undefined) {
+            // const collection = Profiles.find({'_id': userId});
 
-            const currentSession = Session.get(id);
+            const key = '_id';
+            const value = userId;
+            const selector = {[key]: value};
+            const collection = Profiles.find(selector);
 
-            const collection = Meteor.connection._stores['profiles'];
+            console.log(collection);
 
-            const miniBio = {
-                miniBioSummary: ""
-            };
+            collection.map(function (profile) {
+                this.profileImage = profile.profileImage;
+                this.bannerImage = profile.bannerImage;
+                this.profileName = profile.firstname;
+                this.profileQuote = profile.quote;
+            });
+
+        } else {
+
+            this.profileImage = 'https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/c/cllutcux/ecnb16ej/photocaseecnb16ej3.jpg?1509355680';
+            this.bannerImage = "http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg";
+            this.profileName = 'Tom Norton';
+            this.profileQuote = '"The best preparation for tomorrow is doing your best today" - H. Jackson Brown, Jr.';
         }
-    };
+    }
 
     render() {
         return (
